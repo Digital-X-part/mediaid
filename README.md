@@ -3,7 +3,8 @@
 ## What setup for you?
 ### Ans: Full project with following technologies and folder structure.
 
-# Attention: don't try to anyone customize extra curriculum in `src/app` folder. `Next.js` is very sensitive for this folder.
+## Attention: 
+don't try to anyone customize extra curriculum in `src/app` folder. If needed you can create just route in this folder. `Next.js` is very sensitive for this folder.
 ## Getting Started
 
 First, clone repo from main branch, and then:
