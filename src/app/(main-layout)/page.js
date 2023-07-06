@@ -1,4 +1,5 @@
 import Banner from '@/components/Pages/Home/Banner';
+import BrandAdv from '@/components/Pages/Home/BrandAdv/BrandAdv';
 import OurBrands from '@/components/Pages/Home/OurBrands/OurBrands';
 import Slider from '@/components/Pages/Home/Slider/Slider';
 import React from 'react';
@@ -10,6 +11,7 @@ const HomePage = () => {
             <Slider />
             <Banner></Banner>
             <OurBrands />
+            <BrandAdv />
         </div>
     );
 };
