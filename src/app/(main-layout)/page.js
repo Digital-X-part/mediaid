@@ -14,7 +14,6 @@ const HomePage = () => {
       <FlashSale />
       <BestSellingProducts />
       <Banner></Banner>
-      
     </div>
   );
 };
