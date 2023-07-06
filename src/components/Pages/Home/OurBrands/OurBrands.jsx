@@ -5,9 +5,9 @@ import Marquee from "react-fast-marquee";
 
 const OurBrands = () => {
   return (
-    <div className="max-w-7xl mx-auto">
-      <h4 className="text-center font-bold text-2xl">Our Brands</h4>
-      <div className="my-8">
+    <div className="my-6">
+      <h4 className="font-bold text-2xl ml-1">Our Brands</h4>
+      <div className="mt-4">
         <Marquee>
           {brandLogo.map((brand) => (
             <div
