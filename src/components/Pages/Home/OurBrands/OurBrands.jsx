@@ -2,7 +2,7 @@
 import brandLogo from "@/data/brands.json";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
-console.log(brandLogo);
+
 const OurBrands = () => {
   return (
     <div className="max-w-7xl mx-auto">
