@@ -2,7 +2,7 @@ import Image from "next/image";
 import bannerAdv from "../../../../assests/bannerAdv.jpg";
 const BrandAdv = () => {
   return (
-    <div className="container mx-auto px-4 md:px-8 ">
+    <div className="container mx-auto px-2 md:px-0 ">
       <div className="relative group overflow-hidden rounded-lg ">
         <Image src={bannerAdv} alt="" className="" />
         <div className="z-20  absolute p-4 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center space-y-4">
