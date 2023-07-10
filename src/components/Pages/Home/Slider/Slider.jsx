@@ -48,7 +48,7 @@ export default function Slider() {
           className="object-contain"
         /></SwiperSlide>
         <SwiperSlide> <Image
-          src="https://i.ibb.co/TTz4KJF/05.png"
+          src="https://i.ibb.co/Hzc2mHv/04.jpg"
           alt="Image 1"
           layout="responsive"
           width={500}
