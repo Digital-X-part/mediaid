@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import './slider.css'
 
 // import './styles.css';
 
@@ -31,6 +32,78 @@ export default function Slider() {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
+        <SwiperSlide> <Image
+          src="https://i.ibb.co/rcWCcNj/03.png"
+          alt="Image 1"
+          layout="responsive"
+          width={500}
+          height={500}
+          className="object-contain"
+        /></SwiperSlide>
+        <SwiperSlide> <Image
+          src="https://i.ibb.co/Hzc2mHv/04.jpg"
+          alt="Image 1"
+          layout="responsive"
+          width={500}
+          height={500}
+          className="object-contain"
+        /></SwiperSlide>
+        <SwiperSlide> <Image
+          src="https://i.ibb.co/Hzc2mHv/04.jpg"
+          alt="Image 1"
+          layout="responsive"
+          width={500}
+          height={500}
+          className="object-contain"
+        /></SwiperSlide>
+        <SwiperSlide> <Image
+          src="https://i.ibb.co/rcWCcNj/03.png"
+          alt="Image 1"
+          layout="responsive"
+          width={500}
+          height={500}
+          className="object-contain"
+        /></SwiperSlide>
+        <SwiperSlide> <Image
+          src="https://i.ibb.co/Hzc2mHv/04.jpg"
+          alt="Image 1"
+          layout="responsive"
+          width={500}
+          height={500}
+          className="object-contain"
+        /></SwiperSlide>
+        <SwiperSlide> <Image
+          src="https://i.ibb.co/Hzc2mHv/04.jpg"
+          alt="Image 1"
+          layout="responsive"
+          width={500}
+          height={500}
+          className="object-contain"
+        /></SwiperSlide>
+        <SwiperSlide> <Image
+          src="https://i.ibb.co/rcWCcNj/03.png"
+          alt="Image 1"
+          layout="responsive"
+          width={500}
+          height={500}
+          className="object-contain"
+        /></SwiperSlide>
+        <SwiperSlide> <Image
+          src="https://i.ibb.co/Hzc2mHv/04.jpg"
+          alt="Image 1"
+          layout="responsive"
+          width={500}
+          height={500}
+          className="object-contain"
+        /></SwiperSlide>
+        <SwiperSlide> <Image
+          src="https://i.ibb.co/Hzc2mHv/04.jpg"
+          alt="Image 1"
+          layout="responsive"
+          width={500}
+          height={500}
+          className="object-contain"
+        /></SwiperSlide>
         <SwiperSlide> <Image
           src="https://i.ibb.co/rcWCcNj/03.png"
           alt="Image 1"
