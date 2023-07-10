@@ -1,54 +1,62 @@
 "use client";
-import React from "react";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
-import Image from "next/image";
+// import React, { useRef, useState } from 'react';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-const Slider = () => {
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+// import './styles.css';
+
+// import required modules
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import Image from 'next/image';
+
+export default function Slider() {
   return (
-    <Carousel showStatus={false} showThumbs={false} autoPlay infiniteLoop>
-      <div className="h-auto">
-        <Image
+    <>
+      <Swiper
+        spaceBetween={30}
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
+        className="mySwiper"
+      >
+        <SwiperSlide> <Image
           src="https://i.ibb.co/rcWCcNj/03.png"
           alt="Image 1"
           layout="responsive"
           width={500}
           height={500}
           className="object-contain"
-        />
-      </div>
-      <div className="h-auto">
-        <Image
+        /></SwiperSlide>
+        <SwiperSlide> <Image
           src="https://i.ibb.co/Hzc2mHv/04.jpg"
-          alt="Image 2"
+          alt="Image 1"
           layout="responsive"
           width={500}
           height={500}
           className="object-contain"
-        />
-      </div>
-      <div className="h-auto">
-        <Image
-          src="https://i.ibb.co/TTz4KJF/05.png"
-          alt="Image 3"
+        /></SwiperSlide>
+        <SwiperSlide> <Image
+          src="https://i.ibb.co/Hzc2mHv/04.jpg"
+          alt="Image 1"
           layout="responsive"
           width={500}
           height={500}
           className="object-contain"
-        />
-      </div>
-      <div className="h-auto">
-        <Image
-          src="https://i.ibb.co/sKsdxQf/06.png"
-          alt="Image 4"
-          layout="responsive"
-          width={500}
-          height={500}
-          className="object-contain"
-        />
-      </div>
-    </Carousel>
+        /></SwiperSlide>
+        
+      </Swiper>
+    </>
   );
-};
-
-export default Slider;
+}
