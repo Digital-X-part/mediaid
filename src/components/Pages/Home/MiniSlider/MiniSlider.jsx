@@ -16,7 +16,7 @@ import Image from 'next/image';
 export default function App() {
   return (
     <>
-    <h4 className="font-bold text-2xl ml-1 my-3">Our Products</h4>
+    <h4 className="font-bold text-2xl ml-1 my-3">Category</h4>
       <Swiper
         slidesPerView={1}
         spaceBetween={10}
