@@ -10,16 +10,16 @@ const RelatedProducts = () => {
         </h2>
 
         {/* product card  */}
-        <div className="grid justify-center items-center md:grid-cols-2  xl:grid-cols-3">
+        <div className="flex flex-wrap justify-center  items-center ">
           {products.map((product) => (
             <div key={product}>
-              <div className="relative md:m-10  flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+              <div className="relative  md:mx-6 md:my-6 mx-2 my-3 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
                 <a
-                  className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
+                  className="relative mx-2 mt-3 flex h-60 overflow-hidden rounded-xl"
                   href="#"
                 >
                   <Image
-                    width={500}
+                    width={300}
                     height={80}
                     className="object-cover"
                     src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
