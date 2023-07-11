@@ -6,7 +6,7 @@ const ProductDescription = () => {
 
   return (
     <>
-      <div className="border-2 rounded-xl shadow-md shadow-indigo-200 md:mx-auto mx-2 md:my-12 my-4  px-6 py-4 mt-7 ">
+      <div className="border-2 rounded-xl shadow-md shadow-indigo-200 md:mx-auto mx-2 md:my-6 my-4  px-6 py-4 mt-7 ">
         {/* details btn  */}
         <div
           onClick={() => setShow(!show)}
