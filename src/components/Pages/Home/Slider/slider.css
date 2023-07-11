@@ -1,0 +1,8 @@
+@media (max-width: 767px) {
+    .swiper-button-next::after {
+      font-size: 10px;
+    }
+    .swiper-button-prev::after {
+      font-size: 10px;
+    }
+  }

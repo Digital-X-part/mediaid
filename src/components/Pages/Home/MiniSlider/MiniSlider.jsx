@@ -6,30 +6,44 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import './slider.css'
+import './minislider.css'
 
 // import './styles.css';
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import Image from 'next/image';
 
-export default function Slider() {
+export default function App() {
   return (
     <>
+    <h4 className="font-bold text-2xl ml-1 my-3">Category</h4>
       <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
+        slidesPerView={1}
+        spaceBetween={10}
         pagination={{
           clickable: true,
         }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
+        breakpoints={{
+           
+          340: {
+            slidesPerView: 5,
+            spaceBetween: 30,
+          },
+          640: {
+            slidesPerView: 6,
+            spaceBetween: 40,
+          },
+          768: {
+            slidesPerView: 7,
+            spaceBetween: 50,
+          },
+          1024: {
+            slidesPerView: 8,
+            spaceBetween: 50,
+          },
+        }}
+        modules={[Pagination]}
         className="mySwiper"
       >
         <SwiperSlide> <Image
@@ -39,7 +53,7 @@ export default function Slider() {
           width={500}
           height={500}
           className="object-contain"
-        /></SwiperSlide>
+        /><p className='text-xs text-center'>Women care</p></SwiperSlide>
         <SwiperSlide> <Image
           src="https://i.ibb.co/Hzc2mHv/04.jpg"
           alt="Image 1"
@@ -47,7 +61,7 @@ export default function Slider() {
           width={500}
           height={500}
           className="object-contain"
-        /></SwiperSlide>
+        /><p className='text-xs text-center'>Covid-19</p></SwiperSlide>
         <SwiperSlide> <Image
           src="https://i.ibb.co/Hzc2mHv/04.jpg"
           alt="Image 1"
@@ -55,7 +69,7 @@ export default function Slider() {
           width={500}
           height={500}
           className="object-contain"
-        /></SwiperSlide>
+        /><p className='text-xs text-center'>Devices</p></SwiperSlide>
         <SwiperSlide> <Image
           src="https://i.ibb.co/rcWCcNj/03.png"
           alt="Image 1"
@@ -63,23 +77,7 @@ export default function Slider() {
           width={500}
           height={500}
           className="object-contain"
-        /></SwiperSlide>
-        <SwiperSlide> <Image
-          src="https://i.ibb.co/Hzc2mHv/04.jpg"
-          alt="Image 1"
-          layout="responsive"
-          width={500}
-          height={500}
-          className="object-contain"
-        /></SwiperSlide>
-        <SwiperSlide> <Image
-          src="https://i.ibb.co/Hzc2mHv/04.jpg"
-          alt="Image 1"
-          layout="responsive"
-          width={500}
-          height={500}
-          className="object-contain"
-        /></SwiperSlide>
+        /><p className='text-xs text-center'>Herbel</p></SwiperSlide>
         <SwiperSlide> <Image
           src="https://i.ibb.co/rcWCcNj/03.png"
           alt="Image 1"
@@ -87,7 +85,7 @@ export default function Slider() {
           width={500}
           height={500}
           className="object-contain"
-        /></SwiperSlide>
+        /><p className='text-xs text-center'>Women care</p></SwiperSlide>
         <SwiperSlide> <Image
           src="https://i.ibb.co/Hzc2mHv/04.jpg"
           alt="Image 1"
@@ -95,7 +93,7 @@ export default function Slider() {
           width={500}
           height={500}
           className="object-contain"
-        /></SwiperSlide>
+        /><p className='text-xs text-center'>Covid-19</p></SwiperSlide>
         <SwiperSlide> <Image
           src="https://i.ibb.co/Hzc2mHv/04.jpg"
           alt="Image 1"
@@ -103,7 +101,7 @@ export default function Slider() {
           width={500}
           height={500}
           className="object-contain"
-        /></SwiperSlide>
+        /><p className='text-xs text-center'>Devices</p></SwiperSlide>
         <SwiperSlide> <Image
           src="https://i.ibb.co/rcWCcNj/03.png"
           alt="Image 1"
@@ -111,7 +109,15 @@ export default function Slider() {
           width={500}
           height={500}
           className="object-contain"
-        /></SwiperSlide>
+        /><p className='text-xs text-center'>Herbel</p></SwiperSlide>
+        <SwiperSlide> <Image
+          src="https://i.ibb.co/rcWCcNj/03.png"
+          alt="Image 1"
+          layout="responsive"
+          width={500}
+          height={500}
+          className="object-contain"
+        /><p className='text-xs text-center'>Women care</p></SwiperSlide>
         <SwiperSlide> <Image
           src="https://i.ibb.co/Hzc2mHv/04.jpg"
           alt="Image 1"
@@ -119,7 +125,7 @@ export default function Slider() {
           width={500}
           height={500}
           className="object-contain"
-        /></SwiperSlide>
+        /><p className='text-xs text-center'>Covid-19</p></SwiperSlide>
         <SwiperSlide> <Image
           src="https://i.ibb.co/Hzc2mHv/04.jpg"
           alt="Image 1"
@@ -127,8 +133,49 @@ export default function Slider() {
           width={500}
           height={500}
           className="object-contain"
-        /></SwiperSlide>
+        /><p className='text-xs text-center'>Devices</p></SwiperSlide>
+        <SwiperSlide> <Image
+          src="https://i.ibb.co/rcWCcNj/03.png"
+          alt="Image 1"
+          layout="responsive"
+          width={500}
+          height={500}
+          className="object-contain"
+        /><p className='text-xs text-center'>Herbel</p></SwiperSlide>
+        <SwiperSlide> <Image
+          src="https://i.ibb.co/rcWCcNj/03.png"
+          alt="Image 1"
+          layout="responsive"
+          width={500}
+          height={500}
+          className="object-contain"
+        /><p className='text-xs text-center'>Women care</p></SwiperSlide>
+        <SwiperSlide> <Image
+          src="https://i.ibb.co/Hzc2mHv/04.jpg"
+          alt="Image 1"
+          layout="responsive"
+          width={500}
+          height={500}
+          className="object-contain"
+        /><p className='text-xs text-center'>Covid-19</p></SwiperSlide>
+        <SwiperSlide> <Image
+          src="https://i.ibb.co/Hzc2mHv/04.jpg"
+          alt="Image 1"
+          layout="responsive"
+          width={500}
+          height={500}
+          className="object-contain"
+        /><p className='text-xs text-center'>Devices</p></SwiperSlide>
+        <SwiperSlide> <Image
+          src="https://i.ibb.co/rcWCcNj/03.png"
+          alt="Image 1"
+          layout="responsive"
+          width={500}
+          height={500}
+          className="object-contain"
+        /><p className='text-xs text-center'>Herbel</p></SwiperSlide>
         
+    
       </Swiper>
     </>
   );
