@@ -18,6 +18,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "w3.org",
       },
+      {
+        protocol: "https",
+        hostname: "media.istockphoto.com",
+      },
     ],
   },
 };
