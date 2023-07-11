@@ -1,11 +1,9 @@
-import React from "react";
-
 const SearchBar = () => {
   return (
-    <div className="md:mt-16 mt-12">
-      <div className="flex flex-col p-2 py-6 md:w-3/6 mx-auto m-h-screen">
+    <div className="md:mt-14 mt-10">
+      <div className="flex flex-col p-2 pt-6 pb-2 md:w-3/6 mx-auto ">
         <div
-          className="bg-white items-center justify-between w-full flex rounded-full shadow-lg p-2  sticky"
+          className="bg-white items-center justify-between w-full flex rounded-full shadow-lg md:p-2 p-1.5  sticky"
           style={{ top: "5px" }}
         >
           <div>
@@ -26,7 +24,7 @@ const SearchBar = () => {
           </div>
 
           <input
-            className="font-bold uppercase px-3 rounded-full w-full py-4 pl-4 text-gray-700 bg-gray-100 leading-tight focus:outline-slate-600  lg:text-sm text-xs"
+            className="font-bold uppercase px-3 rounded-full w-full md:py-4 py-3 pl-4 text-gray-700 bg-gray-100 leading-tight focus:outline-slate-600  lg:text-sm text-xs"
             type="text"
             placeholder="Search"
           />
