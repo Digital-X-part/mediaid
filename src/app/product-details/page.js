@@ -6,7 +6,6 @@ import RelatedProducts from "@/components/Pages/product-details/RelatedProducts/
 const page = () => {
   return (
     <div>
-      <h1>products details</h1>
       <ImageBanner />
       <ProductInfo />
       <ProductDescription />
