@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const FlashSale = () => {
-  const FlashSaleDisplayProduct = [1, 2, 3, 4, 5];
+  const FlashSaleDisplayProduct = [1, 2, 3, 4, 5, 7, 8, 9, 10, 11];
   const [time, setTime] = useState({
     days: 0,
     hours: 0,
@@ -54,7 +54,22 @@ const FlashSale = () => {
         <p className="text-sm tracking-wide mr-1">View All</p>
       </div>
 
-      <Swiper slidesPerView={2.5} spaceBetween={10} className="mySwiper my-1">
+      <Swiper
+        breakpoints={{
+          // when window width is >= 640px
+          200: {
+            slidesPerView: 2.5,
+          },
+          640: {
+            slidesPerView: 4,
+          },
+          // when window width is >= 768px
+          768: {
+            slidesPerView: 6,
+          },
+        }}
+        spaceBetween={10}
+        className="mySwiper my-1">
         {FlashSaleDisplayProduct.map((item) => (
           <SwiperSlide
             key={item}
@@ -91,7 +106,19 @@ const FlashSale = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <Swiper slidesPerView={2.5} spaceBetween={10} className="mySwiper my-1">
+      <Swiper breakpoints={{
+          // when window width is >= 640px
+          200: {
+            slidesPerView: 2.5,
+          },
+          640: {
+            slidesPerView: 4,
+          },
+          // when window width is >= 768px
+          768: {
+            slidesPerView: 6,
+          },
+        }} spaceBetween={10} className="mySwiper my-1">
         {FlashSaleDisplayProduct.map((item) => (
           <SwiperSlide
             key={item}

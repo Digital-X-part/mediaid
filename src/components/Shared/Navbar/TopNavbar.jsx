@@ -3,7 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { IconContext } from "react-icons";
-import { FaCartPlus } from "react-icons/fa";
+import { BiCartAdd } from "react-icons/bi";
+
+
 
 const TopNavbar = () => {
   const [open, setOpen] = useState(false);
@@ -19,8 +21,14 @@ const TopNavbar = () => {
             {/* cart  */}
             <div className="flex md:hidden justify-start lg:w-0 lg:flex-1">
               <Link href="/cart">
-                <IconContext.Provider value={{ size: "1.5em" }}>
-                  <FaCartPlus />
+                <IconContext.Provider
+                  value={{
+                    className:
+                      "text-gray-500 hover:text-gray-600 focus:text-gray-800",
+                    size: "1.5em",
+                  }}
+                >
+                  <BiCartAdd />
                 </IconContext.Provider>
               </Link>
             </div>
@@ -41,7 +49,7 @@ const TopNavbar = () => {
             <div className="-mr-2 -my-2 md:hidden">
               <button
                 type="button"
-                className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-500 hover:text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                 onClick={() => setOpen(!open)}
               >
                 <span className="sr-only">Open menu</span>
@@ -117,11 +125,12 @@ const TopNavbar = () => {
 
                 <div
                   onMouseLeave={() => setFlyer(false)}
-                  className={
-                    flyer
-                      ? " opacity-100 translate-y-0 transition ease-out duration-200 absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
-                      : " opacity-0 translate-y-1 absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
-                  }
+                  className={`absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2 transition ease-out duration-200 
+                 ${
+                   flyer
+                     ? " opacity-100 visible translate-y-0  "
+                     : " opacity-0 invisible translate-y-1 "
+                 }`}
                 >
                   <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                     <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
@@ -383,11 +392,12 @@ const TopNavbar = () => {
           */}{" "}
                 <div
                   onMouseLeave={() => setFlyerTwo(false)}
-                  className={
+                  className={`absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2 transition ease-out duration-200 
+                  ${
                     flyerTwo
-                      ? " opacity-100 translate-y-0 transition ease-out duration-200 absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
-                      : " opacity-0 translate-y-1 absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
-                  }
+                      ? " opacity-100 visible translate-y-0 "
+                      : " opacity-0 invisible translate-y-1 "
+                  }`}
                 >
                   <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                     <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
@@ -561,7 +571,7 @@ const TopNavbar = () => {
             <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
               {" "}
               <IconContext.Provider value={{ size: "2em" }}>
-                <FaCartPlus />
+                <BiCartAdd />
               </IconContext.Provider>
             </div>
           </div>
@@ -578,11 +588,11 @@ const TopNavbar = () => {
   */}
 
         <div
-          className={
+          className={` transition transform md:hidden absolute duration-200 origin-top-right top-0 inset-x-0 p-2 ${
             open
-              ? "opacity-100 scale-100 transition ease-out duration-200 absolute top-0 inset-x-0 p-2  transform origin-top-right md:hidden"
-              : "opacity-0 scale-95 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
-          }
+              ? "opacity-100 visible scale-100  ease-out   "
+              : "opacity-0 invisible scale-95   "
+          }`}
         >
           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
             <div className="pt-5 pb-6 px-5">
@@ -815,54 +825,6 @@ const TopNavbar = () => {
                   </Link>
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* search */}
-      <div className="md:mt-16 mt-12">
-        <div className="flex flex-col p-2 py-6 md:w-3/6 mx-auto m-h-screen">
-          <div
-            className="bg-white items-center justify-between w-full flex rounded-full shadow-lg p-2  sticky"
-            style={{ top: "5px" }}
-          >
-            <div>
-              <div className="p-2 mr-1 rounded-full hover:bg-gray-100 cursor-pointer">
-                <svg
-                  className="h-6 w-6 text-gray-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
-            </div>
-
-            <input
-              className="font-bold uppercase rounded-full w-full py-4 pl-4 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline lg:text-sm text-xs"
-              type="text"
-              placeholder="Search"
-            />
-
-            <div className="bg-gray-600 p-2 hover:bg-blue-400 cursor-pointer mx-2 rounded-full">
-              <svg
-                className="w-6 h-6 text-white"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                  clipRule="evenodd"
-                />
-              </svg>
             </div>
           </div>
         </div>

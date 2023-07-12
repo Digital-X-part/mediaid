@@ -19,7 +19,7 @@ const AbsoluteCartDetails = ({ setIsCartClicked }) => {
   };
 
   return (
-    <div className="h-[80vh] bg-white w-[360px] shadow-2xl duration-500 transition-transform rounded-sm overflow-y-scroll">
+    <div className="h-[80vh] bg-white w-[360px] shadow-2xl duration-500 transition-transform rounded-sm overflow-y-scroll mt-14">
       <div className="flex items-center justify-between p-1 bg-teal-700 text-white rounded-t-sm">
         <p className="text-xs">
           Free delivery above $999 order (outside Dhaka){" "}

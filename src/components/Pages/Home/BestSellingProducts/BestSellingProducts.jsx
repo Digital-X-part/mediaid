@@ -10,7 +10,7 @@ import { BsCart } from "react-icons/bs";
 import { AiTwotoneStar } from "react-icons/ai";
 import Rating from "react-rating";
 const BestSellingProducts = () => {
-  const FlashSaleDisplayProduct = [1, 2, 3, 4, 5];
+  const FlashSaleDisplayProduct = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
     <div className="px-1">
@@ -18,7 +18,22 @@ const BestSellingProducts = () => {
         <h4 className="font-bold text-2xl">Best Selling</h4>
         <p className="text-sm tracking-wide mr-1">View All</p>
       </div>
-      <Swiper slidesPerView={2.5} spaceBetween={10} className="mySwiper my-1">
+      <Swiper
+        breakpoints={{
+          // when window width is >= 640px
+          200: {
+            slidesPerView: 2.5,
+          },
+          640: {
+            slidesPerView: 4,
+          },
+          // when window width is >= 768px
+          768: {
+            slidesPerView: 6,
+          },
+        }}
+        spaceBetween={10}
+        className="mySwiper my-1">
         {FlashSaleDisplayProduct.map((item) => (
           <SwiperSlide
             key={item}
@@ -67,7 +82,22 @@ const BestSellingProducts = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <Swiper slidesPerView={2.5} spaceBetween={10} className="mySwiper my-1">
+      <Swiper
+        breakpoints={{
+          // when window width is >= 640px
+          200: {
+            slidesPerView: 2.5,
+          },
+          640: {
+            slidesPerView: 4,
+          },
+          // when window width is >= 768px
+          768: {
+            slidesPerView: 6,
+          },
+        }}
+        spaceBetween={10}
+        className="mySwiper my-1">
         {FlashSaleDisplayProduct.map((item) => (
           <SwiperSlide
             key={item}
