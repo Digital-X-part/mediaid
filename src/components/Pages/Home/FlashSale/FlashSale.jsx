@@ -17,7 +17,7 @@ const FlashSale = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date();
-      const targetDate = new Date("2023-07-09");
+      const targetDate = new Date("2023-07-15");
       const timeDiff = targetDate.getTime() - now.getTime();
       let days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
       const hours = Math.floor(
