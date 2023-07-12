@@ -20,11 +20,11 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "media.istockphoto.com",
+        hostname: "previews.123rf.com",
       },
       {
         protocol: "https",
-        hostname: "images.unsplash.com",
+        hostname: "media.istockphoto.com",
       },
     ],
   },
