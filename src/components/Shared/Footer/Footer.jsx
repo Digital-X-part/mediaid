@@ -1,7 +1,11 @@
 import Image from "next/image";
-import React from "react";
-import { FaFacebookSquare, FaInstagram, FaLinkedin, FaTwitterSquare } from "react-icons/fa";
-import payWith from "@/assests/Available-Payment-Methods-550x461.bk-2.png"
+import {
+  FaFacebookSquare,
+  FaInstagram,
+  FaLinkedin,
+  FaTwitterSquare,
+} from "react-icons/fa";
+import payWith from "@/assests/Available-Payment-Methods-550x461.bk-2.png";
 
 const Footer = () => {
   return (
@@ -63,10 +67,10 @@ const Footer = () => {
               <div>
                 <h1>Social Links</h1>
                 <div className="flex items-center gap-2 mt-2">
-                    <FaFacebookSquare className="text-xs text-blue-400 hover:text-slate-200 cursor-pointer" />
-                    <FaInstagram className="text-xs text-blue-400 hover:text-slate-200 cursor-pointer" />
-                    <FaTwitterSquare className="text-xs text-blue-400 hover:text-slate-200 cursor-pointer" />
-                    <FaLinkedin className="text-xs text-blue-400 hover:text-slate-200 cursor-pointer" />
+                  <FaFacebookSquare className="text-xs text-blue-400 hover:text-slate-200 cursor-pointer" />
+                  <FaInstagram className="text-xs text-blue-400 hover:text-slate-200 cursor-pointer" />
+                  <FaTwitterSquare className="text-xs text-blue-400 hover:text-slate-200 cursor-pointer" />
+                  <FaLinkedin className="text-xs text-blue-400 hover:text-slate-200 cursor-pointer" />
                 </div>
               </div>
             </li>
@@ -76,10 +80,17 @@ const Footer = () => {
           <h1 className="text-white text-sm md:text-xl font-semibold uppercase">
             Pay With
           </h1>
-          <Image src={payWith} alt="paywith" fill={false} className="mt-2 md:w-[80%]"></Image>
+          <Image
+            src={payWith}
+            alt="paywith"
+            fill={false}
+            className="mt-2 md:w-[80%]"
+          ></Image>
         </div>
       </div>
-      <p className="absolute bottom-3 text-xs text-white">&copy; 2023. All right reserved by MediAid</p>
+      <p className="absolute bottom-3 text-xs text-white">
+        &copy; 2023. All right reserved by MediAid
+      </p>
     </div>
   );
 };
