@@ -1,19 +1,29 @@
-// /** @type {import('next').NextConfig} */
-// const nextConfig = {}
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "i.ibb.co",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "i0.wp.com",
+      },
+      {
+        protocol: "https",
+        hostname: "w3.org",
+      },
+      {
+        protocol: "https",
+        hostname: "media.istockphoto.com",
+      },
+    ],
+  },
+};
 
-// module.exports = nextConfig
-
-module.exports = {
-    // Your existing Next.js configurations...
-  
-    // Add this configuration for serving static files from the public directory
-    async rewrites() {
-      return [
-        {
-          source: '/:path*',
-          destination: '/:path*',
-        },
-      ];
-    },
-  };
-  
+module.exports = nextConfig;
