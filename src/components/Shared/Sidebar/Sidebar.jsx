@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Sidebar = () => {
+const Sidebar = ({sidebarOpen}) => {
     return (
-        <div>
+        <div className={`${sidebarOpen ? 'w-[250px]' : 'w-[120px]'} h-[70vh] fixed border`} >
             this is side bar
         </div>
     );
