@@ -19,7 +19,7 @@ const layout = ({ children }) => {
   };
   return (
     <div>
-      <MainNavbar handleSidebarOpen={handleSidebarOpen}/>
+      <MainNavbar handleSidebarOpen={handleSidebarOpen} />
       {/* bottom navbar only visible for mobile devices */}
       <BottomNavbar></BottomNavbar>
       {isCartClicked === false && (
@@ -40,9 +40,9 @@ const layout = ({ children }) => {
         </div>
         <div className={`${sidebarOpen ? 'lg:col-start-3 lg:col-end-13' : 'lg:col-start-2 lg:col-end-13'}`}>
           {children}
+          <Footer></Footer>
         </div>
       </div>
-      <Footer></Footer>
     </div>
   );
 };
