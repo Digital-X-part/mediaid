@@ -1,13 +1,13 @@
-import SearchBar from "@/components/Pages/Home/SearchBar/SearchBar";
+
 import Footer from "@/components/Shared/Footer/Footer";
 import BottomNavbar from "@/components/Shared/Navbar/BottomNavbar";
-import TopNavbar from "@/components/Shared/Navbar/TopNavbar";
+import MainNavbar from "@/components/Shared/Navbar/MainNavbar";
 
 const layout = ({ children }) => {
   return (
     <div>
-      <TopNavbar></TopNavbar>
-      <SearchBar />
+    <MainNavbar/>
+    
       <BottomNavbar></BottomNavbar>
       {children}
       <Footer></Footer>

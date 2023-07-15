@@ -1,4 +1,4 @@
-import SearchBar from "@/components/Pages/Home/SearchBar/SearchBar";
+import SearchBar from "@/components/Shared/SearchBar/SearchBar";
 import Image from "next/image";
 import Link from "next/link";
 import { CiLocationOn } from "react-icons/ci";
@@ -50,8 +50,8 @@ const Nav = () => {
             <IconContext.Provider value={{ size: "2em" }}>
               <BiCartAdd />
             </IconContext.Provider>
-            <p className=" absolute top-4 ml-5 rounded-full p-1 text-xs bg-red-500 text-slate-50">
-              +1
+            <p className=" absolute top-4 ml-5 rounded-full py-0.5 px-2  text-xs bg-red-500 text-slate-50">
+              1
             </p>
           </div>
           <p className="font-bold ">cart</p>
