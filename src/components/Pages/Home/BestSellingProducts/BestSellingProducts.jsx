@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import React from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -33,11 +32,13 @@ const BestSellingProducts = () => {
           },
         }}
         spaceBetween={10}
-        className="mySwiper my-1">
+        className="mySwiper my-1"
+      >
         {FlashSaleDisplayProduct.map((item) => (
           <SwiperSlide
             key={item}
-            className="bg-white rounded-sm shadow-sm p-1 my-2 mx-1">
+            className="bg-white rounded-sm shadow-sm p-1 my-2 mx-1"
+          >
             <Image
               src="https://images.unsplash.com/photo-1562243061-204550d8a2c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
               alt=""
@@ -97,11 +98,13 @@ const BestSellingProducts = () => {
           },
         }}
         spaceBetween={10}
-        className="mySwiper my-1">
+        className="mySwiper my-1"
+      >
         {FlashSaleDisplayProduct.map((item) => (
           <SwiperSlide
             key={item}
-            className="bg-white rounded-sm shadow-sm p-1 my-2 mx-1">
+            className="bg-white rounded-sm shadow-sm p-1 my-2 mx-1"
+          >
             <Image
               src="https://images.unsplash.com/photo-1579194440951-0c501e8ba3c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80"
               alt=""

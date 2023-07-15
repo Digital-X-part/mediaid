@@ -1,10 +1,9 @@
 "use client";
-// import SearchBar from "@/components/Pages/Home/SearchBar/SearchBar";
 import AbsoluteCart from "@/components/Shared/AbsoluteCart/AbsoluteCart";
 import AbsoluteCartDetails from "@/components/Shared/AbsoluteCartDetails/AbsoluteCartDetails";
 import Footer from "@/components/Shared/Footer/Footer";
 import BottomNavbar from "@/components/Shared/Navbar/BottomNavbar";
-import TopNavbar from "@/components/Shared/Navbar/TopNavbar";
+import MainNavbar from "@/components/Shared/Navbar/MainNavbar";
 import { useState } from "react";
 
 const layout = ({ children }) => {
@@ -14,7 +13,7 @@ const layout = ({ children }) => {
   };
   return (
     <div>
-      <TopNavbar></TopNavbar>
+      <MainNavbar />
       <BottomNavbar></BottomNavbar>
       {isCartClicked === false && (
         <div className="right-0 fixed flex top-2/4 mr-2 z-50">

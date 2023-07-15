@@ -6,7 +6,17 @@ const ProductDescription = () => {
 
   return (
     <>
-      <div className="border-2 rounded-xl shadow-md shadow-indigo-200 md:mx-auto mx-2 md:my-6 my-4  px-6 py-4 mt-7 ">
+      {/* highlight part */}
+      <div className="border rounded-xl shadow-md shadow-indigo-200 h-fit p-2 mt-4 md:p-5 mx-2 md:mx-0">
+        <p className="font-semibold text-sm md:text-base">Highlight:</p>
+        <ul className="list-disc pl-7 text-medium text-sm md:text-base">
+          <li>Water Proof: Yes</li>
+          <li>Shape: Round</li>
+          <li>Country of Origin: Japan</li>
+        </ul>
+      </div>
+
+      <div className="border rounded-xl shadow-md shadow-indigo-200 md:mx-auto mx-2 md:my-6  mb-4  px-6 py-4 mt-4 ">
         {/* details btn  */}
         <div
           onClick={() => setShow(!show)}
