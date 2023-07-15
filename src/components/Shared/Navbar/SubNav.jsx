@@ -2,7 +2,7 @@ import React from 'react';
 
 const SubNav = ({handleSidebarOpen}) => {
     return (
-        <div className='h-10 w-full border bg-white -mt-2 grid grid-cols-12'>
+        <div className='h-10 w-full bg-white -mt-2 grid grid-cols-12 border-y'>
             <div className='col-start-1 col-end-3'>
                 <button onClick={handleSidebarOpen} className='w-full h-full'>
                 category
