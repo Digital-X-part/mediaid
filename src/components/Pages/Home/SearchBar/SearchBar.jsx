@@ -1,7 +1,7 @@
 const SearchBar = () => {
   return (
-    <div className="md:mt-14 mt-10">
-      <div className="flex flex-col p-2 pt-6 pb-2 md:w-3/6 mx-auto ">
+    <div className="">
+      <div className="flex flex-col p-2 pb-2 md:w-full mx-auto ">
         <div
           className="bg-white items-center justify-between w-full flex rounded-full shadow-lg md:p-2 p-1.5  sticky"
           style={{ top: "5px" }}
