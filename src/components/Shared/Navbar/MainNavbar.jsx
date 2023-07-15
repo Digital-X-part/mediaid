@@ -1,11 +1,13 @@
 import Nav from "./Nav";
 import MobileNav from "../MobileNav/MobileNav";
+import SubNav from "./SubNav";
 
-const MainNavbar = () => {
+const MainNavbar = ({handleSidebarOpen}) => {
   return (
-    <div>
-      <div className="hidden md:block">
+    <div className="sticky top-0 z-50">
+      <div className="hidden md:block ">
         <Nav />
+        <SubNav handleSidebarOpen={handleSidebarOpen}></SubNav>
       </div>
       <div className="md:hidden">
         <MobileNav />
