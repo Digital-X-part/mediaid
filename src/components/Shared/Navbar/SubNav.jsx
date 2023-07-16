@@ -3,7 +3,7 @@ import { FaBars, FaPhoneAlt, FaRegHeart, FaStore, FaRegFile } from "react-icons/
 
 const SubNav = ({ handleSidebarOpen }) => {
   return (
-    <div className="h-10 w-full bg-white -mt-2 grid grid-cols-12 border-y">
+    <div className="h-10 w-full  -mt-2 grid grid-cols-12 border-y bg-slate-100">
       <div className="col-start-1 col-end-3">
         <button
           onClick={handleSidebarOpen}
@@ -14,7 +14,7 @@ const SubNav = ({ handleSidebarOpen }) => {
         </button>
       </div>
       <div className="col-start-3 col-end-13 flex w-full justify-between">
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-7">
           <div className="cursor-pointer flex items-center gap-1">
             <FaPhoneAlt className="w-3 h-3" />
             <p className="text-sm font-medium">Call To Order</p>
@@ -28,7 +28,7 @@ const SubNav = ({ handleSidebarOpen }) => {
             <p className="text-sm font-medium">Pharmacy Register</p>
           </div>
         </div>
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-7">
           <div className="cursor-pointer flex items-center gap-1">
             <p className="text-sm font-medium">Career</p>
           </div>

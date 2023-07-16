@@ -4,7 +4,7 @@ import SubNav from "./SubNav";
 
 const MainNavbar = ({handleSidebarOpen}) => {
   return (
-    <div className="sticky top-0 z-50">
+    <div className="md:sticky top-0 z-50">
       <div className="hidden md:block ">
         <Nav />
         <SubNav handleSidebarOpen={handleSidebarOpen}></SubNav>
