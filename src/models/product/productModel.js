@@ -1,7 +1,7 @@
-import { ProductType } from "@/types/types";
+// import { ProductType } from "@/types/types";
 import { Schema, model, Model, models } from "mongoose";
 
-export const ProductsSchema = new Schema<ProductType , Model<ProductType>>({
+export const ProductsSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -49,7 +49,7 @@ export const ProductsSchema = new Schema<ProductType , Model<ProductType>>({
 });
 
 
-const  Product = models?.products||model<ProductType>('Product', ProductsSchema)
+const  Product = models?.products||model('Product', ProductsSchema)
 
 export default Product;
 
