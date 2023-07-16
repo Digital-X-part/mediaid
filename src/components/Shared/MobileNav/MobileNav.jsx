@@ -68,7 +68,57 @@ const MobileNav = () => {
             onClick={toggleMenu}
             className="fixed h-screen z-[59] top-0  w-full bg-black bg-opacity-20 lg:hidden"
           ></label>
-          <div className="fixed h-screen z-[60] top-0 left-0 w-[200px] bg-white duration-200 lg:hidden"></div>
+          {/* mobile sidebar */}
+          <div className="fixed h-screen z-[60] -top-1 left-0 w-fit bg-white duration-200 lg:hidden ">
+            <div className="w-full h-fit p-3 bg-slate-100">
+            <div className="px-3 py-1 rounded-xl flex items-center gap-3">
+            <IconContext.Provider value={{ size: "2em" }}>
+              <BsPersonCircle />
+            </IconContext.Provider>
+            <p className="text-sm font-semibold">User Name</p>
+          </div>
+            </div>
+            <div className="w-full h-full pl-2 pr-5 pt-4 bg-white">
+            <ul onClick={toggleMenu} className='space-y-2'>
+                <li className='flex gap-2 items-center cursor-pointer px-3 py-2 rounded hover:bg-slate-100'>
+                    <Image src="https://i.ibb.co/drbWhjJ/ey-Jid-WNr-ZXQi-Oi-Jhcm9n-Z2-Ei-LCJr-ZXki-Oi-Jj-YXRl-Z29ye-Vwv-MTMuc-G5n-Iiwi-ZWRpd-HMi-Oltdf-Q.png" alt='icon1' width={25} height={25}></Image>
+                    <p className="text-sm">Covid-19 Special</p>
+                </li>
+                <li className='flex gap-2 items-center cursor-pointer px-3 py-2 rounded hover:bg-slate-100'>
+                    <Image src="https://i.ibb.co/HPLZFGf/ey-Jid-WNr-ZXQi-Oi-Jhcm9n-Z2-Ei-LCJr-ZXki-Oi-Jj-YXRl-Z29ye-Vwv-MTQuc-G5n-Iiwi-ZWRpd-HMi-Oltdf-Q.png" alt='icon2' width={25} height={25}></Image>
+                    <p className="text-sm">Devices</p>
+                </li>
+                <li className='flex gap-2 items-center cursor-pointer px-3 py-2 rounded hover:bg-slate-100'>
+                    <Image src="https://i.ibb.co/gSM5dGM/ey-Jid-WNr-ZXQi-Oi-Jhcm9n-Z2-Ei-LCJr-ZXki-Oi-Jj-YXRl-Z29ye-Vwv-MTcuc-G5n-Iiwi-ZWRpd-HMi-Oltdf-Q.png" alt='icon2' width={25} height={25}></Image>
+                    <p className="text-sm">Personal Care</p>
+                </li>
+                <li className='flex gap-2 items-center cursor-pointer px-3 py-2 rounded hover:bg-slate-100'>
+                    <Image src="https://i.ibb.co/drbWhjJ/ey-Jid-WNr-ZXQi-Oi-Jhcm9n-Z2-Ei-LCJr-ZXki-Oi-Jj-YXRl-Z29ye-Vwv-MTMuc-G5n-Iiwi-ZWRpd-HMi-Oltdf-Q.png" alt='icon1' width={25} height={25}></Image>
+                    <p className="text-sm">Covid-19 Special</p>
+                </li>
+                <li className='flex gap-2 items-center cursor-pointer px-3 py-2 rounded hover:bg-slate-100'>
+                    <Image src="https://i.ibb.co/HPLZFGf/ey-Jid-WNr-ZXQi-Oi-Jhcm9n-Z2-Ei-LCJr-ZXki-Oi-Jj-YXRl-Z29ye-Vwv-MTQuc-G5n-Iiwi-ZWRpd-HMi-Oltdf-Q.png" alt='icon2' width={25} height={25}></Image>
+                    <p className="text-sm">Devices</p>
+                </li>
+                <li className='flex gap-2 items-center cursor-pointer px-3 py-2 rounded hover:bg-slate-100'>
+                    <Image src="https://i.ibb.co/gSM5dGM/ey-Jid-WNr-ZXQi-Oi-Jhcm9n-Z2-Ei-LCJr-ZXki-Oi-Jj-YXRl-Z29ye-Vwv-MTcuc-G5n-Iiwi-ZWRpd-HMi-Oltdf-Q.png" alt='icon2' width={25} height={25}></Image>
+                    <p className="text-sm">Personal Care</p>
+                </li>
+                <li className='flex gap-2 items-center cursor-pointer px-3 py-2 rounded hover:bg-slate-100'>
+                    <Image src="https://i.ibb.co/drbWhjJ/ey-Jid-WNr-ZXQi-Oi-Jhcm9n-Z2-Ei-LCJr-ZXki-Oi-Jj-YXRl-Z29ye-Vwv-MTMuc-G5n-Iiwi-ZWRpd-HMi-Oltdf-Q.png" alt='icon1' width={25} height={25}></Image>
+                    <p className="text-sm">Covid-19 Special</p>
+                </li>
+                <li className='flex gap-2 items-center cursor-pointer px-3 py-2 rounded hover:bg-slate-100'>
+                    <Image src="https://i.ibb.co/HPLZFGf/ey-Jid-WNr-ZXQi-Oi-Jhcm9n-Z2-Ei-LCJr-ZXki-Oi-Jj-YXRl-Z29ye-Vwv-MTQuc-G5n-Iiwi-ZWRpd-HMi-Oltdf-Q.png" alt='icon2' width={25} height={25}></Image>
+                    <p className="text-sm">Devices</p>
+                </li>
+                <li className='flex gap-2 items-center cursor-pointer px-3 py-2 rounded hover:bg-slate-100'>
+                    <Image src="https://i.ibb.co/gSM5dGM/ey-Jid-WNr-ZXQi-Oi-Jhcm9n-Z2-Ei-LCJr-ZXki-Oi-Jj-YXRl-Z29ye-Vwv-MTcuc-G5n-Iiwi-ZWRpd-HMi-Oltdf-Q.png" alt='icon2' width={25} height={25}></Image>
+                    <p className="text-sm">Personal Care</p>
+                </li>
+            </ul>
+            </div>
+          </div>
         </>
       )}
     </div>
