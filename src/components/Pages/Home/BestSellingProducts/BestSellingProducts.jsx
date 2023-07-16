@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import React from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -10,7 +9,7 @@ import { BsCart } from "react-icons/bs";
 import { AiTwotoneStar } from "react-icons/ai";
 import Rating from "react-rating";
 const BestSellingProducts = () => {
-  const FlashSaleDisplayProduct = [1, 2, 3, 4, 5];
+  const FlashSaleDisplayProduct = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
     <div className="px-1">
@@ -18,11 +17,28 @@ const BestSellingProducts = () => {
         <h4 className="font-bold text-2xl">Best Selling</h4>
         <p className="text-sm tracking-wide mr-1">View All</p>
       </div>
-      <Swiper slidesPerView={2.5} spaceBetween={10} className="mySwiper my-1">
+      <Swiper
+        breakpoints={{
+          // when window width is >= 640px
+          200: {
+            slidesPerView: 2.5,
+          },
+          640: {
+            slidesPerView: 4,
+          },
+          // when window width is >= 768px
+          768: {
+            slidesPerView: 6,
+          },
+        }}
+        spaceBetween={10}
+        className="mySwiper my-1"
+      >
         {FlashSaleDisplayProduct.map((item) => (
           <SwiperSlide
             key={item}
-            className="bg-white rounded-sm shadow-sm p-1 my-2 mx-1">
+            className="bg-white rounded-sm shadow-sm p-1 my-2 mx-1"
+          >
             <Image
               src="https://images.unsplash.com/photo-1562243061-204550d8a2c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
               alt=""
@@ -67,11 +83,28 @@ const BestSellingProducts = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <Swiper slidesPerView={2.5} spaceBetween={10} className="mySwiper my-1">
+      <Swiper
+        breakpoints={{
+          // when window width is >= 640px
+          200: {
+            slidesPerView: 2.5,
+          },
+          640: {
+            slidesPerView: 4,
+          },
+          // when window width is >= 768px
+          768: {
+            slidesPerView: 6,
+          },
+        }}
+        spaceBetween={10}
+        className="mySwiper my-1"
+      >
         {FlashSaleDisplayProduct.map((item) => (
           <SwiperSlide
             key={item}
-            className="bg-white rounded-sm shadow-sm p-1 my-2 mx-1">
+            className="bg-white rounded-sm shadow-sm p-1 my-2 mx-1"
+          >
             <Image
               src="https://images.unsplash.com/photo-1579194440951-0c501e8ba3c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80"
               alt=""

@@ -1,10 +1,9 @@
 import Link from "next/link";
-import React from "react";
 import {
-  BsHouseDoorFill,
   BsPerson,
-  BsTagsFill,
-  BsBagFill,
+  BsBag,
+  BsHouseDoor,
+  BsTags,
 } from "react-icons/bs";
 
 const BottomNavbar = () => {
@@ -12,19 +11,19 @@ const BottomNavbar = () => {
     <div className="w-full md:hidden py-2 px-5 sm:px-8 z-[100] bg-slate-200 fixed bottom-0 flex items-center justify-between">
       <Link href="/">
         <div className="flex flex-col items-center justify-center">
-          <BsHouseDoorFill className="w-5 h-5 text-black" />
+          <BsHouseDoor className="w-5 h-5 text-black" />
           <p className="text-xs font-medium">Home</p>
         </div>
       </Link>
       <Link href="/shop">
         <div className="flex flex-col items-center justify-center">
-          <BsBagFill className="w-5 h-5 text-black" />
+          <BsBag className="w-5 h-5 text-black" />
           <p className="text-xs font-medium">Shop</p>
         </div>
       </Link>
       <Link href="/offer">
         <div className="flex flex-col items-center justify-center">
-          <BsTagsFill className="w-5 h-5 text-black" />
+          <BsTags className="w-5 h-5 text-black" />
           <p className="text-xs font-medium">Offer</p>
         </div>
       </Link>
