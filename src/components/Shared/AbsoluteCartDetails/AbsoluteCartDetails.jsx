@@ -19,7 +19,7 @@ const AbsoluteCartDetails = ({ setIsCartClicked }) => {
   };
 
   return (
-    <div className="h-[80vh] bg-white w-[360px] shadow-2xl duration-500 transition-transform rounded-sm overflow-y-scroll mt-14">
+    <div className="h-[80vh] bg-white w-[360px] shadow-2xl duration-500 transition-transform rounded-sm overflow-y-scroll mt-24">
       <div className="flex items-center justify-between p-1 bg-teal-700 text-white rounded-t-sm">
         <p className="text-xs">
           Free delivery above $999 order (outside Dhaka){" "}
@@ -78,6 +78,7 @@ const AbsoluteCartDetails = ({ setIsCartClicked }) => {
             </div>
           ))}
         </div>
+
         <div className="flex justify-between items-center my-4 border rounded-md drop-shadow-sm">
           <div className="flex flex-col items-center bg-yellow-300 px-1 py-2">
             <GrMapLocation className="text-2xl" />
@@ -96,12 +97,14 @@ const AbsoluteCartDetails = ({ setIsCartClicked }) => {
             <p className="text-xs mr-[2px] opacity-80 tracking-wide">Change</p>
             <BiDownArrow size={12} />
           </div>
+          {/* //! add address modal */}
+
           <dialog id="my_modal_3" className="modal">
             <form method="dialog" className="modal-box">
               <button className="btn btn-sm btn-circle btn-ghost absolute right-4 top-2 ">
                 ✕
               </button>
-              <div className="w-[350px]">
+              <div className="w-full">
                 <h3 className="font-medium text-neutral-600 text-lg">
                   Address
                 </h3>
@@ -197,6 +200,7 @@ const AbsoluteCartDetails = ({ setIsCartClicked }) => {
           </p>
         </div>
       </div>
+      {/* //! checkout modal */}
       <dialog id="my_modal_4" className="modal">
         <form method="dialog" className="modal-box">
           <button className="btn btn-sm btn-circle btn-ghost absolute right-4 top-2">
@@ -315,7 +319,7 @@ const AbsoluteCartDetails = ({ setIsCartClicked }) => {
               <div className="flex items-center mt-4 gap-2">
                 <input
                   type="checkbox"
-                  className="checkbox checkbox-lg cursor-pointer "
+                  className="checkbox checkbox-sm cursor-pointer "
                 />
                 <p className="text-sm">
                   I have read and agree to the website{" "}
