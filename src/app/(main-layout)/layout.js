@@ -30,7 +30,7 @@ const layout = ({ children }) => {
         </div>
       )}
       {isCartClicked && (
-        <div className="right-0 fixed mr-2 z-20 top-10 ">
+        <div className="right-0 fixed mr-2 z-50 top-10 ">
           <AbsoluteCartDetails setIsCartClicked={setIsCartClicked} />
         </div>
       )}

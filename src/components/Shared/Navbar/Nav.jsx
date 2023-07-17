@@ -7,9 +7,9 @@ import { BiCartAdd } from "react-icons/bi";
 
 const Nav = () => {
   return (
-    <div className="grid my-1 grid-cols-11 justify-center items-center gap-4 bg-base-100 ">
+    <div className="grid py-4 grid-cols-11 justify-center items-center gap-4 bg-base-100 px-2  ">
       <div className="col-span-3 flex justify-center items-center ">
-        <div className="mr-10">
+        <div className="mr-6">
           {" "}
           <Link href="#">
             <span className="sr-only">Workflow</span>
@@ -33,10 +33,10 @@ const Nav = () => {
           </div>
         </div>
       </div>
-      <div className="col-span-5">
+      <div className="xl:col-span-5 md:col-span-4">
         <SearchBar />
       </div>
-      <div className="col-span-3 flex gap-4 justify-center items-center">
+      <div className="xl:col-span-3 md:col-span-4 flex gap-4 justify-center items-center">
         <div className="text-slate-600 border p-2 rounded-xl bg-slate-50 hover:bg-slate-100">
           <p className="text-xs font-semibold">Hello, User</p>
           <p className="font-bold">Account & Orders</p>
@@ -50,7 +50,7 @@ const Nav = () => {
             <IconContext.Provider value={{ size: "2em" }}>
               <BiCartAdd />
             </IconContext.Provider>
-            <p className=" absolute top-4 ml-5 rounded-full py-0.5 px-2  text-xs bg-red-500 text-slate-50">
+            <p className=" absolute top-7 ml-5 rounded-full py-0.5 px-2  text-xs bg-red-500 text-slate-50">
               1
             </p>
           </div>
