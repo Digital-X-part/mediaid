@@ -22,7 +22,7 @@ const Accordion = ({ title, paymentIconLink, isOpen, onClick, children }) => {
         className={`overflow-hidden ${
           isOpen ? "max-h-96" : "max-h-0"
         } transition-all duration-500`}>
-        <div className="p-4 w-[420px] bg-gray-500 bg-opacity-25">
+        <div className="p-4 w-full bg-gray-500 bg-opacity-25">
           {children}
         </div>
       </div>

@@ -14,7 +14,9 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="./favicon.ico" sizes="any" />
       </head>
-      <body className={`${inter.className} max-w-[1536px] mx-auto`} >{children}</body>
+      <body className={`${inter.className} max-w-[1536px] mx-auto`}>
+        {children}
+      </body>
     </html>
   );
 }

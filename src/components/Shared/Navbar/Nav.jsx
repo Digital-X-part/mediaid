@@ -1,18 +1,18 @@
+"use client";
 import SearchBar from "@/components/Shared/SearchBar/SearchBar";
 import Image from "next/image";
 import Link from "next/link";
 import { CiLocationOn } from "react-icons/ci";
 import { IconContext } from "react-icons";
 import { BiCartAdd } from "react-icons/bi";
+import { BsCartPlus } from "react-icons/bs";
 
 const Nav = () => {
   return (
-    <div className="grid my-1 grid-cols-11 justify-center items-center gap-4 bg-base-100 ">
+    <div className="flex pt-2 pb-4 items-end justify-between gap-4 bg-base-100 px-10">
       <div className="col-span-3 flex justify-center items-center ">
         <div className="mr-10">
-          {" "}
-          <Link href="#">
-            <span className="sr-only">Workflow</span>
+          <Link href="/">
             <Image
               className="h-6 w-auto sm:h-10"
               src="https://i0.wp.com/mediaidbd.net/wp-content/uploads/2021/05/cropped-Mediaid-white-stroke-1.png2_-1.png?resize=200%2C51&ssl=1"
@@ -22,40 +22,49 @@ const Nav = () => {
             />
           </Link>
         </div>
-        <div className="text-slate-600 border p-1 rounded-xl bg-slate-50 hover:bg-slate-100">
-          <p className="font-semibold">Deliver to</p>
-          <div className="flex">
-            <IconContext.Provider value={{ size: "1.5em" }}>
+        <div className=" cursor-pointer hover:outline rounded-sm outline-teal-400 p-[2px] ">
+          <p className="font-semibold text-sm text-slate-600">
+            Deliver to <span className="font-bold text-teal-600">Bulbul</span>
+          </p>
+          <div className="flex items-center">
+            <IconContext.Provider value={{ size: "1.2em" }}>
               <CiLocationOn />
             </IconContext.Provider>
-
-            <p className="font-bold text-xl">Address</p>
+            <p className="font-bold text-sm text-teal-500">
+              Gopalganj, Dhaka...
+            </p>
           </div>
         </div>
       </div>
-      <div className="col-span-5">
+      <div className="grow">
         <SearchBar />
       </div>
       <div className="col-span-3 flex gap-4 justify-center items-center">
-        <div className="text-slate-600 border p-2 rounded-xl bg-slate-50 hover:bg-slate-100">
-          <p className="text-xs font-semibold">Hello, User</p>
-          <p className="font-bold">Account & Orders</p>
-        </div>
-        <div className="text-slate-600 border p-2 rounded-xl bg-slate-50 hover:bg-slate-100">
-          <p className="font-semibold text-xs">Refer </p>
-          <p className="font-bold">& Earn</p>
-        </div>
-        <div className="text-slate-600 border px-1 gap-2 flex py-3 rounded-xl bg-slate-50 hover:bg-slate-100">
-          <div className="">
-            <IconContext.Provider value={{ size: "2em" }}>
-              <BiCartAdd />
-            </IconContext.Provider>
-            <p className=" absolute top-4 ml-5 rounded-full py-0.5 px-2  text-xs bg-red-500 text-slate-50">
-              1
-            </p>
+        <Link
+          href="/account"
+          className="cursor-pointer hover:outline rounded-sm outline-teal-400 p-[2px] ">
+          <p className="font-semibold text-sm text-slate-600">Hello, Bulbul</p>
+
+          <p className="font-bold text-base text-teal-500">Account & Lists</p>
+        </Link>
+        <Link
+          href="/account/my-orders"
+          className=" cursor-pointer hover:outline rounded-sm outline-teal-400 p-[2px] ">
+          <p className="font-semibold text-sm text-slate-600">Returns</p>
+
+          <p className="font-bold text-base text-teal-500">& Orders</p>
+        </Link>
+        <Link
+          className="flex items-end cursor-pointer hover:outline rounded-sm outline-teal-400 p-2"
+          href="/account/my-cart">
+          <div className="relative">
+            <BsCartPlus size={32} color="teal" />
+            <span className="absolute top-0 right-0 -mt-2 -mr-2 bg-red-600 px-1 text-white font-bold rounded-full text-sm ">
+              12
+            </span>
           </div>
-          <p className="font-bold ">cart</p>
-        </div>
+          <p className="font-bold text-base text-teal-500 -mb-1">Cart</p>
+        </Link>
       </div>
     </div>
   );
