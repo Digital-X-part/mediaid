@@ -5,7 +5,7 @@ import { FaBars, FaRegHeart } from "react-icons/fa";
 import { LiaFilePrescriptionSolid } from "react-icons/lia";
 const SubNav = ({ handleSidebarOpen }) => {
   return (
-    <div className="h-12 w-full -mt-2 grid grid-cols-12 border-y bg-slate-100 px-3">
+    <div className="h-12 w-full -mt-2 grid grid-cols-12 border-y bg-slate-100 lg:px-3">
       <div className="col-start-1 col-end-3">
         <button
           onClick={handleSidebarOpen}

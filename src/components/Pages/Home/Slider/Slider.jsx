@@ -1,19 +1,18 @@
 "use client";
-// import React, { useRef, useState } from 'react';
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import './slider.css'
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import Image from "next/image";
 
-// import './styles.css';
-
-// import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import Image from 'next/image';
+const sliderBannerImage = [
+  "https://i.ibb.co/rcWCcNj/03.png",
+  "https://i.ibb.co/Hzc2mHv/04.jpg",
+  "https://i.ibb.co/rcWCcNj/03.png",
+  "https://i.ibb.co/Hzc2mHv/04.jpg",
+];
 
 export default function Slider() {
   return (
@@ -30,105 +29,19 @@ export default function Slider() {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
-      >
-        <SwiperSlide> <Image
-          src="https://i.ibb.co/rcWCcNj/03.png"
-          alt="Image 1"
-          layout="responsive"
-          width={500}
-          height={500}
-          className="object-contain"
-        /></SwiperSlide>
-        <SwiperSlide> <Image
-          src="https://i.ibb.co/Hzc2mHv/04.jpg"
-          alt="Image 1"
-          layout="responsive"
-          width={500}
-          height={500}
-          className="object-contain"
-        /></SwiperSlide>
-        <SwiperSlide> <Image
-          src="https://i.ibb.co/Hzc2mHv/04.jpg"
-          alt="Image 1"
-          layout="responsive"
-          width={500}
-          height={500}
-          className="object-contain"
-        /></SwiperSlide>
-        <SwiperSlide> <Image
-          src="https://i.ibb.co/rcWCcNj/03.png"
-          alt="Image 1"
-          layout="responsive"
-          width={500}
-          height={500}
-          className="object-contain"
-        /></SwiperSlide>
-        <SwiperSlide> <Image
-          src="https://i.ibb.co/Hzc2mHv/04.jpg"
-          alt="Image 1"
-          layout="responsive"
-          width={500}
-          height={500}
-          className="object-contain"
-        /></SwiperSlide>
-        <SwiperSlide> <Image
-          src="https://i.ibb.co/Hzc2mHv/04.jpg"
-          alt="Image 1"
-          layout="responsive"
-          width={500}
-          height={500}
-          className="object-contain"
-        /></SwiperSlide>
-        <SwiperSlide> <Image
-          src="https://i.ibb.co/rcWCcNj/03.png"
-          alt="Image 1"
-          layout="responsive"
-          width={500}
-          height={500}
-          className="object-contain"
-        /></SwiperSlide>
-        <SwiperSlide> <Image
-          src="https://i.ibb.co/Hzc2mHv/04.jpg"
-          alt="Image 1"
-          layout="responsive"
-          width={500}
-          height={500}
-          className="object-contain"
-        /></SwiperSlide>
-        <SwiperSlide> <Image
-          src="https://i.ibb.co/Hzc2mHv/04.jpg"
-          alt="Image 1"
-          layout="responsive"
-          width={500}
-          height={500}
-          className="object-contain"
-        /></SwiperSlide>
-        <SwiperSlide> <Image
-          src="https://i.ibb.co/rcWCcNj/03.png"
-          alt="Image 1"
-          layout="responsive"
-          width={500}
-          height={500}
-          className="object-contain"
-        /></SwiperSlide>
-        <SwiperSlide> <Image
-          src="https://i.ibb.co/Hzc2mHv/04.jpg"
-          alt="Image 1"
-          layout="responsive"
-          width={500}
-          height={500}
-          className="object-contain"
-        /></SwiperSlide>
-        <SwiperSlide> <Image
-          src="https://i.ibb.co/Hzc2mHv/04.jpg"
-          alt="Image 1"
-          layout="responsive"
-          width={500}
-          height={500}
-          className="object-contain"
-        /></SwiperSlide>
-        
+        className="mySwiper w-full max-w-[1080px] max-h-[450px] ">
+        {sliderBannerImage.map((imageLink, index) => (
+          <SwiperSlide key={index}>
+            <Image
+              src={imageLink}
+              alt="Image 1"
+              layout="responsive"
+              width={500}
+              height={500}
+              className="object-contain w-full h-full"
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );
