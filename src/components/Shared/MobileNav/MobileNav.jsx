@@ -59,7 +59,7 @@ const MobileNav = () => {
         </div>
       </div>
       <div>
-        <SearchBar toggleMenu={toggleMenu} />
+        {/* <SearchBar toggleMenu={toggleMenu} /> */}
       </div>
       {/* drawer for mobile devices */}
       {isOpenMenu && (

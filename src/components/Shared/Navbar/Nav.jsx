@@ -36,9 +36,9 @@ const Nav = () => {
           </div>
         </div>
       </div>
-      {/* <div className="grow">
+      <div className="grow">
         <SearchBar />
-      </div> */}
+      </div>
       <div className="col-span-3 flex gap-4 justify-center items-center">
         <Link
           href="/account"
