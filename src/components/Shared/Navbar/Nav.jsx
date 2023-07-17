@@ -9,7 +9,7 @@ import { BsCartPlus } from "react-icons/bs";
 
 const Nav = () => {
   return (
-    <div className="flex pt-2 pb-4 items-end justify-between gap-4 bg-base-100 px-10">
+    <div className="flex pt-2 pb-4 items-end justify-between gap-4 bg-base-100 lg:px-10">
       <div className="col-span-3 flex justify-center items-center ">
         <div className="mr-10">
           <Link href="/">

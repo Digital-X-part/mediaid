@@ -1,11 +1,15 @@
 import Image from "next/image";
 import React from "react";
 
+
+
+
+
 const Sidebar = ({ sidebarOpen }) => {
   return (
     <div
       className={`shadow-lg first:${
-        sidebarOpen ? "lg:w-[180px] xl:w-[255px]" : "lg:w-[80px] xl:w-[100px]"
+        sidebarOpen ? "lg:w-[180px] xl:w-[240px]" : "lg:w-[80px] xl:w-[100px]"
       } h-[90vh] fixed border border-t-0 lg:p-1 xl:p-3`}>
       <ul className="space-y-2">
         <li className="flex gap-2 items-center cursor-pointer lg:px-2 xl:px-3 py-2 rounded hover:bg-slate-100">

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { CiCircleRemove } from "react-icons/ci";
 import { MdMenuOpen } from "react-icons/md";
 import { IconContext } from "react-icons";
+
 const dropDownCategoryLists = [
   "all departments",
   "arts & crafts",
@@ -26,7 +27,7 @@ const dropDownCategoryLists = [
   "movies & tV",
 ];
 
-const SearchBar = ({toggleMenu}) => {
+const SearchBar = ({ toggleMenu }) => {
   const [selectedCategory, setSelectedCategory] = useState({
     selectedCategoryName: "all",
     isSelectedCategory: false,
@@ -42,10 +43,16 @@ const SearchBar = ({toggleMenu}) => {
   };
 
   useEffect(() => {
-    if (selectedCategory.selectedCategoryName) {
+    if (
+      selectedCategory.isSelectedCategory &&
+      selectedCategory.selectedCategoryName
+    ) {
       inputRef.current.focus();
     }
-  }, [selectedCategory.isSelectedCategory]);
+  }, [
+    selectedCategory.isSelectedCategory,
+    selectedCategory.selectedCategoryName,
+  ]);
 
   const handleInputFocus = () => {
     setIsSearchList(true);
@@ -56,10 +63,10 @@ const SearchBar = ({toggleMenu}) => {
   };
 
   return (
-    <div className="flex items-center mt-4 border rounded-sm outline-transparent relative">
+    <div className="flex items-center mt-4 md:border rounded-sm outline-transparent relative mb-1 lg:mb-0 ">
       <button
         onClick={toggleMenu}
-        className="md:hidden p-2 mr-1 rounded-full hover:bg-gray-100 cursor-pointer">
+        className="md:hidden p-2 mr-1 bg-yellow-500  cursor-pointer ">
         <IconContext.Provider value={{ size: "1.5em" }}>
           <MdMenuOpen />
         </IconContext.Provider>
@@ -73,7 +80,7 @@ const SearchBar = ({toggleMenu}) => {
             })
           }
           tabIndex={0}
-          className="flex items-center px-2 py-1 cursor-pointer gap-1 h-full w-full">
+          className="flex items-center px-2 py-1 cursor-pointer gap-1 h-full w-full ">
           <p className="cursor-pointer capitalize text-sm">
             {selectedCategory.selectedCategoryName}
           </p>
@@ -82,7 +89,7 @@ const SearchBar = ({toggleMenu}) => {
         {selectedCategory.isSelectedCategory === false && (
           <ul
             tabIndex={0}
-            className="dropdown-content z-[1] bg-white w-52 shadow-2xl">
+            className="dropdown-content z-50 bg-white w-52 shadow-2xl">
             {dropDownCategoryLists.map((list) => (
               <li
                 onClick={() => handleCategoryChange(list)}
@@ -107,7 +114,7 @@ const SearchBar = ({toggleMenu}) => {
         <FiSearch size={20} />
       </div>
       {isSearchList && (
-        <div className="absolute top-0 mt-12 bg-white shadow-teal-500 rounded-sm shadow-2xl w-full flex flex-col">
+        <div className="absolute top-0 mt-10 bg-white shadow-teal-500 rounded-sm shadow-2xl w-full flex flex-col z-50">
           {[3, 43, 44, 54, 65, 34, 67].map((item) => (
             <div
               key={item}
