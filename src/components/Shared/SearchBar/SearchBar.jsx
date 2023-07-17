@@ -71,7 +71,7 @@ const SearchBar = ({ toggleMenu }) => {
           <MdMenuOpen />
         </IconContext.Provider>
       </button>
-      <div className="dropdown flex-none">
+      <div className="dropdown">
         <div
           onClick={() =>
             setSelectedCategory({
@@ -110,7 +110,7 @@ const SearchBar = ({ toggleMenu }) => {
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
       />
-      <div className="flex-none px-2 cursor-pointer">
+      <div className="px-2 cursor-pointer">
         <FiSearch size={20} />
       </div>
       {isSearchList && (
