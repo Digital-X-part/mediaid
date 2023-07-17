@@ -42,7 +42,7 @@ const Nav = () => {
       <div className="col-span-3 flex gap-4 justify-center items-center">
         <Link
           href="/account"
-          className=" cursor-pointer hover:outline rounded-sm outline-teal-400 p-[2px] ">
+          className="cursor-pointer hover:outline rounded-sm outline-teal-400 p-[2px] ">
           <p className="font-semibold text-sm text-slate-600">Hello, Bulbul</p>
 
           <p className="font-bold text-base text-teal-500">Account & Lists</p>

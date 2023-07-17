@@ -49,9 +49,9 @@ const MainLayout = ({ children }) => {
               : "lg:col-start-2 lg:col-end-13"
           }`}>
           {children}
+          <Footer></Footer>
         </div>
       </div>
-      <Footer></Footer>
     </div>
   );
 };

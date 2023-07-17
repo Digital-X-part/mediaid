@@ -3,7 +3,8 @@ import { FiSearch } from "react-icons/fi";
 import { BiSolidDownArrow } from "react-icons/bi";
 import Image from "next/image";
 import { CiCircleRemove } from "react-icons/ci";
-
+import { MdMenuOpen } from "react-icons/md";
+import { IconContext } from "react-icons";
 const dropDownCategoryLists = [
   "all departments",
   "arts & crafts",
@@ -25,7 +26,7 @@ const dropDownCategoryLists = [
   "movies & tV",
 ];
 
-const SearchBar = () => {
+const SearchBar = ({toggleMenu}) => {
   const [selectedCategory, setSelectedCategory] = useState({
     selectedCategoryName: "all",
     isSelectedCategory: false,
@@ -56,6 +57,13 @@ const SearchBar = () => {
 
   return (
     <div className="flex items-center mt-4 border rounded-sm outline-transparent relative">
+      <button
+        onClick={toggleMenu}
+        className="md:hidden p-2 mr-1 rounded-full hover:bg-gray-100 cursor-pointer">
+        <IconContext.Provider value={{ size: "1.5em" }}>
+          <MdMenuOpen />
+        </IconContext.Provider>
+      </button>
       <div className="dropdown flex-none">
         <div
           onClick={() =>
