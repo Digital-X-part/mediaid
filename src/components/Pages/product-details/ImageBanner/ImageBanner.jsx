@@ -54,14 +54,14 @@ const ImageBanner = () => {
     },
   ];
   return (
-    <div className="mb-12">
+    <div className="mb-12 h-fit w-full ">
       <Swiper
         style={{
           "--swiper-navigation-color": "#A0AEC0",
           "--swiper-pagination-color": "#A0AEC0",
         }}
         loop={true}
-        spaceBetween={10}
+        spaceBetween={0}
         navigation={true}
         thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Navigation, Thumbs]}
@@ -79,7 +79,7 @@ const ImageBanner = () => {
         <Swiper
           onSwiper={setThumbsSwiper}
           loop={true}
-          spaceBetween={15}
+          spaceBetween={10}
           slidesPerView={8}
           freeMode={true}
           watchSlidesProgress={true}
