@@ -5,10 +5,10 @@ import RelatedProducts from "@/components/Pages/product-details/RelatedProducts/
 
 const page = () => {
   return (
-    <div className="md:grid grid-cols-5 relative w-full gap-3 mt-3">
-      <div className="sticky top-28 h-screen col-start-1 col-end-3">
+    <div className="lg:grid grid-cols-5 relative w-full gap-3 mt-3">
+      <div className="lg:sticky top-28 lg:h-screen col-start-1 col-end-3 px-3 md:px-5 lg:px-0">
         <ImageBanner />
-        <div className="md:flex items-center justify-between">
+        <div className="md:flex items-center justify-between hidden sm:inline-block">
             <div
               className="h-8 pl-3 pr-7 w-fit bg-indigo-600 flex items-center justify-center"
               style={{ clipPath: "polygon(0 0, 90% 0, 100% 100%, 0% 100%)" }}
@@ -27,10 +27,18 @@ const page = () => {
             </div>
           </div>
       </div>
-      <div className="col-start-3 col-end-6">
+      <div className="col-start-3 col-end-6 px-3 md:px-5 lg:px-0 mt-5 lg:mt-0">
         <ProductInfo />
         <ProductDescription />
         <RelatedProducts />
+      </div>
+      <div className="fixed bottom-[50px] z-[50] h-10 bg-slate-500 w-full grid grid-cols-2">
+      <button className="bg-slate-100 text-gray-700 hover:bg-indigo-600 duration-300 text-sm font-semibold hover:text-white sm:hidden">
+                Add to Cart
+              </button>
+              <button className=" hover:bg-slate-100 hover:text-gray-700 bg-indigo-600 duration-300 text-sm  font-semibold text-white ">
+                Order Now
+              </button>
       </div>
     </div>
   );
