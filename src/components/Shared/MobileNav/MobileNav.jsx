@@ -13,7 +13,7 @@ const MobileNav = () => {
   };
   return (
     <div className="">
-      <div className="flex justify-between items-center mx-2 mt-3 mb-2">
+      <div className="flex justify-between items-center sm:mx-2 md:mx-0 sm:mb-2 md:mb-0 ">
         <div>
           <div className="">
             {" "}
@@ -50,7 +50,7 @@ const MobileNav = () => {
             1
           </p>
 
-          {/* account login */}
+     
           <div className="px-3 py-1 rounded-xl bg-slate-100">
             <IconContext.Provider value={{ size: "2em" }}>
               <BsPersonCircle />
@@ -59,7 +59,7 @@ const MobileNav = () => {
         </div>
       </div>
       <div>
-        {/* <SearchBar toggleMenu={toggleMenu} /> */}
+        <SearchBar toggleMenu={toggleMenu} />
       </div>
       {/* drawer for mobile devices */}
       {isOpenMenu && (
