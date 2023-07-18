@@ -5,6 +5,7 @@ import Image from "next/image";
 import { CiCircleRemove } from "react-icons/ci";
 import { MdMenuOpen } from "react-icons/md";
 import { IconContext } from "react-icons";
+import { FaBars } from "react-icons/fa";
 
 const dropDownCategoryLists = [
   "all departments",
@@ -64,13 +65,14 @@ const SearchBar = ({ toggleMenu }) => {
 
   return (
     <div className="flex items-center mt-4 md:border rounded-sm outline-transparent relative mb-1 lg:mb-0 ">
-      <button
-        onClick={toggleMenu}
-        className="md:hidden p-2 mr-1 bg-yellow-500  cursor-pointer ">
-        <IconContext.Provider value={{ size: "1.5em" }}>
-          <MdMenuOpen />
-        </IconContext.Provider>
-      </button>
+       <button
+            onClick={toggleMenu}
+            className="md:hidden p-2 mr-1 cursor-pointer "
+          >
+            <IconContext.Provider value={{ size: "18px" }}>
+              <FaBars className="text-slate-500"></FaBars>
+            </IconContext.Provider>
+          </button>
       <div className="dropdown">
         <div
           onClick={() =>
