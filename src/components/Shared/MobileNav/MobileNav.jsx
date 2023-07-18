@@ -14,10 +14,17 @@ const MobileNav = () => {
     setIsOpenMenu(!isOpenMenu);
   };
   return (
+<<<<<<< HEAD
+    <div className="">
+      <div className="flex justify-between items-center sm:mx-2 md:mx-0 sm:mb-2 md:mb-0 ">
+        <div>
+          <div className="">
+=======
     <div>
       <div className="flex justify-between items-center px-3 lg:px-0 pt-3 ">
         <div className="flex items-center">
           <div className="flex flex-col items-center">
+>>>>>>> e613a8ae316cffd19f479e55040a9d68bfd89aa3
             {" "}
             <Link href="/">
               <span className="sr-only">Workflow</span>
@@ -52,10 +59,17 @@ const MobileNav = () => {
             </p>
           </div>
 
+<<<<<<< HEAD
+     
+          <div className="px-3 py-1 rounded-xl bg-slate-100">
+            <IconContext.Provider value={{ size: "2em" }}>
+              <BsPersonCircle />
+=======
           {/* account login */}
           <div className="px-3 py-1 rounded-xl bg-slate-100 hidden md:inline-block">
             <IconContext.Provider value={{ size: "1.5em" }}>
               <BsPersonCircle className="text-slate-500"/>
+>>>>>>> e613a8ae316cffd19f479e55040a9d68bfd89aa3
             </IconContext.Provider>
           </div>
         </div>
