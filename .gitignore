@@ -35,4 +35,8 @@ yarn-error.log*
 next-env.d.ts
 
 # added
+<<<<<<< HEAD
 .vscode
+=======
+.vscode
+>>>>>>> e613a8ae316cffd19f479e55040a9d68bfd89aa3
