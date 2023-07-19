@@ -3,14 +3,9 @@ import { FiSearch } from "react-icons/fi";
 import { BiSolidDownArrow } from "react-icons/bi";
 import Image from "next/image";
 import { CiCircleRemove } from "react-icons/ci";
-<<<<<<< HEAD
-import { GrMenu } from "react-icons/gr";
-
-=======
 import { MdMenuOpen } from "react-icons/md";
 import { IconContext } from "react-icons";
 import { FaBars } from "react-icons/fa";
->>>>>>> e613a8ae316cffd19f479e55040a9d68bfd89aa3
 
 const dropDownCategoryLists = [
   "arts & crafts",
@@ -32,7 +27,7 @@ const dropDownCategoryLists = [
   "movies & tV",
 ];
 
-const SearchBar = ({ toggleMenu }) => {
+const SearchBar = () => {
   const [selectedCategory, setSelectedCategory] = useState({
     selectedCategoryName: "All departments",
     isSelectedCategory: false,
@@ -68,11 +63,9 @@ const SearchBar = ({ toggleMenu }) => {
   };
 
   return (
-<<<<<<< HEAD
     <div className="mt-4 rounded-sm outline-transparent relative mb-1 lg:mb-0 ">
       <div className="flex items-center justify-between mx-1 my-2 rounded-md border-2 border-gray-600 border-opacity-70">
         {/* //! /////////////// Mobile Search bar ///////////////// */}
-      
         <div className="dropdown md:hidden">
           <div
             onClick={() =>
@@ -81,34 +74,6 @@ const SearchBar = ({ toggleMenu }) => {
                 selectedCategoryName: selectedCategory.selectedCategoryName,
               })
             }
-=======
-    <div className="flex items-center mt-4 md:border rounded-sm outline-transparent relative mb-1 lg:mb-0 ">
-       <button
-            onClick={toggleMenu}
-            className="md:hidden p-2 mr-1 cursor-pointer "
-          >
-            <IconContext.Provider value={{ size: "18px" }}>
-              <FaBars className="text-slate-500"></FaBars>
-            </IconContext.Provider>
-          </button>
-      <div className="dropdown">
-        <div
-          onClick={() =>
-            setSelectedCategory({
-              isSelectedCategory: false,
-              selectedCategoryName: selectedCategory.selectedCategoryName,
-            })
-          }
-          tabIndex={0}
-          className="flex items-center px-2 py-1 cursor-pointer gap-1 h-full w-full ">
-          <p className="cursor-pointer capitalize text-sm">
-            {selectedCategory.selectedCategoryName}
-          </p>
-          <BiSolidDownArrow className="inline-block" size={10} />
-        </div>
-        {selectedCategory.isSelectedCategory === false && (
-          <ul
->>>>>>> e613a8ae316cffd19f479e55040a9d68bfd89aa3
             tabIndex={0}
             className="flex items-center py-2 px-2 cursor-pointer gap-1 bg-red-200">
             <p className="cursor-pointer capitalize text-sm text-center w-[50px] truncate ">

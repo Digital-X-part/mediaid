@@ -60,8 +60,7 @@ const miniCategoryData = [
 
 export default function App() {
   return (
-    <>
-       <h4 className="font-bold text-2xl">Category</h4>
+    <div className="mt-2 mx-1">
       <Swiper
         slidesPerView={1}
         spaceBetween={8}
@@ -83,7 +82,7 @@ export default function App() {
             spaceBetween: 50,
           },
         }}
-        className="mySwiper">
+        className="mySwiper ">
         {miniCategoryData.map((singleCategory) => (
           <SwiperSlide key={singleCategory.id}>
             <Image
@@ -94,12 +93,12 @@ export default function App() {
               height={500}
               className="object-contain"
             />
-            <p className="text-sm text-center font-medium text-neutral-600">
+            <p className="text-xs md:text-sm text-center font-medium text-neutral-600">
               {singleCategory.categoryTitle}
             </p>
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </div>
   );
 }
