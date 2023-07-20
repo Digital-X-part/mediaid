@@ -7,19 +7,18 @@ import MainNavbar from "@/components/Shared/Navbar/MainNavbar";
 import Sidebar from "@/components/Shared/Sidebar/Sidebar";
 import { useState } from "react";
 
-const layout = ({ children }) => {
+const MainLayout = ({ children }) => {
   const [isCartClicked, setIsCartClicked] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const handleSidebarOpen = () => {
-    console.log('hello')
     setSidebarOpen(!sidebarOpen);
-  }
+  };
   const handleAbsoluteCartItemOpen = () => {
     setIsCartClicked(!isCartClicked);
   };
   return (
     <div>
-      <MainNavbar handleSidebarOpen={handleSidebarOpen}/>
+      <MainNavbar handleSidebarOpen={handleSidebarOpen} />
       {/* bottom navbar only visible for mobile devices */}
       <BottomNavbar></BottomNavbar>
       {isCartClicked === false && (
@@ -35,16 +34,26 @@ const layout = ({ children }) => {
         </div>
       )}
       <div className="lg:grid lg:grid-cols-12">
-        <div className={`${sidebarOpen ? 'lg:col-start-1 lg:col-end-3' : 'lg:col-start-1 lg:col-end-2'} hidden lg:inline-block h-screen relative`}>
+        <div
+          className={`${
+            sidebarOpen
+              ? "lg:col-start-1 lg:col-end-3"
+              : "lg:col-start-1 lg:col-end-2"
+          } hidden lg:inline-block h-screen relative`}>
           <Sidebar sidebarOpen={sidebarOpen}></Sidebar>
         </div>
-        <div className={`${sidebarOpen ? 'lg:col-start-3 lg:col-end-13' : 'lg:col-start-2 lg:col-end-13'}`}>
+        <div
+          className={`${
+            sidebarOpen
+              ? "lg:col-start-3 lg:col-end-13"
+              : "lg:col-start-2 lg:col-end-13"
+          }`}>
           {children}
+          <Footer></Footer>
         </div>
       </div>
-      <Footer></Footer>
     </div>
   );
 };
 
-export default layout;
+export default MainLayout;

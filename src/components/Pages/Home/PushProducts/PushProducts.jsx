@@ -4,7 +4,7 @@ const PushProducts = () => {
   return (
     <>
       <div className="container px-2 md:px-0 mx-auto mt-8">
-        <h1 className="text-2xl font-bold">Push Products</h1>
+        <h1 className="text-2xl font-bold font-roboto">Push Products</h1>
         <div className="flex flex-wrap items-center gap-4 md:gap-8 mt-4">
           <div className="w-full md:flex-1  flex  p-4 gap-2 shadow-lg rounded-md border">
             <div className="">

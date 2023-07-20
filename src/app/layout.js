@@ -1,7 +1,11 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({
+  weight: ["100", "300", "400", "500", "700", "900"],
+  subsets: ["latin"],
+  variable: "--font-roboto",
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -14,7 +18,9 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="./favicon.ico" sizes="any" />
       </head>
-      <body className={`${inter.className} max-w-[1536px] mx-auto`} >{children}</body>
+      <body className={`${roboto.variable} font-serif max-w-[1536px] mx-auto`}>
+        {children}
+      </body>
     </html>
   );
 }

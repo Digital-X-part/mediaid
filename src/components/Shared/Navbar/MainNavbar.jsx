@@ -2,13 +2,15 @@ import Nav from "./Nav";
 import MobileNav from "../MobileNav/MobileNav";
 import SubNav from "./SubNav";
 
-const MainNavbar = ({handleSidebarOpen}) => {
+const MainNavbar = ({ handleSidebarOpen }) => {
   return (
-    <div className="sticky top-0 z-50">
+    <div className="md:sticky top-0 z-50">
+      {/* for desktop view */}
       <div className="hidden md:block ">
         <Nav />
         <SubNav handleSidebarOpen={handleSidebarOpen}></SubNav>
       </div>
+      {/* for render only mobile devices */}
       <div className="md:hidden">
         <MobileNav />
       </div>
