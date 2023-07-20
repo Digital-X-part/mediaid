@@ -5,10 +5,12 @@ import SubNav from "./SubNav";
 const MainNavbar = ({ handleSidebarOpen }) => {
   return (
     <div className="md:sticky top-0 z-50">
+      {/* for desktop view */}
       <div className="hidden md:block ">
         <Nav />
         <SubNav handleSidebarOpen={handleSidebarOpen}></SubNav>
       </div>
+      {/* for render only mobile devices */}
       <div className="md:hidden">
         <MobileNav />
       </div>
