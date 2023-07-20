@@ -7,6 +7,10 @@ import { HiMoon } from "react-icons/hi";
 import { GiMedicalDrip } from "react-icons/gi";
 const dashboardRouteList = [
   {
+    pathUrl: "/dashboard/add-product",
+    pathName: "Add Product",
+  },
+  {
     pathUrl: "/dashboard/product-list",
     pathName: "Product list",
   },
