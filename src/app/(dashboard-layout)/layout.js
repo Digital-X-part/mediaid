@@ -12,14 +12,14 @@ const dashboardRouteList = [
     pathName: "Product list",
   },
   {
-    icon: <FaUsers className="w-4 h-4" />,
-    pathUrl: "/dashboard/customers",
-    pathName: "Customers",
-  },
-  {
     icon: <FaFileAlt className="w-4 h-4" />,
     pathUrl: "/dashboard/order_details",
     pathName: "Order Details",
+  },
+  {
+    icon: <FaUsers className="w-4 h-4" />,
+    pathUrl: "/dashboard/customers",
+    pathName: "Customers",
   },
   {
     icon: <FaUserCog className="w-4 h-4" />,
