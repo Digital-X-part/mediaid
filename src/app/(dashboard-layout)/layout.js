@@ -1,7 +1,10 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-
+import { GrMenu } from "react-icons/gr";
+import { HiMoon } from "react-icons/hi";
+import { GiMedicalDrip } from "react-icons/gi";
 const dashboardRouteList = [
   {
     pathUrl: "/dashboard/product-list",
@@ -23,28 +26,25 @@ const Layout = ({ children }) => {
   return (
     <div>
       {/* Header */}
-      <header className="bg-base-500 p-4">
+      <header className="bg-[#EDF2F9] p-2 shadow-md flex items-center justify-between">
         {/* Open drawer button */}
-        <button
+        <GrMenu
           onClick={() => setIsDrawerOpen(!isDrawerOpen)}
-          className="btn btn-primary drawer-button lg:hidden">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="icon icon-tabler icon-tabler-menu-2"
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="#fff"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <line x1="4" y1="6" x2="20" y2="6" />
-            <line x1="4" y1="12" x2="20" y2="12" />
-            <line x1="4" y1="18" x2="20" y2="18" />
-          </svg>
-        </button>
+          className="drawer-button lg:hidden"
+          size={25}
+        />
+        <div className="flex items-center gap-4">
+          <div className="bg-[#d7e4f5] p-1 rounded-full">
+            <HiMoon size={25} color="#2C7BE5" />
+          </div>
+          <Image
+            alt=""
+            width={32}
+            height={32}
+            src="https://images.unsplash.com/photo-1564460576398-ef55d99548b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
+            className="w-8 h-8 object-cover rounded-full"
+          />
+        </div>
       </header>
 
       {/* Drawer */}
@@ -59,18 +59,20 @@ const Layout = ({ children }) => {
         <div className="drawer-content flex flex-col items-center justify-center">
           {/* Page content here */}
         </div>
-        <div className="drawer-side">
+        <div className="drawer-side ">
           <label
             htmlFor="my-drawer-2"
             className="drawer-overlay"
             onClick={() => setIsDrawerOpen(false)}></label>
-          <ul className="menu p-4 w-full h-full bg-base-200 text-base-content">
+          <ul className="menu w-full h-full bg-base-200 text-base-content p-0">
             {/* Sidebar content here */}
             {dashboardRouteList.map((route) => (
               <Link
-                onClick={handleDrawerClose}
+                className="flex items-center bg-slate-200 py-2 mb-1 px-8"
                 key={route.pathUrl}
+                onClick={handleDrawerClose}
                 href={route.pathUrl}>
+                <GiMedicalDrip size={25} />
                 {route.pathName}
               </Link>
             ))}
@@ -84,7 +86,7 @@ const Layout = ({ children }) => {
       </div>
 
       {/* Content */}
-      <main>{children}</main>
+      <main className="m-2">{children}</main>
     </div>
   );
 };
