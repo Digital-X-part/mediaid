@@ -26,8 +26,23 @@ const Layout = ({ children }) => {
   return (
     <div>
       {/* Header */}
-      <header className="bg-[#EDF2F9] p-2 shadow-md flex items-center justify-between">
-        {/* Open drawer button */}
+      <header className="bg-[#EDF2F9] p-2 shadow-md flex items-center justify-between w-full">
+        {/* desktop view */}
+
+        <Image
+          className="hidden md:block"
+          width={200}
+          height={200}
+          src="https://i0.wp.com/mediaidbd.net/wp-content/uploads/2021/05/cropped-Mediaid-white-stroke-1.png2_-1.png?resize=200%2C51&ssl=1"
+          alt=""
+        />
+
+        <input
+          className="hidden md:block w-[500px] px-2 py-1 rounded-md"
+          type="text"
+          placeholder="search"
+        />
+        {/* mobile version */}
         <GrMenu
           onClick={() => setIsDrawerOpen(!isDrawerOpen)}
           className="drawer-button lg:hidden"
@@ -46,47 +61,47 @@ const Layout = ({ children }) => {
           />
         </div>
       </header>
-
-      {/* Drawer */}
-      <div className={isDrawerOpen ? "drawer lg:drawer-open" : "drawer"}>
-        <input
-          id="my-drawer-2"
-          type="checkbox"
-          className="drawer-toggle"
-          checked={isDrawerOpen}
-          onChange={() => setIsDrawerOpen(!isDrawerOpen)}
-        />
-        <div className="drawer-content flex flex-col items-center justify-center">
-          {/* Page content here */}
-        </div>
-        <div className="drawer-side ">
-          <label
-            htmlFor="my-drawer-2"
-            className="drawer-overlay"
-            onClick={() => setIsDrawerOpen(false)}></label>
-          <ul className="menu w-full h-full bg-base-200 text-base-content p-0">
-            {/* Sidebar content here */}
-            {dashboardRouteList.map((route) => (
-              <Link
-                className="flex items-center bg-slate-200 py-2 mb-1 px-8"
-                key={route.pathUrl}
-                onClick={handleDrawerClose}
-                href={route.pathUrl}>
-                <GiMedicalDrip size={25} />
-                {route.pathName}
-              </Link>
-            ))}
-          </ul>
-          <button
-            onClick={() => setIsDrawerOpen(false)}
-            className="absolute bottom-0 py-2 w-full bg-red-600 text-white text-lg font-medium tracking-wider">
-            Close Drawer
-          </button>
+      <div className="md:flex">
+        <div
+          className={
+            isDrawerOpen ? "drawer lg:drawer-open" : "drawer lg:drawer-open"
+          }>
+          <input
+            id="my-drawer-2"
+            type="checkbox"
+            className="drawer-toggle"
+            checked={isDrawerOpen}
+            onChange={() => setIsDrawerOpen(!isDrawerOpen)}
+          />
+          <div className="drawer-content ">
+            <main className="m-2">{children}</main>
+          </div>
+          <div className="drawer-side ">
+            <label
+              htmlFor="my-drawer-2"
+              className="drawer-overlay"
+              onClick={() => setIsDrawerOpen(false)}></label>
+            <ul className="menu w-full h-full bg-base-200 text-base-content p-0">
+              {/* Sidebar content here */}
+              {dashboardRouteList.map((route) => (
+                <Link
+                  className="flex items-center bg-slate-200 py-2 mb-1 px-8"
+                  key={route.pathUrl}
+                  onClick={handleDrawerClose}
+                  href={route.pathUrl}>
+                  <GiMedicalDrip size={25} />
+                  {route.pathName}
+                </Link>
+              ))}
+            </ul>
+            <button
+              onClick={() => setIsDrawerOpen(false)}
+              className="md:hidden absolute bottom-0 py-2 w-full bg-red-600 text-white text-lg font-medium tracking-wider">
+              Close Drawer
+            </button>
+          </div>
         </div>
       </div>
-
-      {/* Content */}
-      <main className="m-2">{children}</main>
     </div>
   );
 };
