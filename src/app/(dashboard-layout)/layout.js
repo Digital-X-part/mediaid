@@ -17,6 +17,11 @@ const dashboardRouteList = [
     pathName: "Add Product",
   },
   {
+    icon: <FaRegEdit className="w-4 h-4 md:w-5 md:h-5" />,
+    pathUrl: "/dashboard/order-list",
+    pathName: "Order List",
+  },
+  {
     icon: <FaFileAlt className="w-4 h-4 md:w-5 md:h-5 " />,
     pathUrl: "/dashboard/order-details",
     pathName: "Order Details",
