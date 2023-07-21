@@ -36,6 +36,11 @@ const dashboardRouteList = [
     pathUrl: "/dashboard/customer-details",
     pathName: "Customer Details",
   },
+  {
+    icon: <FaUserCog className="w-4 h-4 md:w-5 md:h-5" />,
+    pathUrl: "/dashboard/category",
+    pathName: "Category",
+  },
 ];
 
 const Layout = ({ children }) => {
