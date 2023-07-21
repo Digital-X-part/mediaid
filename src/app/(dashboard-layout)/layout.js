@@ -4,19 +4,32 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { GrMenu } from "react-icons/gr";
 import { HiMoon } from "react-icons/hi";
-import { GiMedicalDrip } from "react-icons/gi";
+import { FaRegListAlt, FaUserCog, FaUsers, FaFileAlt, FaRegEdit } from "react-icons/fa";
 const dashboardRouteList = [
   {
-    pathUrl: "/dashboard/add-product",
-    pathName: "Add Product",
-  },
-  {
+    icon: <FaRegListAlt className="w-4 h-4 md:w-5 md:h-5" />,
     pathUrl: "/dashboard/product-list",
     pathName: "Product list",
   },
   {
+    icon: <FaRegEdit className="w-4 h-4 md:w-5 md:h-5" />,
+    pathUrl: "/dashboard/add-product",
+    pathName: "Add Product",
+  },
+  {
+    icon: <FaFileAlt className="w-4 h-4 md:w-5 md:h-5 " />,
+    pathUrl: "/dashboard/order-details",
+    pathName: "Order Details",
+  },
+  {
+    icon: <FaUsers className="w-4 h-4 md:w-5 md:h-5" />,
     pathUrl: "/dashboard/customers",
     pathName: "Customers",
+  },
+  {
+    icon: <FaUserCog className="w-4 h-4 md:w-5 md:h-5" />,
+    pathUrl: "/dashboard/customer-details",
+    pathName: "Customer Details",
   },
 ];
 
@@ -89,11 +102,11 @@ const Layout = ({ children }) => {
               {/* Sidebar content here */}
               {dashboardRouteList.map((route) => (
                 <Link
-                  className="flex items-center bg-slate-200 py-2 mb-1 px-8"
+                  className="flex items-center bg-slate-200 py-2 mb-1 px-8 gap-1 lg:gap-2 text-base font-semibold"
                   key={route.pathUrl}
                   onClick={handleDrawerClose}
                   href={route.pathUrl}>
-                  <GiMedicalDrip size={25} />
+                  {route.icon}
                   {route.pathName}
                 </Link>
               ))}
