@@ -24,8 +24,8 @@ const dashboardRouteList = [
   },
   {
     icon: <FaFileAlt className="w-4 h-4 md:w-5 md:h-5 " />,
-    pathUrl: "/dashboard/order-details",
-    pathName: "Order Details",
+    pathUrl: "/dashboard/order-list",
+    pathName: "Orders",
   },
   {
     icon: <FaUsers className="w-4 h-4 md:w-5 md:h-5" />,
