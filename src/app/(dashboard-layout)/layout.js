@@ -29,8 +29,8 @@ const dashboardRouteList = [
   },
   {
     icon: <FaFileAlt className="w-4 h-4 md:w-5 md:h-5 " />,
-    pathUrl: "/dashboard/order-details",
-    pathName: "Order Details",
+    pathUrl: "/dashboard/order-list",
+    pathName: "Orders",
   },
   {
     icon: <FaUsers className="w-4 h-4 md:w-5 md:h-5" />,
@@ -57,7 +57,7 @@ const Layout = ({ children }) => {
   };
 
   return (
-    <div>
+    <div className="w-full">
       {/* Header */}
       <header className="bg-[#EDF2F9] p-2 shadow-md flex items-center justify-between w-full">
         {/* desktop view */}
