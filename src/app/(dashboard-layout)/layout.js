@@ -4,7 +4,13 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { GrMenu } from "react-icons/gr";
 import { HiMoon } from "react-icons/hi";
-import { FaRegListAlt, FaUserCog, FaUsers, FaFileAlt, FaRegEdit } from "react-icons/fa";
+import {
+  FaRegListAlt,
+  FaUserCog,
+  FaUsers,
+  FaFileAlt,
+  FaRegEdit,
+} from "react-icons/fa";
 const dashboardRouteList = [
   {
     icon: <FaRegListAlt className="w-4 h-4 md:w-5 md:h-5" />,
@@ -56,13 +62,14 @@ const Layout = ({ children }) => {
       <header className="bg-[#EDF2F9] p-2 shadow-md flex items-center justify-between w-full">
         {/* desktop view */}
 
-        <Image
-          className="hidden md:block"
-          width={200}
-          height={200}
-          src="https://i0.wp.com/mediaidbd.net/wp-content/uploads/2021/05/cropped-Mediaid-white-stroke-1.png2_-1.png?resize=200%2C51&ssl=1"
-          alt=""
-        />
+        <Link href="/" className="hidden md:block">
+          <Image
+            width={200}
+            height={200}
+            src="https://i0.wp.com/mediaidbd.net/wp-content/uploads/2021/05/cropped-Mediaid-white-stroke-1.png2_-1.png?resize=200%2C51&ssl=1"
+            alt=""
+          />
+        </Link>
 
         <input
           className="hidden md:block w-[500px] px-2 py-1 rounded-md"
