@@ -27,7 +27,7 @@ const BottomNavbar = () => {
           <p className="text-[10px] font-medium">Offer</p>
         </div>
       </Link>
-      <Link href="/account">
+      <Link href="/dashboard">
         <div className="flex flex-col items-center justify-center">
           <BsPerson className="w-[18px] text-slate-600" />
           <p className="text-[10px] font-medium">My Account</p>

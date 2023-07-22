@@ -4,7 +4,13 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { GrMenu } from "react-icons/gr";
 import { HiMoon } from "react-icons/hi";
-import { FaRegListAlt, FaUserCog, FaUsers, FaFileAlt, FaRegEdit } from "react-icons/fa";
+import {
+  FaRegListAlt,
+  FaUserCog,
+  FaUsers,
+  FaFileAlt,
+  FaRegEdit,
+} from "react-icons/fa";
 const dashboardRouteList = [
   {
     icon: <FaRegListAlt className="w-4 h-4 md:w-5 md:h-5" />,
