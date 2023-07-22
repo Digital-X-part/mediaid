@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { AiOutlineStar, AiTwotoneStar } from "react-icons/ai";
 import Rating from "react-rating";
@@ -39,9 +40,11 @@ const ProductList = () => {
                       />
                     </div>
                   </div>
-                  <div className="font-semibold text-neutral-600">
+                  <Link
+                    href={`/dashboard/product-list/${item}`}
+                    className="font-semibold text-neutral-600 hover:text-blue-500">
                     Corona Virus
-                  </div>
+                  </Link>
                 </div>
               </td>
               <td>
@@ -63,8 +66,13 @@ const ProductList = () => {
                 />
               </td>
               <th>
-                <button className="btn btn-warning btn-xs hover:bg-transparent">
+                <Link
+                  href={`/dashboard/product-list/${item}`}
+                  className="btn btn-warning btn-xs hover:bg-transparent">
                   details
+                </Link>
+                <button className="btn btn-success btn-xs ml-2 hover:bg-inherit">
+                  Edit
                 </button>
                 <button className="btn btn-error btn-xs ml-2 hover:bg-inherit">
                   Delete
