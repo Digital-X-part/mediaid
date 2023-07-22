@@ -1,10 +1,9 @@
 "use client";
 import Image from "next/image";
-import React from "react";
 import { useState } from "react";
 import { FaEllipsisH } from "react-icons/fa";
 
-const CustomersTable = ({users}) => {
+const CustomersTable = ({ users }) => {
   const [show, setShow] = useState([false, null]);
   const toggleDots = (index) => {
     setShow([!show[0], index || null]);
@@ -54,12 +53,15 @@ const CustomersTable = ({users}) => {
               <div
                 className={`bg-white flex flex-col items-start border shadow p-2 z-10 w-[150px] rounded-md h-fit absolute right-7 top-10 ${
                   show[0] && show[1] === index + 1 ? "" : "hidden"
-                }`}
-              >
-                <button onClick={()=> toggleDots()} className="text-gray-500 text-sm font-medium hover:bg-slate-100 w-full text-left px-2 py-1 rounded">
+                }`}>
+                <button
+                  onClick={() => toggleDots()}
+                  className="text-gray-500 text-sm font-medium hover:bg-slate-100 w-full text-left px-2 py-1 rounded">
                   Edit
                 </button>
-                <button onClick={()=> toggleDots()} className="text-red-500 text-sm font-medium hover:bg-slate-100 w-full text-left px-2 py-1 rounded">
+                <button
+                  onClick={() => toggleDots()}
+                  className="text-red-500 text-sm font-medium hover:bg-slate-100 w-full text-left px-2 py-1 rounded">
                   Delete
                 </button>
               </div>
