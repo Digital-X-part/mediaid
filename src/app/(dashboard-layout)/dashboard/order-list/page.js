@@ -86,7 +86,9 @@ const OrderList = () => {
               <td>
                 <div className="flex flex-col">
                   <div className="p-0 text-violet-500 text-sm font-bold">
-                    <Link href="" className="text-blue-500 hover:underline">
+                    <Link
+                      href={`/dashboard/order-list/${orderStatus.id}`}
+                      className="text-blue-500 hover:underline">
                       #181
                     </Link>
                     <span className="text-gray-400 font-normal"> by</span>{" "}
