@@ -1,43 +1,45 @@
+
 import CustomersTable from "@/components/Pages/Dashboard/Customers/CustomersTable";
 import { FaPlus, FaExternalLinkAlt, FaFilter } from "react-icons/fa";
 
 const users = [
   {
-    image: 'https://i.ibb.co/54ctFnB/031-1-1.jpg',
-    name: 'Nahid Ahmed',
-    email: 'nahidahmedsd47@gmail.com',
-    phone: '+1 123 456 7890',
-    address: '123, Main Street, California, CA-12345',
+    image: "https://i.ibb.co/54ctFnB/031-1-1.jpg",
+    name: "Nahid Ahmed",
+    email: "nahidahmedsd47@gmail.com",
+    phone: "+1 123 456 7890",
+    address: "123, Main Street, California, CA-12345",
     joined: new Date().toLocaleDateString(),
   },
   {
-    image: 'https://i.ibb.co/54ctFnB/031-1-1.jpg',
-    name: 'Nahid Ahmed',
-    email: 'nahidahmedsd47@gmail.com',
-    phone: '+1 123 456 7890',
-    address: '123, Main Street, California, CA-12345',
+    image: "https://i.ibb.co/54ctFnB/031-1-1.jpg",
+    name: "Nahid Ahmed",
+    email: "nahidahmedsd47@gmail.com",
+    phone: "+1 123 456 7890",
+    address: "123, Main Street, California, CA-12345",
     joined: new Date().toLocaleDateString(),
   },
   {
-    image: 'https://i.ibb.co/54ctFnB/031-1-1.jpg',
-    name: 'Nahid Ahmed',
-    email: 'nahidahmedsd47@gmail.com',
-    phone: '+1 123 456 7890',
-    address: '123, Main Street, California, CA-12345',
+    image: "https://i.ibb.co/54ctFnB/031-1-1.jpg",
+    name: "Nahid Ahmed",
+    email: "nahidahmedsd47@gmail.com",
+    phone: "+1 123 456 7890",
+    address: "123, Main Street, California, CA-12345",
     joined: new Date().toLocaleDateString(),
   },
   {
-    image: 'https://i.ibb.co/54ctFnB/031-1-1.jpg',
-    name: 'Nahid Ahmed',
-    email: 'nahidahmedsd47@gmail.com',
-    phone: '+1 123 456 7890',
-    address: '123, Main Street, California, CA-12345',
+    image: "https://i.ibb.co/54ctFnB/031-1-1.jpg",
+    name: "Nahid Ahmed",
+    email: "nahidahmedsd47@gmail.com",
+    phone: "+1 123 456 7890",
+    address: "123, Main Street, California, CA-12345",
     joined: new Date().toLocaleDateString(),
   },
-]
+];
 
 const Customers = () => {
   return (
+
     <div>
       <div className="text-sm breadcrumbs">
         <ul>
@@ -58,10 +60,11 @@ const Customers = () => {
           <div className='mt-4'>
             <CustomersTable users={users} />
           </div>
-        </div>
+
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Customers
+
+export default Customers;
