@@ -8,7 +8,7 @@ import Rating from "react-rating";
 const ProductList = () => {
   return (
     <div className="overflow-x-auto bg-slate-200">
-      <table className="table table-zebra ">
+      <table className="table table-zebra table-sm md:table-md lg:tab-lg">
         {/* head */}
         <thead>
           <tr>
