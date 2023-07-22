@@ -2,9 +2,12 @@
   "name": "mediaid",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://next.mediaidbd.net/",
+  
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next build && next export",
     "start": "next start",
     "lint": "next lint"
   },
