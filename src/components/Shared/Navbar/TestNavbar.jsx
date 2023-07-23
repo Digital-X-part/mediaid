@@ -148,8 +148,7 @@ const TopNavbar = () => {
                             Analytics
                           </p>
                           <p className="mt-1 text-sm text-gray-500">
-                            Get a better understanding of where your traffic is
-                            coming from.
+                            Get a better understanding of where your 
                           </p>
                         </div>
                       </Link>
