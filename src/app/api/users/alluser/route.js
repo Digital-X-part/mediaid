@@ -2,6 +2,8 @@ import connectDb from "@/dbConfig/dbConfig";
 import { User } from "@/models/user/userModel";
 import { NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
+import jwtCookies from "@/utility/jwtCookies";
+import { cookies } from "next/headers";
 
 connectDb();
 export const GET = async (request) => {
@@ -50,9 +52,8 @@ export const POST = async (request) => {
       addresses,
     });
 
-    await newUser.save();
-
-    return NextResponse.json(
+    const saveUser = await newUser.save();
+    const response = NextResponse.json(
       {
         message: "User added successfully",
         success: true,
@@ -60,6 +61,19 @@ export const POST = async (request) => {
       },
       { status: 200 }
     );
+    // set cookie
+    const cookiesStore = cookies();
+    const tokenData = {
+      id,
+      email,
+    };
+    // create token
+    const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET, {
+      expiresIn: "1h",
+    });
+    cookiesStore.set("token", token);
+
+    return response;
   } catch (error) {
     console.log(error);
     return NextResponse.json(
