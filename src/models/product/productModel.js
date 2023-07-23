@@ -56,6 +56,11 @@ export const ProductsSchema = new Schema(
       type: Number,
       default: 0,
     },
+    productStatus:{
+      type: String,
+      enum: ["active", "inactive",'star User'],
+      default: "active",
+    },
     brand: String,
     productAddedBy: {
       type: Schema.Types.ObjectId,
