@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 import jwtCookies from "@/utility/jwtCookies";
 import { cookies } from "next/headers";
+import jwt from "jsonwebtoken";
 
 connectDb();
 export const GET = async (request) => {
@@ -64,8 +65,8 @@ export const POST = async (request) => {
     // set cookie
     const cookiesStore = cookies();
     const tokenData = {
-      id,
-      email,
+      id:saveUser.id,
+      email:saveUser.email,
     };
     // create token
     const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET, {
