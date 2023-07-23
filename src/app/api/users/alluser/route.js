@@ -1,7 +1,9 @@
 import connectDb from "@/dbConfig/dbConfig";
 import { User } from "@/models/user/userModel";
 import { NextResponse } from "next/server";
+import bcryptjs from "bcryptjs";
 
+connectDb();
 export const GET = async (request) => {
   try {
     const products = await User.find();
@@ -20,7 +22,6 @@ export const GET = async (request) => {
 };
 export const POST = async (request) => {
   try {
-    await connectDb();
     const data = await request.json(); // Parse the JSON data from the request body
 
     const {
@@ -34,12 +35,16 @@ export const POST = async (request) => {
       addresses,
     } = data; // Use the parsed data to extract user properties
 
+    // hash password
+    const salt = await bcryptjs.genSalt(10);
+    const hashedPassword = await bcryptjs.hash(password, salt);
+
     const newUser = new User({
       fullName,
       phone,
       email,
       photo,
-      password,
+      password: hashedPassword,
       role,
       rewardPoints,
       addresses,
