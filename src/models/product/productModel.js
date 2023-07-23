@@ -7,11 +7,12 @@ export const ProductsSchema = new Schema(
       type: String,
       required: [true, "Product Name is required"],
     },
+
     description: {
       type: String,
       required: [true, "Product Description is required"],
     },
-    highlights: [String],
+
     price: {
       prev: {
         type: Number,
@@ -21,32 +22,33 @@ export const ProductsSchema = new Schema(
         required: true,
       },
     },
-    images: [
+
+    imagesUrls: [
       {
         type: String,
         required: [true, "Product Image is required"],
       },
     ],
-    categories: [
-      {
-        type: [String],
-        required: [true, "Category is required"],
-      },
-    ],
+
+    category: String,
     availableStock: {
       type: Number,
       required: [true, "Stock is required"],
     },
+
     tags: [String],
     startDate: {
       type: Date,
       default: Date.now,
     },
+    endDate: {
+      type: Date,
+    },
     sellingType: {
       type: String,
       enum: [
         "flash sale",
-        "new arrivable",
+        "new arrival",
         "feature product",
         "popular product",
         "push product",
@@ -56,11 +58,18 @@ export const ProductsSchema = new Schema(
       type: Number,
       default: 0,
     },
-    brand: String,
-    productAddedBy: {
+    productStatus:{
+      type: String,
+      enum: ["active", "inactive",'star User'],
+      default: "active",
+    },
+    brandName: String,
+    // todo change for user id
+    /* productAddedBy: {
       type: Schema.Types.ObjectId,
       ref: "User",
-    },
+    }, */
+    productAddedBy: String,
   },
   {
     timestamps: true,
