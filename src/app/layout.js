@@ -10,7 +10,9 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="./favicon.ico" sizes="any" />
       </head>
-      <body className={`font-serif max-w-[1536px] mx-auto`}>
+
+      <body className={`${roboto.variable} font-serif max-w-full mx-auto`}>
+
         {children}
       </body>
     </html>
