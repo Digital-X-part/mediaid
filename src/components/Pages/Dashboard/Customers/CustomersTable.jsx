@@ -38,8 +38,9 @@ const CustomersTable = ({ users }) => {
                     className="rounded-full"
                   />
                   <Link
+                  title="Click to view details"
                     href={`/dashboard/customers/${index}`}
-                    className="text-sm font-medium text-gray-600">
+                    className="text-sm font-medium text-gray-600 hover:underline hover:text-blue-500">
                     {user.name}
                   </Link>
                 </div>
