@@ -1,58 +1,81 @@
-// import { ProductType } from "@/types/types";
-import { Schema, model, Model, models } from "mongoose";
 
-export const ProductsSchema = new Schema({
+import { Schema, model,  models } from "mongoose";
+
+export const ProductsSchema = new Schema(
+  {
     name: {
-        type: String,
-        required: true
-      },
-      description: {
-        type: String,
-        required: true
-      },
-      highlights: [String],
-      price: {
-        prev: {
-          type: Number,
-        },
-        present: {
-          type: Number,
-          required: true
-        }
-      },
-      images: [{
-        type: String,
-        required: [true, 'Image is required']
-      }],
-      categories: [{
-        type: [String],
-        required: [true, 'Category is required']
-      }],
-      availableStock: {
-        type: Number,
-        required: [true, 'Stock is required']
-      },
-      tags: [String],
-      startDate: {
-        type: Date,
-        default: Date.now
-      },
-      sellingType: {
-        type: [String],
-      },
-      totalSales: {
-        type: Number,
-        default: 0
-      }
-},{
-    timestamps: true
-});
+      type: String,
+      required: [true, "Product Name is required"],
+    },
 
+    description: {
+      type: String,
+      required: [true, "Product Description is required"],
+    },
 
-const  Product = models?.products||model('Product', ProductsSchema)
+    price: {
+      prev: {
+        type: Number,
+      },
+      present: {
+        type: Number,
+        required: true,
+      },
+    },
+
+    imagesUrls: [
+      {
+        type: String,
+        required: [true, "Product Image is required"],
+      },
+    ],
+
+    category: String,
+    availableStock: {
+      type: Number,
+      required: [true, "Stock is required"],
+    },
+
+    tags: [String],
+    startDate: {
+      type: Date,
+      default: Date.now,
+    },
+    endDate: {
+      type: Date,
+    },
+    sellingType: {
+      type: String,
+      enum: [
+        "flash sale",
+        "new arrival",
+        "feature product",
+        "popular product",
+        "push product",
+      ],
+    },
+    totalSales: {
+      type: Number,
+      default: 0,
+    },
+    productStatus:{
+      type: String,
+      enum: ["active", "inactive",'star User'],
+      default: "active",
+    },
+    brandName: String,
+    // todo change for user id
+    /* productAddedBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    }, */
+    productAddedBy: String,
+  },
+  {
+    timestamps: true,
+  }
+);
+
+const Product = models?.Product || model("Product", ProductsSchema);
 
 export default Product;
-
-
-
-  

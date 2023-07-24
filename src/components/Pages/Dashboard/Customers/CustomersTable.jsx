@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { FaEllipsisH } from "react-icons/fa";
 
@@ -36,9 +37,12 @@ const CustomersTable = ({ users }) => {
                     height={30}
                     className="rounded-full"
                   />
-                  <p className="text-sm font-medium text-gray-600">
+                  <Link
+                  title="Click to view details"
+                    href={`/dashboard/customers/${index}`}
+                    className="text-sm font-medium text-gray-600 hover:underline hover:text-blue-500">
                     {user.name}
-                  </p>
+                  </Link>
                 </div>
               </td>
               <td className="text-blue-500">{user.email}</td>
