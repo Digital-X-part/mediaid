@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import CustomersTable from "@/components/Pages/Dashboard/Customers/CustomersTable";
 import { FaPlus, FaExternalLinkAlt, FaFilter } from "react-icons/fa";
 
@@ -40,7 +40,7 @@ const users = [
 const Customers = () => {
   return (
     <div>
-      <div className="text-sm breadcrumbs">
+      <div className="text-sm breadcrumbs ">
         <ul>
           <li>
             <a>Dashboard</a>
