@@ -1,10 +1,6 @@
 import AddProductsForm from "@/components/addProductsForm/addProductsForm";
-import Image from "next/image";
 import Link from "next/link";
-import { AiOutlineCloudUpload } from "react-icons/ai";
-import { BiDotsVerticalRounded } from "react-icons/bi";
 const AddProduct = () => {
-
   return (
     <div>
       <div className="text-sm breadcrumbs mb-2">
@@ -19,11 +15,7 @@ const AddProduct = () => {
         <p className="mb-4 font-semibold text-neutral-500 text-opacity-90 bg-red-100 p-2 rounded-t-md">
           Basic Information
         </p>
-
-       
-
         <AddProductsForm />
-
       </div>
     </div>
   );
