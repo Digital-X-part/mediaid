@@ -1,35 +1,8 @@
-"use client";
-import Image from "next/image";
+
+import AddProductsForm from "@/components/addProductsForm/addProductsForm";
 import Link from "next/link";
-import React, { useState } from "react";
-import { AiOutlineCloudUpload } from "react-icons/ai";
-import { BiDotsVerticalRounded } from "react-icons/bi";
 const AddProduct = () => {
-  const [images, setImages] = useState([]);
-
-  const uploadToClient = (event) => {
-    const files = event.target.files;
-    const imageArray = Array.from(files).map((file) => {
-      const imageURL = URL.createObjectURL(file);
-      return {
-        name: file.name,
-        size: file.size,
-        url: imageURL,
-      };
-    });
-    setImages((prevImages) => [...prevImages, ...imageArray]);
-  };
-
-  const formatSize = (sizeInBytes) => {
-    const kbSize = sizeInBytes / 1024;
-    if (kbSize < 1024) {
-      return `${kbSize.toFixed(2)} KB`;
-    } else {
-      const mbSize = kbSize / 1024;
-      return `${mbSize.toFixed(2)} MB`;
-    }
-  };
-
+  
   return (
     <div>
       <div className="text-sm breadcrumbs mb-2">
@@ -44,6 +17,7 @@ const AddProduct = () => {
         <p className="mb-4 font-semibold text-neutral-500 text-opacity-90 bg-red-100 p-2 rounded-t-md">
           Basic Information
         </p>
+
         <form>
           <div className="p-2 grid grid-cols-1 md:grid-cols-2 md:gap-8">
             <div className="mb-2">
@@ -277,6 +251,9 @@ const AddProduct = () => {
             </div>
           </div>
         </form>
+
+        <AddProductsForm />
+
       </div>
     </div>
   );

@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://next.mediaidbd.net/",
-  
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -25,9 +24,11 @@
     "react-awesome-slider": "^4.1.0",
     "react-dom": "18.2.0",
     "react-fast-marquee": "^1.6.0",
+    "react-hook-form": "^7.45.2",
     "react-icons": "^4.10.1",
     "react-rating": "^2.0.5",
     "react-responsive-carousel": "^3.2.23",
+    "sweetalert": "^2.1.2",
     "swiper": "^10.0.4",
     "tailwindcss": "3.3.2"
   },

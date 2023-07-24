@@ -17,33 +17,42 @@ export const POST = async(request)=>{
    try {
    
    const body = await request.json()
-   const {  name,
-      description,
-      price,
-      categories,
-      highlights,
-      images,
-      availableStock,
-      tags,
-      startDate,
-      sellingType,
-      totalSales,
-      brand,
-      productAddedBy} = body
+   const { 
+      
+         productName,
+         brandName,
+         productDescription,
+         category,
+         subCategory,
+         tags,
+         sellingType,
+         availableStock,
+         basePrice,
+         startDate,
+         endDate,
+         finalPrice,
+         imagesUrls,
+       
+   } = body
+   // console.log(body);
+
    const product = new Product({
-      name,
-      description,
-      price,
-      categories,
-      highlights,
-      images,
-      availableStock,
+      name: productName,
+      description: productDescription,
+      price:{
+         prev: parseFloat(basePrice),
+         present: parseFloat(finalPrice)
+      },
+      category,
+      subCategory,
+      imagesUrls,
+      availableStock:parseInt(availableStock),
       tags,
       startDate,
+      endDate,
       sellingType,
-      totalSales,
-      brand,
-      productAddedBy
+      brandName,
+      productAddedBy:'user id'
    })
 
    await product.save()
@@ -51,7 +60,7 @@ export const POST = async(request)=>{
    return NextResponse.json({ 
       message: 'Product added successfully',
       success: true,
-      product
+      product  
    } , { status: 200 })
       
 } catch (error) {
