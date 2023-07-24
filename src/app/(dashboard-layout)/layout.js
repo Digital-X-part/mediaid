@@ -131,18 +131,35 @@
 // };
 
 // export default Layout;
+"use client";
+import DashboardSideBar from "@/components/Shared/DashboardSideBar/DashboardSideBar";
+import TopNavbar from "@/components/Shared/Navbar/TestNavbar";
+import React from "react";
+import { useState } from "react";
 
-import TopNavbar from '@/components/Shared/Navbar/TestNavbar'
-import React from 'react'
+const DashboardLayout = ({ children }) => {
+  const [isDashboardSideBarExtends, setIsDashboardSideBarExtends] =
+    useState(false);
 
-const layout = ({children}) => {
   return (
     <div>
-      <TopNavbar />
-      {children}
+      <TopNavbar
+        isDashboardSideBarExtends={isDashboardSideBarExtends}
+        setIsDashboardSideBarExtends={setIsDashboardSideBarExtends}
+      />
+      <div className="flex mt-[72px]">
+        <div
+          className={`w-[100px] xl:w-[100px] transition-transform duration-500 first:${
+            isDashboardSideBarExtends && "lg:w-[180px] xl:w-[220px]"
+          } `}>
+          <DashboardSideBar
+            isDashboardSideBarExtends={isDashboardSideBarExtends}
+          />
+        </div>
+        <div className="grow md:ml-10 lg:ml-4">{children}</div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default layout
-
+export default DashboardLayout;

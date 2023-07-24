@@ -45,7 +45,7 @@ const AddProduct = () => {
           Basic Information
         </p>
         <form>
-          <div className="p-2">
+          <div className="p-2 grid grid-cols-1 md:grid-cols-2 md:gap-8">
             <div className="mb-2">
               <label
                 htmlFor="productName"
@@ -93,6 +93,7 @@ const AddProduct = () => {
                 onChange={uploadToClient}
                 className="hidden"
               />
+              
               <div className="mt-4">
                 {images.length > 0 &&
                   images.map((image, index) => (
