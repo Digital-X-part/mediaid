@@ -1,39 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-import { FaRegListAlt, FaRegEdit } from "react-icons/fa";
-import { HiOutlineUsers } from "react-icons/hi";
-import { BsFileMedical } from "react-icons/bs";
-import { BiCategory } from "react-icons/bi";
-const dashboardRouteList = [
-  {
-    icon: <FaRegListAlt className="w-4 h-4 md:w-5 md:h-5" />,
-    pathUrl: "/dashboard/product-list",
-    pathName: "Product list",
-  },
-  {
-    icon: <FaRegEdit className="w-4 h-4 md:w-5 md:h-5" />,
-    pathUrl: "/dashboard/add-product",
-    pathName: "Add Product",
-  },
-  {
-    icon: <BsFileMedical className="w-4 h-4 md:w-5 md:h-5" />,
-    pathUrl: "/dashboard/order-list",
-    pathName: "Order List",
-  },
-  {
-    icon: <HiOutlineUsers className="w-4 h-4 md:w-5 md:h-5" />,
-    pathUrl: "/dashboard/customers",
-    pathName: "Customers",
-  },
-  {
-    icon: <BiCategory className="w-4 h-4 md:w-5 md:h-5" />,
-    pathUrl: "/dashboard/category",
-    pathName: "Category",
-  },
-];
-
-const DashboardSideBar = ({ isDashboardSideBarExtends }) => {
+const DashboardSideBar = ({ isDashboardSideBarExtends, dashboardRouteList }) => {
   return (
     <div
       className={`shadow-lg hidden md:block z-50 fixed left-0 first:${
