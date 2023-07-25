@@ -1,14 +1,16 @@
 import connectDb from "@/dbConfig/dbConfig";
 import Product from "@/models/product/productModel";
+import { NextResponse } from "next/server";
 
    connectDb();
 
    // get single product
-export async function GET(request, params) {
+export async function GET(request, {params}) {
+   const productId = params.id
 
-   const products = await Product.find()
-
-   return NextResponse.json({ products }, { status: 200	 })
+   const product = await Product.findById(productId)
+console.log(product, 'api products');
+   return NextResponse.json({ product }, { status: 200	 })
 
 }
 
