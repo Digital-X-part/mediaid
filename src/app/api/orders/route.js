@@ -2,7 +2,7 @@ import connectDb from "@/dbConfig/dbConfig";
 import Order from "@/models/order/orderModel";
 import { NextResponse } from "next/server";
 
-connectDb;
+connectDb();
 
 export const GET = async (request) => {
   try {
