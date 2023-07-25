@@ -1,5 +1,6 @@
 import connectDb from "@/dbConfig/dbConfig";
 import Product from "@/models/product/productModel";
+import generateSKU from "@/utility/generateSKU";
 import { NextResponse } from "next/server";
    connectDb();
 
@@ -32,7 +33,7 @@ export const POST = async(request)=>{
          endDate,
          finalPrice,
          imagesUrls,
-       
+      
    } = body
    // console.log(body);
 
@@ -52,6 +53,7 @@ export const POST = async(request)=>{
       endDate,
       sellingType,
       brandName,
+      sku: generateSKU(),
       productAddedBy:'user id'
    })
 

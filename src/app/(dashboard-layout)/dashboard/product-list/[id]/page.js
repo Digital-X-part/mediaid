@@ -1,4 +1,3 @@
-"use client";
 import ProductDescription from "@/components/Pages/product-details/ProductDescription/ProductDescription";
 import ProductInfo from "@/components/Pages/product-details/ProductInfo/ProductInfo";
 import Image from "next/image";
