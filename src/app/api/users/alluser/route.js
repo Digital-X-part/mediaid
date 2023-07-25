@@ -2,7 +2,6 @@ import connectDb from "@/dbConfig/dbConfig";
 import { User } from "@/models/user/userModel";
 import { NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
-import jwtCookies from "@/utility/jwtCookies";
 import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
 
@@ -65,15 +64,14 @@ export const POST = async (request) => {
     // set cookie
     const cookiesStore = cookies();
     const tokenData = {
-      id:saveUser.id,
-      email:saveUser.email,
+      id: saveUser.id,
+      email: saveUser.email,
     };
     // create token
     const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET, {
       expiresIn: "1h",
     });
     cookiesStore.set("token", token);
-
     return response;
   } catch (error) {
     console.log(error);
