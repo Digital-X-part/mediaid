@@ -3,9 +3,6 @@ import axiosInstance from "@/utility/axiosInstance";
 import Link from "next/link";
 import React from "react";
 const ProductList = async () => {
-  const data = await axiosInstance.get("/products");
-  const productsObj = data.data
-  // console.log(productsObj.products);
   return (
     <div>
       <div className="text-sm breadcrumbs ">
@@ -33,9 +30,7 @@ const ProductList = async () => {
             </tr>
           </thead>
           <tbody>
-            {productsObj.products?.map((product, index) => (
-              <ProductListRow product={product} key={product?._id  } index={index} />
-            ))}
+            <ProductListRow />
           </tbody>
         </table>
       </div>

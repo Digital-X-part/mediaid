@@ -2,12 +2,6 @@ import ProductDescription from "@/components/Pages/product-details/ProductDescri
 import ProductInfo from "@/components/Pages/product-details/ProductInfo/ProductInfo";
 import axiosInstance from "@/utility/axiosInstance";
 import Image from "next/image";
-const productImage = [
-  "https://i.ibb.co/rcWCcNj/03.png",
-  "https://i.ibb.co/Hzc2mHv/04.jpg",
-  "https://i.ibb.co/rcWCcNj/03.png",
-  "https://i.ibb.co/Hzc2mHv/04.jpg",
-];
 
 const ProductDetails = async ({ params }) => {
   const data = await axiosInstance.get(`/products/${params.id}`);
