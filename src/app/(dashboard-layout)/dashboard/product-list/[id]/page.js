@@ -2,12 +2,6 @@ import ProductDescription from "@/components/Pages/product-details/ProductDescri
 import ProductInfo from "@/components/Pages/product-details/ProductInfo/ProductInfo";
 import axiosInstance from "@/utility/axiosInstance";
 import Image from "next/image";
-const productImage = [
-  "https://i.ibb.co/rcWCcNj/03.png",
-  "https://i.ibb.co/Hzc2mHv/04.jpg",
-  "https://i.ibb.co/rcWCcNj/03.png",
-  "https://i.ibb.co/Hzc2mHv/04.jpg",
-];
 
 const ProductDetails = async ({ params }) => {
   const data = await axiosInstance.get(`/products/${params.id}`);
@@ -16,7 +10,7 @@ const ProductDetails = async ({ params }) => {
   return  (
     <div className="md:ml-14">
       <div className="flex flex-wrap justify-between gap-3 gap-y-3">
-        {productImage.map((image) => (
+        {product?.imagesUrls?.map((image) => (
           <Image key={image} src={image} alt="" width={400} height={100}   />
         ))}
       </div>
