@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React from "react";
 import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import uploadImage from "@/utility/uploadFilesToImgBB";
@@ -87,8 +87,7 @@ const AddProductsForm = () => {
           <div className="mb-2">
             <label
               htmlFor="productName"
-              className="block text-neutral-600 mb-1"
-            >
+              className="block text-neutral-600 mb-1">
               Product name:
             </label>
             <div className="relative">
@@ -168,14 +167,12 @@ const AddProductsForm = () => {
                     <div className="dropdown dropdown-end">
                       <label
                         tabIndex={0}
-                        className="btn p-0 h-0 min-h-[20px] rounded-sm bg-inherit"
-                      >
+                        className="btn p-0 h-0 min-h-[20px] rounded-sm bg-inherit">
                         <BiDotsVerticalRounded />
                       </label>
                       <ul
                         tabIndex={0}
-                        className="shadow menu dropdown-content z-[1] bg-base-100 rounded-sm w-24 px-2 py-1"
-                      >
+                        className="shadow menu dropdown-content z-[1] bg-base-100 rounded-sm w-24 px-2 py-1">
                         <li className="text-xs text-center">Remove File</li>
                       </ul>
                     </div>
@@ -198,14 +195,12 @@ const AddProductsForm = () => {
               name="productDescription"
               id=""
               cols="30"
-              rows="8"
-            ></textarea>
+              rows="8"></textarea>
             <h5 className="text-neutral-600 mt-2">Select category:</h5>
             {/* //todo fetch category from db */}
             <select
               {...register("category")}
-              className="select select-bordered w-full max-w-xs mt-2"
-            >
+              className="select select-bordered w-full max-w-xs mt-2">
               <option disabled>Dinner or Gala</option>
               <option>Computer & Accessories</option>
               <option>Class Training & workshop</option>
@@ -214,8 +209,7 @@ const AddProductsForm = () => {
             {/* //todo fetch subcategory according to category */}
             <select
               {...register("subCategory")}
-              className="select select-bordered w-full max-w-xs mt-2"
-            >
+              className="select select-bordered w-full max-w-xs mt-2">
               <option disabled>Laptop</option>
               <option>Concert or performance</option>
               <option>Festival or fair </option>
@@ -225,8 +219,7 @@ const AddProductsForm = () => {
             <div className="mt-2">
               <label
                 htmlFor="availableStock"
-                className="block text-neutral-600 mb-1"
-              >
+                className="block text-neutral-600 mb-1">
                 Available Stock:
               </label>
               <div className="relative">
@@ -266,17 +259,14 @@ const AddProductsForm = () => {
             <div className="mt-2">
               <label
                 htmlFor="sellingType"
-                className="block text-neutral-600 mb-1"
-              >
+                className="block text-neutral-600 mb-1">
                 Selling type:
               </label>
               <select
                 id="sellingType"
                 {...register("sellingType")}
-                onChange={(e) => setSellingType(e.target.value)
-          }
-                className="select select-bordered w-full max-w-xs mt-2"
-              >
+                onChange={(e) => setSellingType(e.target.value)}
+                className="select select-bordered w-full max-w-xs mt-2">
                 <option disabled>Select one type</option>
 
                 <option value="flash sale">flash sale</option>
@@ -288,7 +278,7 @@ const AddProductsForm = () => {
             </div>
           </div>
         </div>
-        
+
         {sellingType === "flash sale" && (
           <div className="rounded-md mt-2">
             <label htmlFor="startDate">
@@ -336,8 +326,7 @@ const AddProductsForm = () => {
             <div className="mb-2">
               <label
                 htmlFor="basePrice"
-                className="block text-neutral-600  mb-1"
-              >
+                className="block text-neutral-600  mb-1">
                 Base Price:
               </label>
               <div className="relative">
@@ -358,8 +347,7 @@ const AddProductsForm = () => {
             <div className="mb-2">
               <label
                 htmlFor="discountInPercentage"
-                className="block text-neutral-600 mb-1"
-              >
+                className="block text-neutral-600 mb-1">
                 Discount in percentage:
               </label>
               <div className="relative">
@@ -375,8 +363,7 @@ const AddProductsForm = () => {
             <div className="mb-2">
               <label
                 htmlFor="productName"
-                className="block text-neutral-600 mb-1"
-              >
+                className="block text-neutral-600 mb-1">
                 Final price:
               </label>
               <div className="relative">

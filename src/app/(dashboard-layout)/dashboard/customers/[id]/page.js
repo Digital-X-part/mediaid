@@ -6,7 +6,7 @@ import { FaCheck, FaDollarSign, FaPencilAlt, FaRegUser } from "react-icons/fa";
 const CustomerDetails = () => {
   return (
     <div>
-      <div className="text-sm breadcrumbs">
+      <div className="text-sm breadcrumbs md:ml-4">
         <ul>
           <li>
             <a>Dashboard</a>
