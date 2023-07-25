@@ -147,16 +147,18 @@ const DashboardLayout = ({ children }) => {
         isDashboardSideBarExtends={isDashboardSideBarExtends}
         setIsDashboardSideBarExtends={setIsDashboardSideBarExtends}
       />
-      <div className="flex mt-[72px]">
+      <div className="mt-[72px] lg:grid lg:grid-cols-12">
         <div
-          className={`w-[100px] xl:w-[100px] transition-transform duration-500 first:${
-            isDashboardSideBarExtends && "lg:w-[180px] xl:w-[220px]"
+          className={`w-[100px] xl:w-[100px] transition-transform duration-500 ${
+            isDashboardSideBarExtends ? "lg:col-start-1 lg:col-end-3"
+            : "lg:col-start-1 lg:col-end-2"
           } `}>
           <DashboardSideBar
             isDashboardSideBarExtends={isDashboardSideBarExtends}
           />
         </div>
-        <div className="grow md:ml-10 lg:ml-4">{children}</div>
+        <div className={` ${isDashboardSideBarExtends ? "lg:col-start-3 lg:col-end-13"
+              : "lg:col-start-2 lg:col-end-13"}`}>{children}</div>
       </div>
     </div>
   );
