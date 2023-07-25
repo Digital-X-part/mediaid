@@ -2,11 +2,12 @@
 import Image from "next/image";
 import React from "react";
 import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import uploadImage from "@/utility/uploadFilesToImgBB";
 import swal from "sweetalert";
+import axiosInstance from "@/utility/axiosInstance";
 const AddProductsForm = () => {
   const [images, setImages] = useState([]);
   const [sellingType, setSellingType] = useState("flash sale");
@@ -14,7 +15,6 @@ const AddProductsForm = () => {
   const {
     handleSubmit,
     register,
-    getValues,
     formState: { errors },
     reset,
   } = useForm();
@@ -56,15 +56,16 @@ const AddProductsForm = () => {
       console.log({ imagesUrls });
 
       // send data to server
-      const response = await fetch("/api/products", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ...data, imagesUrls }),
-      });
-      const result = await response.json();
-      console.log({ result });
+      const data = await axiosInstance.post("products", { ...data, imagesUrls });
+      // const response = await fetch("/api/products", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({ ...data, imagesUrls }),
+      // });
+      // const result = await response.json();
+      console.log(data);
       swal({
         title: "Success!",
         text: "Product added successfully!",
@@ -247,7 +248,7 @@ const AddProductsForm = () => {
                 )}
               </div>
             </div>
-
+{/* tags */}
             <div className="mt-2">
               <label htmlFor="tags" className="block text-neutral-600 mb-1">
                 Add a Tags:
@@ -263,6 +264,24 @@ const AddProductsForm = () => {
                 />
               </div>
             </div>
+            {/* Highlights */}
+            <div className="mt-2">
+              <label htmlFor="tags" className="block text-neutral-600 mb-1">
+                Give Highlights  with comma:
+              </label>
+              <div className="relative">
+                <input
+                  {...register("highlights")}
+                  id="highlights"
+                  type="text"
+                  name="highlights"
+                  placeholder="Water Proof: Yes,
+                  Shape: Round,
+                  Country of Origin: Japan"
+                  className="w-full border-gray-300 border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg py-1 px-2"
+                />
+              </div>
+            </div>
             <div className="mt-2">
               <label
                 htmlFor="sellingType"
@@ -273,8 +292,7 @@ const AddProductsForm = () => {
               <select
                 id="sellingType"
                 {...register("sellingType")}
-                onChange={(e) => setSellingType(e.target.value)
-          }
+                onChange={(e) => setSellingType(e.target.value)}
                 className="select select-bordered w-full max-w-xs mt-2"
               >
                 <option disabled>Select one type</option>
@@ -288,7 +306,7 @@ const AddProductsForm = () => {
             </div>
           </div>
         </div>
-        
+
         {sellingType === "flash sale" && (
           <div className="rounded-md mt-2">
             <label htmlFor="startDate">

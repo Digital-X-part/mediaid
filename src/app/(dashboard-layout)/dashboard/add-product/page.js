@@ -1,8 +1,6 @@
-
 import AddProductsForm from "@/components/addProductsForm/addProductsForm";
 import Link from "next/link";
 const AddProduct = () => {
-  
   return (
     <div>
       <div className="text-sm breadcrumbs mb-2">

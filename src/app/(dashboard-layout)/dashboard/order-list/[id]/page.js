@@ -40,7 +40,7 @@ const orderDetails = {
 const OrderDetailsPage = () => {
     return (
         <div>
-            <div className="text-sm breadcrumbs">
+            <div className="text-sm breadcrumbs md:ml-4">
                 <ul>
                     <li><a>Dashboard</a></li>
                     <li>Order Details</li>

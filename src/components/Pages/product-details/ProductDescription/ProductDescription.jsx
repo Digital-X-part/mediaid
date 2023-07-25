@@ -1,8 +1,8 @@
 "use client";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 
-const ProductDescription = () => {
-  const [show, setShow] = useState(true);
+const ProductDescription = ({ product }) => {
+  const [show, setShow] = useState(false);
 
   return (
     <>
@@ -10,9 +10,9 @@ const ProductDescription = () => {
       <div className="border h-fit p-2 mt-3 md:p-5 mx-2 md:mx-0">
         <p className="font-semibold text-sm md:text-base">Highlight:</p>
         <ul className="list-disc pl-7 text-medium text-sm md:text-base">
-          <li>Water Proof: Yes</li>
-          <li>Shape: Round</li>
-          <li>Country of Origin: Japan</li>
+          {product?.highlights?.map((highlight, index) => (
+            <li key={index}>{highlight}</li>
+          ))}
         </ul>
       </div>
 
@@ -62,39 +62,33 @@ const ProductDescription = () => {
           <h2 className="font-bold text-base  md:text-xl">
             Products summery and specification
           </h2>
-          <div >
+          <div>
             <h3 className="font-bold mt-3 ">Specification :</h3>
             <p className="text-base leading-4 mt-2 text-gray-600">
-              Product Code: 8BN321AF2IF0NYA
+              Product Code: {product?.sku}
             </p>
             <p className="text-base leading-4 mt-2 text-gray-600">
-              Length: 13.2 inches
+              category: {product?.category}
             </p>
             <p className="text-base leading-4 mt-2 text-gray-600">
-              Height: 10 inches
+              tags:{" "}
+              {product?.tags?.map((tag, index) => (
+                <Fragment key={index}>
+                  <span className="text-sm py-px px-1 rounded bg-slate-300">
+                    {tag}
+                  </span>
+                  ,{" "}
+                </Fragment>
+              ))}
             </p>
             <p className="text-base leading-4 mt-2 text-gray-600">
-              Depth: 5.1 inches
-            </p>
-            <p className="md:w-96 text-base leading-normal text-gray-600 mt-2">
-              Composition: 100% calf leather, inside: 100% lamb leather
+              Brand :{product?.brandName}
             </p>
           </div>
           <div className=" ">
             <h3 className="font-bold mt-3 mb-2 ">Summary :</h3>
             <p className="xl:pr-48 text-base lg:leading-tight leading-normal text-gray-600 ">
-              It is a long established fact that a reader will be distracted by
-              thereadable content of a page when looking at its layout. The
-              point of usingLorem Ipsum is that it has a more-or-less normal
-              distribution of letters. It is a long established fact that a
-              reader will be distracted by thereadable content of a page when
-              looking at its layout.
-              <br />
-              <br /> The point of usingLorem Ipsum is that it has a more-or-less
-              normal distribution of letters. It is a long established fact that
-              a reader will be distracted by thereadable content of a page when
-              looking at its layout. The point of usingLorem Ipsum is that it
-              has a more-or-less normal distribution of letters.
+              {product?.description}
             </p>
           </div>
         </div>
