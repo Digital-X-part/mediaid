@@ -6,6 +6,7 @@ import { IconContext } from "react-icons";
 import { BiCartAdd } from "react-icons/bi";
 import { FiMenu } from "react-icons/fi";
 import { HiMoon, HiOutlineMenuAlt1 } from "react-icons/hi";
+import NavLink from "../ActiveNavLink/NavLink";
 const DashboardNavbar = ({
   isDashboardSideBarExtends,
   setIsDashboardSideBarExtends,
@@ -133,18 +134,25 @@ const DashboardNavbar = ({
                 </div>
               </div>
               <div className="mt-6">
-                <nav className="space-y-2">
+                <nav >
+                    <ul className="space-y-2">
                     {dashboardRouteList.map((route) => (
-                      <Link
-                        className="flex items-center bg-slate-50 py-2 mb-1 px-8 gap-3 lg:gap-2 text-base font-semibold"
-                        key={route.pathUrl}
-                        onClick={handleDashBoardSideBarExtends}
-                        href={route.pathUrl}
+                      <li
+                      title={route.pathName}
+                      key={route.pathUrl}
+                      className="text-gray-600 font-semibold"
+                      onClick={handleDashBoardSideBarExtends}
                       >
-                        {route.icon}
+                      <NavLink exact={route.pathUrl === '/dashboard'} activeClassName="text-blue-500 bg-slate-100" href={route.pathUrl} className="flex gap-2 items-center cursor-pointer px-5 py-2 rounded hover:bg-slate-100 ">
+                        {/* <{AiOutlineMedicineBox} size={25} color="blue" /> */}
+                      {route.icon}
+                      <p>
                         {route.pathName}
-                      </Link>
+                      </p>
+                      </NavLink>
+                    </li>
                     ))}
+                    </ul>
                 </nav>
               </div>
             </div>

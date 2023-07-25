@@ -112,27 +112,27 @@ import {
 import { HiOutlineUsers } from "react-icons/hi";
 const dashboardRouteList = [
   {
-    icon: <FaRegListAlt className="w-5 h-5 text-blue-600" />,
+    icon: <FaRegListAlt className="w-5 h-5" />,
     pathUrl: "/dashboard/product-list",
     pathName: "Product list",
   },
   {
-    icon: <FaRegEdit className="w-5 h-5 text-blue-600" />,
+    icon: <FaRegEdit className="w-5 h-5" />,
     pathUrl: "/dashboard/add-product",
     pathName: "Add Product",
   },
   {
-    icon: <BsFileMedical className="w-5 h-5 text-blue-600" />,
+    icon: <BsFileMedical className="w-5 h-5" />,
     pathUrl: "/dashboard/order-list",
     pathName: "Order List",
   },
   {
-    icon: <HiOutlineUsers className="w-5 h-5 text-blue-600" />,
+    icon: <HiOutlineUsers className="w-5 h-5" />,
     pathUrl: "/dashboard/customers",
     pathName: "Customers",
   },
   {
-    icon: <BiCategory className="w-5 h-5 text-blue-600" />,
+    icon: <BiCategory className="w-5 h-5" />,
     pathUrl: "/dashboard/category",
     pathName: "Category",
   },
