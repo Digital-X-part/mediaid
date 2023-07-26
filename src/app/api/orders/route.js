@@ -21,10 +21,12 @@ export const POST = async (request) => {
       orderNumber,
       transactionId,
       customerId,
+      quantity,
       orderTime,
       shipTo,
       status,
       amount,
+      orderItems,
     } = body;
 
     // Validate the data before creating the order
@@ -32,10 +34,12 @@ export const POST = async (request) => {
     //   orderNumber,
     //   transactionId,
     //   customerId,
+    //   quantity,
     //   orderTime,
     //   shipTo,
     //   status,
     //   amount,
+    //   orderItems,
     // }).validateSync();
 
     // if (validationError) {
@@ -54,13 +58,15 @@ export const POST = async (request) => {
       orderNumber,
       transactionId,
       customerId,
+      quantity,
       orderTime,
       shipTo,
       status,
       amount,
+      orderItems,
     });
 
-    console.log({body});
+    console.log({ body, order });
 
     await order.save();
 
@@ -80,7 +86,7 @@ export const POST = async (request) => {
         success: false,
         error,
       },
-      { status: 500 }
+      { status: 500 } 
     );
   }
 };
