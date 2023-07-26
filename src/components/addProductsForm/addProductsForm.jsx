@@ -410,7 +410,8 @@ const AddProductsForm = () => {
               <input
                 type="radio"
                 id="active"
-                name="radio-1"
+                {...register("productStatus")}
+                value={'active'}
                 className="radio radio-sm"
               />
               <label htmlFor="active" className="text-neutral-600">
@@ -421,8 +422,9 @@ const AddProductsForm = () => {
               <input
                 type="radio"
                 id="inactive"
-                name="radio-1"
                 className="radio radio-sm"
+                {...register("productStatus")}
+                value={'inactive'}
               />
               <label htmlFor="inactive" className="text-neutral-600">
                 Inactive
@@ -432,8 +434,9 @@ const AddProductsForm = () => {
               <input
                 type="radio"
                 id="starUser"
-                name="radio-1"
+                {...register("productStatus")}
                 className="radio radio-sm"
+                value={'starUser'}
               />
               <label htmlFor="starUser" className="text-neutral-600">
                 Star User

@@ -99,7 +99,7 @@ const ProductListTable = () => {
           <ProductListRow handleEditProduct={handleEditProduct} />
         </tbody>
       </table>
-
+{/* 
       <dialog id={`edit_product_modal_1`} className="modal">
         <div method="dialog" className="modal-box">
           <button
@@ -109,7 +109,7 @@ const ProductListTable = () => {
             ✕
           </button>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
-            {/* register your input into the hook by invoking the "register" function */}
+            
             <div className="flex flex-col">
               <label htmlFor="product_name" className="text-base font-semibold">
                 Product Name:
@@ -300,7 +300,7 @@ const ProductListTable = () => {
             </div>
           </form>
         </div>
-      </dialog>
+      </dialog> */}
     </div>
   );
 };

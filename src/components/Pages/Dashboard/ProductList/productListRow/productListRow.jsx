@@ -8,15 +8,12 @@ import React from "react";
 import { AiOutlineStar, AiTwotoneStar } from "react-icons/ai";
 import Rating from "react-rating";
 import swal from "sweetalert";
+import ProductEditForm from "../productEditForm/productEditForm";
 
-const ProductListRow = ({handleEditProduct}) => {
-  /* const data = await axiosInstance.get("/products");
-  const productsObj = data.data;
-  // console.log(productsObj.products);
-*/
+const ProductListRow = () => {
   const { products, isProductsError, isProductsLoading, mutateProducts } =
     useAllProducts();
-  
+
   const handleDelete = async (id) => {
     const isConfirm = await swal({
       title: "Are you sure?",
@@ -105,12 +102,40 @@ const ProductListRow = ({handleEditProduct}) => {
             >
               details
             </Link>
-            <button
+            <label
+              htmlFor={`${product?._id}`}
               className="btn btn-success btn-xs ml-2 hover:bg-inherit"
-              onClick={() => handleEditProduct(product)}
+            >
+              Edit
+            </label>
+
+            {/* Put this part before </body> tag */}
+            <input
+              type="checkbox"
+              id={`${product?._id}`}
+              className="modal-toggle"
+            />
+            <div className="modal">
+              <div className="modal-box">
+                <label
+                  htmlFor={`${product?._id}`}
+                  className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                >
+                  ✕
+                </label>
+                <ProductEditForm product={product} />
+              </div>
+            </div>
+            {/*  <button
+              className="btn btn-success btn-xs ml-2 hover:bg-inherit"
+              onClick={() => window[product?._id].showModal()}
             >
               Edit
             </button>
+            <dialog id={`${product?._id}`} className="modal">
+              
+              <ProductEditForm product={product} />
+            </dialog> */}
             <button
               onClick={() => handleDelete(product?._id)}
               className="btn btn-error btn-xs ml-2 hover:bg-inherit"
