@@ -9,14 +9,14 @@ import { AiOutlineStar, AiTwotoneStar } from "react-icons/ai";
 import Rating from "react-rating";
 import swal from "sweetalert";
 
-const ProductListRow = () => {
+const ProductListRow = ({handleEditProduct}) => {
   /* const data = await axiosInstance.get("/products");
   const productsObj = data.data;
   // console.log(productsObj.products);
 */
   const { products, isProductsError, isProductsLoading, mutateProducts } =
     useAllProducts();
-
+  
   const handleDelete = async (id) => {
     const isConfirm = await swal({
       title: "Are you sure?",
@@ -105,7 +105,10 @@ const ProductListRow = () => {
             >
               details
             </Link>
-            <button className="btn btn-success btn-xs ml-2 hover:bg-inherit">
+            <button
+              className="btn btn-success btn-xs ml-2 hover:bg-inherit"
+              onClick={() => handleEditProduct(product)}
+            >
               Edit
             </button>
             <button
@@ -115,6 +118,7 @@ const ProductListRow = () => {
               Delete
             </button>
           </th>
+          {/* You can open the modal using method */}
         </tr>
       ))}
     </>
