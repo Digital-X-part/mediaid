@@ -55,7 +55,7 @@ export const POST = async(request)=>{
       endDate,
       sellingType,
       brandName,
-      sku: generateSKU(),
+      sku: generateSKU(productName,category,brandName),
       productAddedBy:'user id'
    })
 

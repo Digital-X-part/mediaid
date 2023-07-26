@@ -56,15 +56,7 @@ const AddProductsForm = () => {
       console.log({ imagesUrls });
 
       // send data to server
-      const data = await axiosInstance.post("products", { ...data, imagesUrls });
-      // const response = await fetch("/api/products", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({ ...data, imagesUrls }),
-      // });
-      // const result = await response.json();
+      const productData  = await axiosInstance.post("products", { ...data, imagesUrls });
       console.log(data);
       swal({
         title: "Success!",
