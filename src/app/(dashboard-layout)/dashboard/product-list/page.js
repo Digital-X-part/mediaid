@@ -1,11 +1,7 @@
-import ProductListRow from "@/components/productListRow/productListRow";
-import axiosInstance from "@/utility/axiosInstance";
+import ProductListTable from "@/components/Pages/Dashboard/ProductList/ProductListTable";
 import Link from "next/link";
 import React from "react";
 const ProductList = async () => {
-  const data = await axiosInstance.get("/products");
-  const productsObj = data.data
-  // console.log(productsObj.products);
   return (
     <div>
       <div className="text-sm breadcrumbs ">
@@ -16,29 +12,7 @@ const ProductList = async () => {
           <li>Add Product</li>
         </ul>
       </div>
-
-      <div className="overflow-x-auto bg-slate-200 ">
-        <table className="table table-zebra table-sm md:table-md lg:tab-lg">
-          {/* head */}
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Product Details</th>
-              <th>Category</th>
-              <th>Price</th>
-              <th>Stock</th>
-              <th>SKU</th>
-              <th>Rating</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {productsObj.products?.map((product, index) => (
-              <ProductListRow product={product} key={product?._id  } index={index} />
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <ProductListTable></ProductListTable>
     </div>
   );
 };

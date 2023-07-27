@@ -4,40 +4,7 @@
 // import React, { useState } from "react";
 // import { GrMenu } from "react-icons/gr";
 // import { HiMoon } from "react-icons/hi";
-// import {
-//   FaRegListAlt,
-//   FaUserCog,
-//   FaUsers,
-//   FaFileAlt,
-//   FaRegEdit,
-// } from "react-icons/fa";
-// const dashboardRouteList = [
-//   {
-//     icon: <FaRegListAlt className="w-4 h-4 md:w-5 md:h-5" />,
-//     pathUrl: "/dashboard/product-list",
-//     pathName: "Product list",
-//   },
-//   {
-//     icon: <FaRegEdit className="w-4 h-4 md:w-5 md:h-5" />,
-//     pathUrl: "/dashboard/add-product",
-//     pathName: "Add Product",
-//   },
-//   {
-//     icon: <FaRegEdit className="w-4 h-4 md:w-5 md:h-5" />,
-//     pathUrl: "/dashboard/order-list",
-//     pathName: "Order List",
-//   },
-//   {
-//     icon: <FaUsers className="w-4 h-4 md:w-5 md:h-5" />,
-//     pathUrl: "/dashboard/customers",
-//     pathName: "Customers",
-//   },
-//   {
-//     icon: <FaUserCog className="w-4 h-4 md:w-5 md:h-5" />,
-//     pathUrl: "/dashboard/category",
-//     pathName: "Category",
-//   },
-// ];
+
 
 // const Layout = ({ children }) => {
 //   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -133,9 +100,44 @@
 // export default Layout;
 "use client";
 import DashboardSideBar from "@/components/Shared/DashboardSideBar/DashboardSideBar";
-import TopNavbar from "@/components/Shared/Navbar/TestNavbar";
+import DashboardNavbar from "@/components/Shared/Navbar/DashboardNavbar";
 import React from "react";
 import { useState } from "react";
+import { BiCategory } from "react-icons/bi";
+import { BsFileMedical } from "react-icons/bs";
+import {
+  FaRegListAlt,
+  FaRegEdit,
+} from "react-icons/fa";
+import { HiOutlineUsers } from "react-icons/hi";
+const dashboardRouteList = [
+  {
+    icon: <FaRegListAlt className="w-5 h-5" />,
+    pathUrl: "/dashboard/product-list",
+    pathName: "Product list",
+  },
+  {
+    icon: <FaRegEdit className="w-5 h-5" />,
+    pathUrl: "/dashboard/add-product",
+    pathName: "Add Product",
+  },
+  {
+    icon: <BsFileMedical className="w-5 h-5" />,
+    pathUrl: "/dashboard/order-list",
+    pathName: "Order List",
+  },
+  {
+    icon: <HiOutlineUsers className="w-5 h-5" />,
+    pathUrl: "/dashboard/customers",
+    pathName: "Customers",
+  },
+  {
+    icon: <BiCategory className="w-5 h-5" />,
+    pathUrl: "/dashboard/category",
+    pathName: "Category",
+  },
+];
+
 
 const DashboardLayout = ({ children }) => {
   const [isDashboardSideBarExtends, setIsDashboardSideBarExtends] =
@@ -143,9 +145,10 @@ const DashboardLayout = ({ children }) => {
 
   return (
     <div>
-      <TopNavbar
+      <DashboardNavbar
         isDashboardSideBarExtends={isDashboardSideBarExtends}
         setIsDashboardSideBarExtends={setIsDashboardSideBarExtends}
+        dashboardRouteList={dashboardRouteList}
       />
       <div className="mt-[72px] lg:grid lg:grid-cols-12">
         <div
@@ -155,6 +158,7 @@ const DashboardLayout = ({ children }) => {
           } `}>
           <DashboardSideBar
             isDashboardSideBarExtends={isDashboardSideBarExtends}
+            dashboardRouteList={dashboardRouteList}
           />
         </div>
         <div className={` ${isDashboardSideBarExtends ? "lg:col-start-3 lg:col-end-13"
