@@ -18,6 +18,8 @@ const AddProductsForm = () => {
     formState: { errors },
     reset,
   } = useForm();
+
+  // make a function that will ready images to showing on client
   const uploadToClient = async (event) => {
     const files = event.target.files;
 

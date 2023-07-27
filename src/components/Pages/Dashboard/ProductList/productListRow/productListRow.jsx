@@ -126,16 +126,7 @@ const ProductListRow = () => {
                 <ProductEditForm product={product} />
               </div>
             </div>
-            {/*  <button
-              className="btn btn-success btn-xs ml-2 hover:bg-inherit"
-              onClick={() => window[product?._id].showModal()}
-            >
-              Edit
-            </button>
-            <dialog id={`${product?._id}`} className="modal">
-              
-              <ProductEditForm product={product} />
-            </dialog> */}
+           
             <button
               onClick={() => handleDelete(product?._id)}
               className="btn btn-error btn-xs ml-2 hover:bg-inherit"
