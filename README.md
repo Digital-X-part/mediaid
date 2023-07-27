@@ -32,18 +32,35 @@ The project follows a specific folder structure. Please follow the guidelines me
 
 Once you have cloned the repository, navigate to the project's root directory and follow the steps below:
 
+1. Install dependencies by running the following command:
 ```bash
 npm install
-# then
+2. Start the development server with the command:
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-You can start editing the page by modifying `components/shared` or `components/pages/Home`. If you need create components for home page you can create in `components/pages/Home` folder for only home page components. If you need create any pages in this projects. You can create `components/pages` folder. And set route `app/(main-layout)` group.
 
-## Where you push code? 
-First of all, you create a branch in this repo following your own name. After your successfully complete clone code then you need to switch your branch and then push your code. After complete your distribute task and push then you create pull request in your branch to stage branch.
+## Pushing Code
 
-### for any query feel free to knock me `Nahid Ahmed` in Discord or whatsapp.
+When you are ready to push your changes, follow these steps:
+
+1. Create a new branch with a descriptive name related to your task or feature:
+```bash
+git checkout -b your-branch-name
+
+2. Commit your changes to the new branch.
+
+3. Push your branch to the repository:
+```bash
+git push origin your-branch-name
+
+4. Create a pull request from your branch to the stage branch on the repository.
+
+
+Additional Notes
+- Avoid customizing the src/app folder to prevent compatibility issues with Next.js.
+- For any queries or assistance, feel free to contact Nahid Ahmed on Discord or WhatsApp.
+
 # mediaid team
