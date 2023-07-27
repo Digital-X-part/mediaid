@@ -23,10 +23,10 @@ export const PATCH = async (request, { params }) => {
   try {
     const userId = params.id;
     const body = await request.json();
-    const update = await UpdateUser.findOneAndUpdate({ _id: userId }, body);
-    console.log({ update });
+    const update = await UpdateUser.findByIdAndUpdate(userId, body);
+    console.log({ update, body, userId });
     return NextResponse.json({ update }, { status: 200 });
   } catch (error) {
-    NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 };
