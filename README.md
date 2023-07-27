@@ -16,11 +16,11 @@ Before you begin, ensure you have the following installed on your system:
 Clone the project repository from the main branch using the following command:
 
 ```bash
-git clone <[repository_url](https://github.com/Digital-X-part/mediaid.git)>
-
-
+git clone https://github.com/Digital-X-part/mediaid.git
+```
 
 ## Project Structure
+
 The project follows a specific folder structure. Please follow the guidelines mentioned below to ensure smooth development.
 
 - src/app: Please avoid customizing anything in this folder, as Next.js is sensitive to changes here. You can create new routes in this folder if needed.
@@ -28,17 +28,19 @@ The project follows a specific folder structure. Please follow the guidelines me
 - components/pages/Home: If you need to create components specific to the Home page, create them in this folder.
 - components/pages: To add new pages to the project, create components in this folder. Remember to set the routes within app/(main-layout) group.
 
-
-
 ## Getting Started
 
 Once you have cloned the repository, navigate to the project's root directory and follow the steps below:
 
 1. Install dependencies by running the following command:
+
 ```bash
 npm install
+```
 
 2. Start the development server with the command:
+
+```bash
 npm run dev
 ```
 
@@ -52,18 +54,29 @@ When you are ready to push your changes, follow these steps:
 
 ```bash
 git checkout -b your-branch-name
+```
 
-1. Commit your changes to the new branch.
+2. Commit your changes to the new branch.
 
-2. Push your branch to the repository:
+3. Push your branch to the repository:
+
 ```bash
 git push origin your-branch-name
+```
 
-1. Create a pull request from your branch to the stage branch on the repository.
+4. Create a pull request from your branch to the stage branch on the repository.
 
+## Additional Notes
 
-Additional Notes
 - Avoid customizing the src/app folder to prevent compatibility issues with Next.js.
 - For any queries or assistance, feel free to contact Nahid Ahmed on Discord or WhatsApp.
+- Write modular code for better understanding and optimization.
 
-# mediaid team
+## Team Members
+
+Syed Mir Habib () - Discord: @syedmirhabib
+Nahid Ahmed () - Discord: @nahidahmed
+Bulbul Ahmed () - Discord: @bulbul_ahmed10
+Delwer Hossain () - Discord: @delwerhossain
+Eshrak  () - Discord: @.eshrak
+ND Morsalin  () - Discord: @ndmorsalin
