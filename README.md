@@ -74,9 +74,9 @@ git push origin your-branch-name
 
 ## Team Members
 
-Syed Mir Habib () - Discord: @syedmirhabib
-Nahid Ahmed () - Discord: @nahidahmed
-Bulbul Ahmed () - Discord: @bulbul_ahmed10
-Delwer Hossain () - Discord: @delwerhossain
-Eshrak  () - Discord: @.eshrak
-ND Morsalin  () - Discord: @ndmorsalin
+- [Syed Mir Habib](https://discord.com/users/syedmirhabib) - Discord: @syedmirhabib
+- [Nahid Ahmed](https://discord.com/users/nahidahmed) - Discord: @nahidahmed
+- [Bulbul Ahmed](https://discord.com/users/bulbul_ahmed10) - Discord: @bulbul_ahmed10
+- [Delwer Hossain](https://discord.com/users/delwerhossain) - Discord: @delwerhossain
+- [Eshrak](https://discord.com/users/eshrak) - Discord: @.eshrak
+- [ND Morsalin](https://discord.com/users/ndmorsalin) - Discord: @ndmorsalin
