@@ -1,14 +1,16 @@
 import userimg from "../../../assests/userprofile.png";
 import Image from "next/image";
-import { FaBookmark, FaShoppingCart, FaUserAlt } from "react-icons/fa";
-import "./dashbord.css";
+import { FaShoppingCart, FaUserAlt } from "react-icons/fa";
 import { MdLock } from "react-icons/md";
 import { AiFillStar, AiOutlineTransaction } from "react-icons/ai";
+import { IoMdBookmarks, IoMdWallet } from "react-icons/io";
+import { RiLogoutBoxRLine } from "react-icons/ri";
+import { GiSelfLove } from "react-icons/Gi";
 
 const UserDashBoard = () => {
   const cardData = [
     {
-      icon: <FaShoppingCart color="blue" />,
+      icon: <FaShoppingCart color="blue" size={20} />,
       title: "Orders",
     },
     {
@@ -16,28 +18,29 @@ const UserDashBoard = () => {
       title: "Edit Profile",
     },
     {
-      icon: <MdLock color="blue" />,
+      icon: <MdLock color="blue" size={22} />,
       title: "Password ",
     },
     {
-      icon: <FaBookmark color="blue" />, //IoMdBookmarks
+      icon: <IoMdBookmarks color="blue" size={22} />, //IoMdBookmarks
       title: "Addresses",
     },
     {
-      icon: <FaShoppingCart color="blue" />, // GiEternalLove
+      icon: <GiSelfLove color="blue" size={22} />, // GiEternalLove
       title: "Whish list",
     },
+  
     {
-      icon: <FaBookmark color="blue" />, // FaComputer
-      title: "Saved Pc",
-    },
-    {
-      icon: <AiFillStar color="blue" />,
+      icon: <AiFillStar color="blue" size={22} />,
       title: "Start Points",
     },
     {
-      icon: <AiOutlineTransaction color="blue" />,
+      icon: <IoMdWallet color="blue" size={22} />,
       title: "Transactions",
+    },
+    {
+      icon: <RiLogoutBoxRLine color="blue" size={22} />, // FaComputer
+      title: "Log Out",
     },
     // Add more card data objects here
   ];
@@ -69,7 +72,7 @@ const UserDashBoard = () => {
         {cardData.map((card, index) => (
        <div
        key={index}
-       className="group py-2 px-2 md:py-10 md:px-5 flex flex-col items-center justify-center user-card border border-transparent hover:border-blue-800 shadow-lg transition-all duration-400"
+       className="group py-2 px-2 md:py-10 md:px-5 flex flex-col items-center justify-center  border rounded-md  hover:border-blue-800 shadow-lg transition-all duration-300"
      >
        <span className="w-11 h-11 rounded-full bg-[#EBEDF8] flex items-center justify-center mb-2">
          {card.icon}
