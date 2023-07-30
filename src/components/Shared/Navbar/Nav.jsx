@@ -5,7 +5,7 @@ import Link from "next/link";
 import { CiLocationOn } from "react-icons/ci";
 import { IconContext } from "react-icons";
 import { BsCartPlus } from "react-icons/bs";
-import Login from "@/components/Pages/Login&up/Login/login";
+import Login from "@/components/Pages/Login&up/DekstopLogin/login";
 
 const Nav = ({ setIsCartClicked }) => {
   return (
