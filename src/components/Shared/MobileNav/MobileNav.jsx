@@ -1,4 +1,6 @@
+import MobileModal from "@/components/Pages/Login&up/MobileModal/mobileModal";
 import SearchBar from "@/components/Shared/SearchBar/SearchBar";
+import { set } from "mongoose";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -11,6 +13,7 @@ import { FiMenu } from "react-icons/fi";
 
 const MobileNav = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
   const toggleMenu = () => {
     setIsOpenMenu(!isOpenMenu);
   };
@@ -58,22 +61,37 @@ const MobileNav = () => {
             </IconContext.Provider>
           </div>
           {/* account login */}
-          <div className="px-3 py-1 rounded-xl bg-slate-100 hidden md:inline-block">
-            <IconContext.Provider value={{ size: "1.5em" }}>
-              <BsPersonCircle className="text-slate-500" />
-            </IconContext.Provider>
-          </div>
+          <button
+            onClick={() => {
+              setLoginModalOpen(!loginModalOpen);
+            }}
+            className="px-3 py-1 md:hidden rounded-xl bg-slate-100 "
+          >
+            <p>Login</p>
+          </button>
         </div>
       </div>
+      {/* search bar */}
       <div>
         <SearchBar toggleMenu={toggleMenu} />
       </div>
+      {/* login modal */}
+      {loginModalOpen && (
+        <div className="fixed h-screen w-full z-[100] md:hidden">
+          <label
+            onClick={() => {setLoginModalOpen(!loginModalOpen)}}
+            className="fixed h-screen z-[59] top-0  w-full bg-black bg-opacity-30 lg:hidden"
+          ></label>
+          <MobileModal></MobileModal>
+        </div>
+      )}
       {/* drawer for mobile devices */}
       {isOpenMenu && (
         <>
           <label
             onClick={toggleMenu}
-            className="fixed h-screen z-[59] top-0  w-full bg-black bg-opacity-20 lg:hidden"></label>
+            className="fixed h-screen z-[59] top-0  w-full bg-black bg-opacity-20 lg:hidden"
+          ></label>
           {/* mobile sidebar */}
           <div className="fixed h-screen z-[60] -top-1 left-0 w-fit bg-white duration-200 lg:hidden ">
             <div className="w-full h-fit p-3 bg-slate-100">
@@ -91,7 +109,8 @@ const MobileNav = () => {
                     src="https://i.ibb.co/drbWhjJ/ey-Jid-WNr-ZXQi-Oi-Jhcm9n-Z2-Ei-LCJr-ZXki-Oi-Jj-YXRl-Z29ye-Vwv-MTMuc-G5n-Iiwi-ZWRpd-HMi-Oltdf-Q.png"
                     alt="icon1"
                     width={25}
-                    height={25}></Image>
+                    height={25}
+                  ></Image>
                   <p className="text-sm">Covid-19 Special</p>
                 </li>
                 <li className="flex gap-2 items-center cursor-pointer px-3 py-2 rounded hover:bg-slate-100">
@@ -99,7 +118,8 @@ const MobileNav = () => {
                     src="https://i.ibb.co/HPLZFGf/ey-Jid-WNr-ZXQi-Oi-Jhcm9n-Z2-Ei-LCJr-ZXki-Oi-Jj-YXRl-Z29ye-Vwv-MTQuc-G5n-Iiwi-ZWRpd-HMi-Oltdf-Q.png"
                     alt="icon2"
                     width={25}
-                    height={25}></Image>
+                    height={25}
+                  ></Image>
                   <p className="text-sm">Devices</p>
                 </li>
                 <li className="flex gap-2 items-center cursor-pointer px-3 py-2 rounded hover:bg-slate-100">
@@ -107,7 +127,8 @@ const MobileNav = () => {
                     src="https://i.ibb.co/gSM5dGM/ey-Jid-WNr-ZXQi-Oi-Jhcm9n-Z2-Ei-LCJr-ZXki-Oi-Jj-YXRl-Z29ye-Vwv-MTcuc-G5n-Iiwi-ZWRpd-HMi-Oltdf-Q.png"
                     alt="icon2"
                     width={25}
-                    height={25}></Image>
+                    height={25}
+                  ></Image>
                   <p className="text-sm">Personal Care</p>
                 </li>
                 <li className="flex gap-2 items-center cursor-pointer px-3 py-2 rounded hover:bg-slate-100">
@@ -115,7 +136,8 @@ const MobileNav = () => {
                     src="https://i.ibb.co/drbWhjJ/ey-Jid-WNr-ZXQi-Oi-Jhcm9n-Z2-Ei-LCJr-ZXki-Oi-Jj-YXRl-Z29ye-Vwv-MTMuc-G5n-Iiwi-ZWRpd-HMi-Oltdf-Q.png"
                     alt="icon1"
                     width={25}
-                    height={25}></Image>
+                    height={25}
+                  ></Image>
                   <p className="text-sm">Covid-19 Special</p>
                 </li>
                 <li className="flex gap-2 items-center cursor-pointer px-3 py-2 rounded hover:bg-slate-100">
@@ -123,7 +145,8 @@ const MobileNav = () => {
                     src="https://i.ibb.co/HPLZFGf/ey-Jid-WNr-ZXQi-Oi-Jhcm9n-Z2-Ei-LCJr-ZXki-Oi-Jj-YXRl-Z29ye-Vwv-MTQuc-G5n-Iiwi-ZWRpd-HMi-Oltdf-Q.png"
                     alt="icon2"
                     width={25}
-                    height={25}></Image>
+                    height={25}
+                  ></Image>
                   <p className="text-sm">Devices</p>
                 </li>
                 <li className="flex gap-2 items-center cursor-pointer px-3 py-2 rounded hover:bg-slate-100">
@@ -131,7 +154,8 @@ const MobileNav = () => {
                     src="https://i.ibb.co/gSM5dGM/ey-Jid-WNr-ZXQi-Oi-Jhcm9n-Z2-Ei-LCJr-ZXki-Oi-Jj-YXRl-Z29ye-Vwv-MTcuc-G5n-Iiwi-ZWRpd-HMi-Oltdf-Q.png"
                     alt="icon2"
                     width={25}
-                    height={25}></Image>
+                    height={25}
+                  ></Image>
                   <p className="text-sm">Personal Care</p>
                 </li>
                 <li className="flex gap-2 items-center cursor-pointer px-3 py-2 rounded hover:bg-slate-100">
@@ -139,7 +163,8 @@ const MobileNav = () => {
                     src="https://i.ibb.co/drbWhjJ/ey-Jid-WNr-ZXQi-Oi-Jhcm9n-Z2-Ei-LCJr-ZXki-Oi-Jj-YXRl-Z29ye-Vwv-MTMuc-G5n-Iiwi-ZWRpd-HMi-Oltdf-Q.png"
                     alt="icon1"
                     width={25}
-                    height={25}></Image>
+                    height={25}
+                  ></Image>
                   <p className="text-sm">Covid-19 Special</p>
                 </li>
                 <li className="flex gap-2 items-center cursor-pointer px-3 py-2 rounded hover:bg-slate-100">
@@ -147,7 +172,8 @@ const MobileNav = () => {
                     src="https://i.ibb.co/HPLZFGf/ey-Jid-WNr-ZXQi-Oi-Jhcm9n-Z2-Ei-LCJr-ZXki-Oi-Jj-YXRl-Z29ye-Vwv-MTQuc-G5n-Iiwi-ZWRpd-HMi-Oltdf-Q.png"
                     alt="icon2"
                     width={25}
-                    height={25}></Image>
+                    height={25}
+                  ></Image>
                   <p className="text-sm">Devices</p>
                 </li>
                 <li className="flex gap-2 items-center cursor-pointer px-3 py-2 rounded hover:bg-slate-100">
@@ -155,7 +181,8 @@ const MobileNav = () => {
                     src="https://i.ibb.co/gSM5dGM/ey-Jid-WNr-ZXQi-Oi-Jhcm9n-Z2-Ei-LCJr-ZXki-Oi-Jj-YXRl-Z29ye-Vwv-MTcuc-G5n-Iiwi-ZWRpd-HMi-Oltdf-Q.png"
                     alt="icon2"
                     width={25}
-                    height={25}></Image>
+                    height={25}
+                  ></Image>
                   <p className="text-sm">Personal Care</p>
                 </li>
               </ul>
