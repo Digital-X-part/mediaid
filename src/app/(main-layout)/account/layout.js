@@ -1,10 +1,9 @@
-import DashBoardSidebar from "@/components/DashBoardSidebar/DashBoardSidebar";
-import React from "react";
+import DashboardSideBar from "@/components/Shared/DashboardSideBar/DashboardSideBar";
 
 const DashBoardLayout = ({ children }) => {
   return (
     <section className="flex gap-4">
-      <DashBoardSidebar />
+      <DashboardSideBar />
       <div>{children}</div>
     </section>
   );

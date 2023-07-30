@@ -9,7 +9,7 @@ import swal from "sweetalert";
 // todo track loading state through swr
 const ProductEditForm = ({ product }) => {
   const { mutateProducts } = useAllProducts();
-  const [sellingType, setSellingType] = useState("flash sale");
+  const [sellingType, setSellingType] = useState(product?.sellingType||"flash sale");
   const {
     handleSubmit,
     register,
@@ -252,6 +252,7 @@ const ProductEditForm = ({ product }) => {
                 id="sellingType"
                 {...register("sellingType")}
                 onChange={(e) => setSellingType(e.target.value)}
+                defaultValue={product?.sellingType}
                 className="select select-bordered w-full max-w-xs mt-2"
               >
                 <option disabled>Select one type</option>
