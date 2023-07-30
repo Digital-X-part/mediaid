@@ -3,19 +3,18 @@ import { Schema, model, models } from "mongoose";
 const addressSchema = new Schema({
   district: {
     type: String,
-    required: true,
   },
   area: {
     type: String,
-    required: true,
   },
   location: {
     type: String,
-    required: true,
   },
   addressType: {
     type: String,
-    required: true,
+  },
+  number: {
+    type: Number,
   },
 });
 
@@ -53,3 +52,37 @@ const userSchema = new Schema({
 });
 
 export const User = models?.User || model("User", userSchema);
+
+// update for user  schema
+
+const updateSchema = new Schema({
+  fullName: {
+    type: String,
+  },
+  phone: {
+    type: Number,
+  },
+  email: {
+    type: String,
+    unique: true,
+  },
+  photo: {
+    type: String,
+  },
+  password: {
+    type: String,
+    minlength: 8,
+    maxlength: 255,
+  },
+  role: {
+    type: String,
+    default: "user",
+  },
+  rewardPoints: {
+    type: Number,
+    default: 0,
+  },
+  addresses: [addressSchema], // Use an array for multiple addresses
+});
+
+export const UpdateUser = models?.User || model("User", updateSchema);

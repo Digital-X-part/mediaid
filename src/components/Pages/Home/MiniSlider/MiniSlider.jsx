@@ -88,10 +88,9 @@ export default function App() {
             <Image
               src={singleCategory.imgUrl}
               alt="Image 1"
-              layout="responsive"
-              width={500}
-              height={500}
-              className="object-contain"
+              width={115}
+              height={63}
+              className="object-cover w-[115px] h-[63px]"
             />
             <p className="text-xs md:text-sm text-center font-medium text-neutral-600">
               {singleCategory.categoryTitle}
