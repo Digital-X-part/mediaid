@@ -4,12 +4,16 @@ import AbsoluteCartDetails from "@/components/Shared/AbsoluteCartDetails/Absolut
 import Footer from "@/components/Shared/Footer/Footer";
 import BottomNavbar from "@/components/Shared/Navbar/BottomNavbar";
 import MainNavbar from "@/components/Shared/Navbar/MainNavbar";
+import ShippingAddressModal from "@/components/Shared/ShippingAddressModal/ShippingAddressModal";
+
 import Sidebar from "@/components/Shared/Sidebar/Sidebar";
+
 import { useState } from "react";
 
 const MainLayout = ({ children }) => {
   const [isCartClicked, setIsCartClicked] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [isUserAddressModalOpen, setIsUserAddressModalOpen] = useState(false);
   const handleSidebarOpen = () => {
     setSidebarOpen(!sidebarOpen);
   };
@@ -18,7 +22,11 @@ const MainLayout = ({ children }) => {
   };
   return (
     <div>
-      <MainNavbar handleSidebarOpen={handleSidebarOpen} />
+      <MainNavbar
+        setIsCartClicked={setIsCartClicked}
+        handleSidebarOpen={handleSidebarOpen}
+      />
+           <ShippingAddressModal />
       {/* bottom navbar only visible for mobile devices */}
       <BottomNavbar></BottomNavbar>
       {isCartClicked === false && (
@@ -30,9 +38,15 @@ const MainLayout = ({ children }) => {
       )}
       {isCartClicked && (
         <div className="right-0 fixed mr-2 z-50 top-10 ">
-          <AbsoluteCartDetails setIsCartClicked={setIsCartClicked} />
+          <AbsoluteCartDetails
+            setIsUserAddressModalOpen={setIsUserAddressModalOpen}
+            setIsCartClicked={setIsCartClicked}
+          />
         </div>
       )}
+
+ 
+
       <div className="lg:grid lg:grid-cols-12">
         <div
           className={`${
