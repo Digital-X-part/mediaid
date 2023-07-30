@@ -32,6 +32,7 @@ export const POST = async(request)=>{
          basePrice,
          startDate,
          endDate,
+         productStatus,
          finalPrice,
          imagesUrls,
       
@@ -53,6 +54,7 @@ export const POST = async(request)=>{
       highlights: highlights.split(','),
       startDate,
       endDate,
+      productStatus,
       sellingType,
       brandName,
       sku: generateSKU(productName,category,brandName),
