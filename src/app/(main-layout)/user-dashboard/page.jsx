@@ -112,38 +112,43 @@ const UserDashBoard = () => {
           ))}
         </div>
       </div>
+
+     {/* ........... My whish list..............  */}
+
       <div>
         <div>
-          {/* head */}
-
           <>
             {cart.map((item, index) => (
               <div key={item._id}>
                 <div className="flex flex-col md:flex-row justify-between  items-center p-5 mb-4 border rounded-md  hover:border-gray-200 hover:shadow-lg transition-all duration-300  ">
                   {/* Image and Item name with stock */}
-                  <div className="flex items-center">
+                  <div className="flex items-center mr-5">
                     <div>
                       <Image
                         src={item.image}
                         alt=""
                         width={40}
                         height={40}
-                        className="mr-5"
+                        className="mr-16 md:mr-5"
                       />
                     </div>
                     <div className="pr-14">
-                      <h1 className="text-xl">{item.name}</h1>
-                      <h3 className="text-lg">{item.stock}</h3>
+                      <h1 className="md:text-xl">{item.name}</h1>
+                      <h3 className="text-xs md:text-lg">{item.stock}</h3>
                     </div>
                   </div>
 
                   {/* Amount and Action part  */}
-                  <div className="flex items-center ">
+                  <div className="flex items-center justify-between ">
                     <div className="pr-8">
-                      <p className="text-2xl text-orange-700 font-semibold">৳{item.price}</p>
+                      <p className="text-2xl text-orange-700 font-semibold">
+                        ৳{item.price}
+                      </p>
                     </div>
                     <div className="flex items-center">
-                      <button className="mr-5 inline-block px-5 h-11 font-semibold text-lg rounded text-center border border-blue-800 shadow-lg transition-all duration-300 bg-blue-800 text-white ">Buy</button>
+                      <button className="mr-5 inline-block px-5 h-11 font-semibold text-lg rounded text-center border border-blue-800 shadow-lg transition-all duration-300 bg-blue-800 text-white ">
+                        Buy
+                      </button>
                       <FaTrash></FaTrash>
                     </div>
                   </div>
@@ -152,6 +157,10 @@ const UserDashBoard = () => {
             ))}
           </>
         </div>
+      </div>
+      {/* .......... My Account ...........  */}
+      <div>
+      <input type="text" placeholder="Type here" className="input input-bordered w-full " />
       </div>
     </>
   );
