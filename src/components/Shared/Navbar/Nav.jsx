@@ -6,6 +6,7 @@ import { CiLocationOn } from "react-icons/ci";
 import { IconContext } from "react-icons";
 import { BiCartAdd } from "react-icons/bi";
 import { BsCartPlus } from "react-icons/bs";
+import Login from "@/components/Pages/Login&up/Login/login";
 
 const Nav = () => {
   return (
@@ -40,13 +41,14 @@ const Nav = () => {
         <SearchBar />
       </div>
       <div className="col-span-3 flex gap-4 justify-center items-center">
-        <Link
-          href="/account"
+        <button
+          onClick={() => {window.login_modal_1.showModal()}}
           className="cursor-pointer hover:outline rounded-sm outline-teal-400 p-[2px] ">
+
           <p className="font-semibold text-sm text-slate-600">Hello, Bulbul</p>
 
           <p className="font-bold text-base text-teal-500">Account & Lists</p>
-        </Link>
+        </button>
         <Link
           href="/account/my-orders"
           className=" cursor-pointer hover:outline rounded-sm outline-teal-400 p-[2px] ">
@@ -66,6 +68,7 @@ const Nav = () => {
           <p className="font-bold text-base text-teal-500 -mb-1">Cart</p>
         </Link>
       </div>
+      <Login></Login>
     </div>
   );
 };
