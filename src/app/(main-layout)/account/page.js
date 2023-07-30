@@ -26,7 +26,7 @@ const UserDashBoard = () => {
     },
     {
       icon: <GiSelfLove color="blue" size={22} />, // GiEternalLove
-      title: "Whish list",
+      title: "Wish list",
       href: "/wishlist",
     },
 

@@ -8,6 +8,8 @@ import { TbCurrencyTaka } from "react-icons/tb";
 import { CgMenuMotion } from "react-icons/cg";
 import { BsThreeDots } from "react-icons/bs";
 import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
 
 const orderStatusArray = [
   {
@@ -66,7 +68,13 @@ const OrderList = () => {
     setActionButtonListOpen(id);
   };
 
-  
+  useEffect(() => {
+    fetch("http://localhost:3000/api/orders")
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }, []);
+
+
   return (
     <div>
       <div className="text-sm breadcrumbs ">
@@ -130,7 +138,7 @@ const OrderList = () => {
                     </div>
                   </td>
                 )}
-                
+
                 {orderStatus.status === "processing" && (
                   <td>
                     <div className="flex items-center gap-1 bg-[#d5e5fa] text-[#1c4f93] rounded-lg tracking-wide px-2 py-1 font-bold">
