@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FiSearch } from "react-icons/fi";
 import { BiSolidDownArrow } from "react-icons/bi";
+import Image from "next/image";
 import { CiCircleRemove } from "react-icons/ci";
+import { MdMenuOpen } from "react-icons/md";
 import { IconContext } from "react-icons";
-import { Image } from "next/image";
+import { FaBars } from "react-icons/fa";
 
 const dropDownCategoryLists = [
   "arts & crafts",
@@ -24,7 +26,6 @@ const dropDownCategoryLists = [
   "luggage",
   "movies & tV",
 ];
-
 const SearchBar = () => {
   const [selectedCategory, setSelectedCategory] = useState({
     selectedCategoryName: "All departments",
@@ -50,7 +51,6 @@ const SearchBar = () => {
       isSelectedCategory: true,
     });
   };
-
   useEffect(() => {
     if (
       selectedCategory.isSelectedCategory &&
@@ -62,17 +62,15 @@ const SearchBar = () => {
     selectedCategory.isSelectedCategory,
     selectedCategory.selectedCategoryName,
   ]);
-
   const handleInputFocus = () => {
     setIsSearchList(true);
   };
-
   const handleInputBlur = () => {
     setIsSearchList(false);
   };
 
   return (
-    <div className="mt-4 rounded-sm outline-transparent relative mb-1 lg:mb-0">
+    <div className="mt-4 rounded-sm outline-transparent relative mb-1 lg:mb-0 ">
       <div className="flex items-center justify-between mx-1 my-2 rounded-md border-2 border-gray-600 border-opacity-70">
         {/* //! /////////////// Mobile Search bar ///////////////// */}
         <div className="dropdown md:hidden">
@@ -84,9 +82,9 @@ const SearchBar = () => {
               })
             }
             tabIndex={0}
-            className="flex items-center py-2 px-2 cursor-pointer bg-red-200 w-full md:w-52"
+            className="flex items-center py-2 px-2 cursor-pointer gap-1 bg-red-200"
           >
-            <p className="cursor-pointer capitalize text-sm text-center truncate flex-1">
+            <p className="cursor-pointer capitalize text-sm text-center w-[50px] truncate ">
               {selectedCategory.selectedCategoryName}
             </p>
             <BiSolidDownArrow size={10} />
@@ -94,7 +92,7 @@ const SearchBar = () => {
           {selectedCategory.isSelectedCategory === false && (
             <ul
               tabIndex={0}
-              className="dropdown-content z-50 bg-white w-full md:w-52 shadow-2xl"
+              className="dropdown-content z-50 bg-white w-52 shadow-2xl"
             >
               {dropDownCategoryLists.map((list) => (
                 <li
@@ -108,7 +106,6 @@ const SearchBar = () => {
             </ul>
           )}
         </div>
-
         {/* //! /////////////// tablet and desktop Search bar ///////////////// */}
 
         <div className="dropdown hidden md:block">
@@ -153,7 +150,7 @@ const SearchBar = () => {
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
         />
-        <div className="px-1 py-2 sm:px-3 cursor-pointer bg-yellow-400">
+        <div className="px-3 py-2 cursor-pointer bg-yellow-400">
           <FiSearch size={20} />
         </div>
       </div>
@@ -185,5 +182,4 @@ const SearchBar = () => {
     </div>
   );
 };
-
 export default SearchBar;
