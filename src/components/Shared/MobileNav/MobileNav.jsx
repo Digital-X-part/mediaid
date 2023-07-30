@@ -1,3 +1,5 @@
+"use client"
+import MobileEmailLogin from "@/components/Pages/Login&up/EmailLogin/mobileEmailLogin/mobileEmailLogin";
 import MobileModal from "@/components/Pages/Login&up/MobileModal/mobileModal";
 import SearchBar from "@/components/Shared/SearchBar/SearchBar";
 import { set } from "mongoose";
@@ -13,10 +15,17 @@ import { FiMenu } from "react-icons/fi";
 
 const MobileNav = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [emailLoginModalOpen, setEmailLoginModalOpen] = useState(false);
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const toggleMenu = () => {
     setIsOpenMenu(!isOpenMenu);
   };
+  const toggleLoginModal = () => {
+    setLoginModalOpen(!loginModalOpen);
+  }
+  const toggleEmailLoginModal = () => {
+    setEmailLoginModalOpen(!emailLoginModalOpen);
+  }
   return (
     <div>
       <div className="flex justify-between items-center px-3 lg:px-0 pt-3 ">
@@ -62,9 +71,7 @@ const MobileNav = () => {
           </div>
           {/* account login */}
           <button
-            onClick={() => {
-              setLoginModalOpen(!loginModalOpen);
-            }}
+            onClick={toggleLoginModal}
             className="px-3 py-1 md:hidden rounded-xl bg-slate-100 "
           >
             <p>Login</p>
@@ -82,9 +89,19 @@ const MobileNav = () => {
             onClick={() => {setLoginModalOpen(!loginModalOpen)}}
             className="fixed h-screen z-[59] top-0  w-full bg-black bg-opacity-30 lg:hidden"
           ></label>
-          <MobileModal></MobileModal>
+          <MobileModal toggleLoginModal={toggleLoginModal} toggleEmailLoginModal={toggleEmailLoginModal}></MobileModal>
         </div>
       )}
+      {/* Email login modal */}
+      {
+        emailLoginModalOpen && <div className="fixed h-screen w-full z-[100] md:hidden">
+        <label
+          onClick={toggleEmailLoginModal}
+          className="fixed h-screen z-[59] top-0  w-full bg-black bg-opacity-30 lg:hidden"
+        ></label>
+        <MobileEmailLogin toggleEmailLoginModal={toggleEmailLoginModal}></MobileEmailLogin>
+      </div>
+      }
       {/* drawer for mobile devices */}
       {isOpenMenu && (
         <>
