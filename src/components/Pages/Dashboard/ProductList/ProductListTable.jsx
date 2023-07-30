@@ -77,7 +77,6 @@ const ProductListTable = () => {
       category: productCategory,
       subCategory: productSubCategory
     }
-    console.log(updatedProduct)
   };
   return (
     <div className="overflow-x-auto bg-slate-200 ">
