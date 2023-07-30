@@ -22,7 +22,7 @@ const BottomNavbar = () => {
     {
       icon: <BsPerson className="w-[18px] text-slate-600" />,
       label: "My Account",
-      link: "/dashboard",
+      link: "/",
     },
   ];
 
@@ -31,10 +31,10 @@ const BottomNavbar = () => {
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="w-full md:hidden py-2 px-8 z-[100] bg-slate-200 fixed bottom-0 flex items-center justify-between"
+      className="w-full md:hidden py-2 px-8 z-[80] bg-slate-200 fixed bottom-0 flex items-center justify-between"
     >
       {navItems.map((item, index) => (
-        <Link key={index} href={item.link}>
+        <Link key={index} href={item?.link}>
           <motion.div
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
