@@ -7,7 +7,8 @@ import { AiOutlineStop } from "react-icons/ai";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { CgMenuMotion } from "react-icons/cg";
 import { BsThreeDots } from "react-icons/bs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axiosInstance from "@/utility/axiosInstance";
 
 const orderStatusArray = [
   {
@@ -62,11 +63,20 @@ const orderStatusArray = [
 
 const OrderList = () => {
   const [actionButtonListOpen, setActionButtonListOpen] = useState("");
+  const [listOpen, setListOpen] = useState([]);
   const actionHandleButton = (id) => {
     setActionButtonListOpen(id);
   };
-
-  
+  const order = async () => {
+    const res = await axiosInstance.get("/orders");
+    setListOpen(res.data.order);
+    // console.log(res.data.order);
+  };
+  useEffect(() => {
+    order();
+    // console.log(order());
+  }, []);
+  console.log(listOpen);
   return (
     <div>
       <div className="text-sm breadcrumbs ">
@@ -78,7 +88,7 @@ const OrderList = () => {
         </ul>
       </div>
       <div className="overflow-x-auto">
-        <table className="table table-zebra">
+        <table className="table table-zebra h-screen">
           <thead className="bg-slate-200">
             <tr>
               <th>Order</th>
@@ -92,18 +102,19 @@ const OrderList = () => {
             </tr>
           </thead>
           <tbody>
-            {orderStatusArray.map((orderStatus) => (
-              <tr key={orderStatus.id}>
+            {listOpen.map((orderStatus) => (
+              <tr key={orderStatus._id}>
                 <td>
                   <div className="flex flex-col">
                     <div className="p-0 text-violet-500 text-sm font-bold">
                       <Link
-                        href={`/dashboard/order-list/${orderStatus.id}`}
-                        className="text-blue-500 hover:underline">
+                        href={`/dashboard/order-list/${orderStatus._id}`}
+                        className="text-blue-500 hover:underline"
+                      >
                         #181
                       </Link>
                       <span className="text-gray-400 font-normal"> by</span>{" "}
-                      Bulbul Ahmed
+                      {orderStatus.customerId}
                     </div>
                     <div className="p-0 font-semibold text-blue-500 ">
                       mdbulbulmolla1222@gmail.com
@@ -111,26 +122,28 @@ const OrderList = () => {
                   </div>
                 </td>
                 <td className="text-sm font-roboto text-blue-500 tracking-wider">
-                  {moment().format("L")}
+                  {orderStatus.orderTime}
                 </td>
                 <td className="text-sm font-roboto text-blue-500 tracking-wider">
-                  5s64fsd44sd5f4sdf6
+                  {orderStatus.orderNumber}
                 </td>
                 <td className="text-sm font-roboto text-blue-500 tracking-wider">
-                  dsd654fsd64fs87f
+                  {orderStatus.transactionId}
                 </td>
                 <td className="text-xs font-roboto text-blue-500 tracking-wider">
-                  Ricky Antony, 2392 Main Avenue, Penasauka
+                  {orderStatus.shipTo?.district} ,{orderStatus.shipTo?.area} ,
+                  {orderStatus.shipTo?.location} ,
+                  {orderStatus.shipTo?.addressType} , address
                 </td>
-                {orderStatus.status === "completed" && (
+                {/* {!orderStatus.status === "completed" && ( */}
                   <td>
                     <div className="flex items-center gap-x-1 bg-[#CCF6E4] text-[#00864e] rounded-lg tracking-wide px-2 py-1 font-bold">
                       <p>Completed </p>
                       <MdDone size={15} color="#00864e" />
                     </div>
                   </td>
-                )}
-                
+                {/* )} */}
+
                 {orderStatus.status === "processing" && (
                   <td>
                     <div className="flex items-center gap-1 bg-[#d5e5fa] text-[#1c4f93] rounded-lg tracking-wide px-2 py-1 font-bold">
@@ -158,7 +171,7 @@ const OrderList = () => {
 
                 <td className=" font-roboto font-semibold text-blue-500 ">
                   <TbCurrencyTaka size={20} className="inline -mt-1" />
-                  <span className="text-lg">99</span>
+                  <span className="text-lg"> {orderStatus.amount}</span>
                 </td>
 
                 <td>
