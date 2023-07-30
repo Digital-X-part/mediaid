@@ -32,7 +32,7 @@ const page = () => {
         <ProductDescription />
         <RelatedProducts />
       </div>
-      <div className="fixed bottom-[50px] z-[50] h-10 bg-slate-500 w-full grid grid-cols-2">
+      <div className="fixed bottom-[47px] z-[50] h-10 bg-slate-500 w-full grid grid-cols-2 sm:hidden">
       <button className="bg-slate-100 text-gray-700 hover:bg-indigo-600 duration-300 text-sm font-semibold hover:text-white sm:hidden">
                 Add to Cart
               </button>
