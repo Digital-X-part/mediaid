@@ -10,10 +10,16 @@ import Accordion from "@/components/Accordion/Accordion";
 import paymentFieldData from "@/data/paymentFieldData";
 import Link from "next/link";
 
-const AbsoluteCartDetails = ({ setIsCartClicked }) => {
+
+const AbsoluteCartDetails = ({
+  setIsCartClicked,
+  setIsUserAddressModalOpen,
+}) => {
   const [isShowCouponInput, setIsShowCouponInput] = useState(false);
   const [openAccordion, setOpenAccordion] = useState(null);
+  
 
+  
   const handleAccordionClick = (index) => {
     setOpenAccordion(index === openAccordion ? null : index);
   };
@@ -32,6 +38,8 @@ const AbsoluteCartDetails = ({ setIsCartClicked }) => {
         Items not Requiring Prescription (3){" "}
       </p>
       <div className="px-1 pb-20">
+        {/* ************** cart list ************** */}
+
         <div>
           {[1, 3, 4].map((item) => (
             <div
@@ -78,6 +86,7 @@ const AbsoluteCartDetails = ({ setIsCartClicked }) => {
             </div>
           ))}
         </div>
+        {/* ************** address list ************** */}
 
         <div className="flex justify-between items-center my-4 border rounded-md drop-shadow-sm">
           <div className="flex flex-col items-center bg-yellow-300 px-1 py-2">
@@ -127,10 +136,24 @@ const AbsoluteCartDetails = ({ setIsCartClicked }) => {
                   </div>
                 </div>
 
-                <div className="flex flex-col items-center justify-center border-2 border-dotted border-teal-500 rounded-md mt-4 py-6 bg-gray-100 cursor-pointer">
+                <div onClick={() => window.my_modal_5.showModal()}
+                  className="flex flex-col items-center justify-center border-2 border-dotted border-teal-500 rounded-md mt-4 py-6 bg-gray-100 cursor-pointer">
                   <span>+</span>
                   <p>Add New Address</p>
                 </div>
+                {/* <div>
+                  <dialog id="my_modal_3" className="modal">
+                    <form method="dialog" className="modal-box">
+                      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                        ✕
+                      </button>
+                      <h3 className="font-bold text-lg">Hello!</h3>
+                      <p className="py-4">
+                        Press ESC key or click on ✕ button to close
+                      </p>
+                    </form>
+                  </dialog>
+                </div> */}
               </div>
             </form>
           </dialog>

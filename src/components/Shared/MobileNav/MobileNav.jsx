@@ -9,7 +9,7 @@ import { FaRegHeart } from "react-icons/fa";
 
 import { FiMenu } from "react-icons/fi";
 
-const MobileNav = () => {
+const MobileNav = ({ setIsCartClicked }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const toggleMenu = () => {
     setIsOpenMenu(!isOpenMenu);
@@ -23,7 +23,7 @@ const MobileNav = () => {
             <Link href="/">
               <span className="sr-only">Workflow</span>
               <Image
-                className="h-8 mb-2 w-auto sm:h-10"
+                className="h-6 w-auto sm:h-10"
                 src="https://i0.wp.com/mediaidbd.net/wp-content/uploads/2021/05/cropped-Mediaid-white-stroke-1.png2_-1.png?resize=200%2C51&ssl=1"
                 alt=""
                 width={200}
@@ -44,7 +44,7 @@ const MobileNav = () => {
               <FaRegHeart className="text-slate-500" />
             </IconContext.Provider>
           </div>
-          <div className="relative">
+          <div onClick={() => setIsCartClicked(true)} className="relative">
             <IconContext.Provider value={{ size: "1.5em" }}>
               <BiCartAdd className="text-slate-500" />
             </IconContext.Provider>
