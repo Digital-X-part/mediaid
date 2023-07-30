@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FiSearch } from "react-icons/fi";
 import { BiSolidDownArrow } from "react-icons/bi";
-import Image from "next/image";
 import { CiCircleRemove } from "react-icons/ci";
-import { MdMenuOpen } from "react-icons/md";
 import { IconContext } from "react-icons";
-import { FaBars } from "react-icons/fa";
+import { Image } from "next/image";
 
 const dropDownCategoryLists = [
   "arts & crafts",
@@ -34,6 +32,17 @@ const SearchBar = () => {
   });
   const inputRef = useRef(null);
   const [isSearchList, setIsSearchList] = useState(false);
+  const [placeholderIndex, setPlaceholderIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPlaceholderIndex(
+        (prevIndex) => (prevIndex + 1) % dropDownCategoryLists.length
+      );
+    }, 2000); // Change the placeholder every 2 seconds (adjust as needed)
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleCategoryChange = (category) => {
     setSelectedCategory({
@@ -63,7 +72,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="mt-4 rounded-sm outline-transparent relative mb-1 lg:mb-0 ">
+    <div className="mt-4 rounded-sm outline-transparent relative mb-1 lg:mb-0">
       <div className="flex items-center justify-between mx-1 my-2 rounded-md border-2 border-gray-600 border-opacity-70">
         {/* //! /////////////// Mobile Search bar ///////////////// */}
         <div className="dropdown md:hidden">
@@ -75,8 +84,9 @@ const SearchBar = () => {
               })
             }
             tabIndex={0}
-            className="flex items-center py-2 px-2 cursor-pointer gap-1 bg-red-200">
-            <p className="cursor-pointer capitalize text-sm text-center w-[50px] truncate ">
+            className="flex items-center py-2 px-2 cursor-pointer bg-red-200 w-full md:w-52"
+          >
+            <p className="cursor-pointer capitalize text-sm text-center truncate flex-1">
               {selectedCategory.selectedCategoryName}
             </p>
             <BiSolidDownArrow size={10} />
@@ -84,18 +94,21 @@ const SearchBar = () => {
           {selectedCategory.isSelectedCategory === false && (
             <ul
               tabIndex={0}
-              className="dropdown-content z-50 bg-white w-52 shadow-2xl">
+              className="dropdown-content z-50 bg-white w-full md:w-52 shadow-2xl"
+            >
               {dropDownCategoryLists.map((list) => (
                 <li
                   onClick={() => handleCategoryChange(list)}
                   key={list}
-                  className="cursor-pointer px-1 py-0.5 text-black hover:bg-blue-600 hover:text-white capitalize text-sm">
+                  className="cursor-pointer px-1 py-0.5 text-black hover:bg-blue-600 hover:text-white capitalize text-sm"
+                >
                   {list}
                 </li>
               ))}
             </ul>
           )}
         </div>
+
         {/* //! /////////////// tablet and desktop Search bar ///////////////// */}
 
         <div className="dropdown hidden md:block">
@@ -107,7 +120,8 @@ const SearchBar = () => {
               })
             }
             tabIndex={0}
-            className="flex items-center px-2 py-1 cursor-pointer gap-1 h-full w-full ">
+            className="flex items-center px-2 py-1 cursor-pointer gap-1 h-full w-full "
+          >
             <p className="cursor-pointer capitalize text-sm">
               {selectedCategory.selectedCategoryName}
             </p>
@@ -116,12 +130,14 @@ const SearchBar = () => {
           {selectedCategory.isSelectedCategory === false && (
             <ul
               tabIndex={0}
-              className="dropdown-content z-50 bg-white w-52 shadow-2xl">
+              className="dropdown-content z-50 bg-white w-52 shadow-2xl"
+            >
               {dropDownCategoryLists.map((list) => (
                 <li
                   onClick={() => handleCategoryChange(list)}
                   key={list}
-                  className="cursor-pointer px-1 py-0.5 text-black hover:bg-blue-600 hover:text-white capitalize text-sm">
+                  className="cursor-pointer px-1 py-0.5 text-black hover:bg-blue-600 hover:text-white capitalize text-sm"
+                >
                   {list}
                 </li>
               ))}
@@ -133,11 +149,11 @@ const SearchBar = () => {
           ref={inputRef}
           className={`appearance-none bg-gray-200 text-gray-700 px-4 py-2 leading-tight outline-none focus:outline-none focus:bg-white grow`}
           type="text"
-          placeholder="Search..."
+          placeholder={dropDownCategoryLists[placeholderIndex]}
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
         />
-        <div className="px-3 py-2 cursor-pointer bg-yellow-400">
+        <div className="px-1 py-2 sm:px-3 cursor-pointer bg-yellow-400">
           <FiSearch size={20} />
         </div>
       </div>
@@ -147,7 +163,8 @@ const SearchBar = () => {
           {[3, 43, 44, 54, 65, 34, 67].map((item) => (
             <div
               key={item}
-              className="flex items-center justify-between border-b hover:bg-gray-100 cursor-pointer mt-2">
+              className="flex items-center justify-between border-b hover:bg-gray-100 cursor-pointer mt-2"
+            >
               <div className="flex items-center gap-2">
                 <Image
                   src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1240&q=80"

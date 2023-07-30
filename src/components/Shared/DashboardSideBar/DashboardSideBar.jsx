@@ -10,7 +10,7 @@ const DashboardSideBar = ({ isDashboardSideBarExtends, dashboardRouteList }) => 
           : "w-[80px] lg:w-[100px] xl:w-[110px]"
       } h-[100vh] border border-t-0 p-3 bg-white transition-transform duration-300 `}>
       <ul className="space-y-2">
-        {dashboardRouteList.map((route) => (
+        {dashboardRouteList?.map((route) => (
           <li
             title={route.pathName}
             key={route.pathUrl}

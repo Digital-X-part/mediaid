@@ -4,16 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { CiLocationOn } from "react-icons/ci";
 import { IconContext } from "react-icons";
-import { BiCartAdd } from "react-icons/bi";
 import { BsCartPlus } from "react-icons/bs";
-import { useState } from "react";
+import Login from "@/components/Pages/Login&up/Login/login";
 
 const Nav = ({ setIsCartClicked }) => {
   return (
     <div className="flex pt-2 pb-4 items-end justify-between gap-4 bg-base-100 lg:px-10">
       <div className="col-span-3 flex justify-center items-center ">
         <div className="mr-10">
-        <Link href="/">
+          <Link href="/">
             <Image
               className="h-6 w-auto sm:h-10"
               src="https://i0.wp.com/mediaidbd.net/wp-content/uploads/2021/05/cropped-Mediaid-white-stroke-1.png2_-1.png?resize=200%2C51&ssl=1"
@@ -69,6 +68,7 @@ const Nav = ({ setIsCartClicked }) => {
           <p className="font-bold text-base text-teal-500 -mb-1">Cart</p>
         </div>
       </div>
+      <Login></Login>
     </div>
   );
 };

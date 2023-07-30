@@ -1,39 +1,51 @@
 import Link from "next/link";
-import {
-  BsPerson,
-  BsBag,
-  BsHouseDoor,
-  BsTags,
-} from "react-icons/bs";
+import { motion } from "framer-motion";
+import { BsPerson, BsBag, BsHouseDoor, BsTags } from "react-icons/bs";
 
 const BottomNavbar = () => {
+  const navItems = [
+    {
+      icon: <BsHouseDoor className="w-[18px] text-slate-600" />,
+      label: "Home",
+      link: "/",
+    },
+    {
+      icon: <BsBag className="w-[18px] text-slate-600" />,
+      label: "Shop",
+      link: "/shop",
+    },
+    {
+      icon: <BsTags className="w-[18px] text-slate-600" />,
+      label: "Offer",
+      link: "/offer",
+    },
+    {
+      icon: <BsPerson className="w-[18px] text-slate-600" />,
+      label: "My Account",
+      link: "/dashboard",
+    },
+  ];
+
   return (
-    <div className="w-full md:hidden py-2 px-8 z-[100] bg-slate-200 fixed bottom-0 flex items-center justify-between">
-      <Link href="/">
-        <div className="flex flex-col items-center justify-center">
-          <BsHouseDoor className="w-[18px] text-slate-600" />
-          <p className="text-[10px] font-medium">Home</p>
-        </div>
-      </Link>
-      <Link href="/shop">
-        <div className="flex flex-col items-center justify-center">
-          <BsBag className="w-[18px] text-slate-600" />
-          <p className="text-[10px] font-medium">Shop</p>
-        </div>
-      </Link>
-      <Link href="/offer">
-        <div className="flex flex-col items-center justify-center">
-          <BsTags className="w-[18px] text-slate-600" />
-          <p className="text-[10px] font-medium">Offer</p>
-        </div>
-      </Link>
-      <Link href="/dashboard">
-        <div className="flex flex-col items-center justify-center">
-          <BsPerson className="w-[18px] text-slate-600" />
-          <p className="text-[10px] font-medium">My Account</p>
-        </div>
-      </Link>
-    </div>
+    <motion.div
+      initial={{ y: 100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="w-full md:hidden py-2 px-8 z-[100] bg-slate-200 fixed bottom-0 flex items-center justify-between"
+    >
+      {navItems.map((item, index) => (
+        <Link key={index} href={item.link}>
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="flex flex-col items-center justify-center cursor-pointer"
+          >
+            {item.icon}
+            <p className="text-[10px] font-medium">{item.label}</p>
+          </motion.div>
+        </Link>
+      ))}
+    </motion.div>
   );
 };
 
