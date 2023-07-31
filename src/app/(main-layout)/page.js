@@ -12,11 +12,11 @@ const HomePage = () => {
       {/* all home page components will be place here */}
       <Slider />
       <MiniSlider />
-      <OurBrands />
       <BrandAdv />
       <PushProducts />
       <FlashSale />
       <BestSellingProducts />
+      <OurBrands />
     </div>
   );
 };
