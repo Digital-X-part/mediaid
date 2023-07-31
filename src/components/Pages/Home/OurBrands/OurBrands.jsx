@@ -1,4 +1,3 @@
-"use client";
 import brandLogo from "@/data/brands.json";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
@@ -10,7 +9,7 @@ const OurBrands = () => {
         Our <span className="text-[#FD3851]">Brand</span>
       </h4>
       <div className="mt-4">
-        <Marquee>
+        <Marquee speed={40} pauseOnHover={true}>
           {brandLogo.map((brand) => (
             <div
               key={brand.id}
@@ -19,8 +18,8 @@ const OurBrands = () => {
                 src={brand.brand_logo}
                 width={500}
                 height={100}
-                alt="kd"
-                className="object-cover w-full h-full "
+                alt={brand.name}
+                className="object-contain w-full h-full"
               />
             </div>
           ))}

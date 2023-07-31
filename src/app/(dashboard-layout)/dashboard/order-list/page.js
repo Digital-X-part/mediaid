@@ -7,43 +7,47 @@ import { AiOutlineStop } from "react-icons/ai";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { CgMenuMotion } from "react-icons/cg";
 import { BsThreeDots } from "react-icons/bs";
-import { useState } from "react";
-import { useEffect } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
+import axiosInstance from "@/utility/axiosInstance";
 
-const orderStatusArray = [
+const orderDetailArray = [
   {
     id: "s54dfds45f",
-    status: "completed",
+    status: "Completed",
   },
   {
     id: "5sdf4ds56f4",
-    status: "pending",
+    status: "Pending",
   },
   {
     id: "564fs5d6f4ds6",
-    status: "processing",
+    status: "Processing",
   },
   {
     id: "fd4sf4sd56f4d",
-    status: "onHold",
+    status: "OnHold",
   },
 ];
 
 const OrderList = () => {
   const [actionButtonListOpen, setActionButtonListOpen] = useState("");
   const [isActionButtonListOpen, setIsActionButtonListOpen] = useState(false);
+  const [listOpen, setListOpen] = useState([]);
   const actionHandleButton = (id) => {
     setActionButtonListOpen(id);
     setIsActionButtonListOpen(!isActionButtonListOpen);
   };
 
+  const order = async () => {
+    const res = await axiosInstance.get("/orders");
+    setListOpen(res.data.order);
+    // console.log(res.data.order);
+  };
   useEffect(() => {
-    fetch("http://localhost:3000/api/orders")
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  }, []);
-
+    order();
+    // console.log(order());
+  }, [listOpen]);
+  console.log(listOpen);
   return (
     <div>
       <div className="text-sm breadcrumbs ">
@@ -55,7 +59,7 @@ const OrderList = () => {
         </ul>
       </div>
       <div className="overflow-x-auto">
-        <table className="table table-zebra">
+        <table className="table table-zebra h-screen">
           <thead className="bg-slate-200">
             <tr>
               <th>Order</th>
@@ -69,37 +73,40 @@ const OrderList = () => {
             </tr>
           </thead>
           <tbody>
-            {orderStatusArray.map((orderStatus) => (
-              <tr key={orderStatus.id}>
+            {listOpen.map((orderDetail) => (
+              <tr key={orderDetail._id}>
                 <td>
                   <div className="flex flex-col">
                     <div className="p-0 text-violet-500 text-sm font-bold">
                       <Link
-                        href={`/dashboard/order-list/${orderStatus.id}`}
-                        className="text-blue-500 hover:underline">
-                        #181
+                        href={`/dashboard/order-list/${orderDetail._id}`}
+                        className="text-blue-500 hover:underline"
+                      >
+                        # {orderDetail.orderNumber}
                       </Link>
                       <span className="text-gray-400 font-normal"> by</span>{" "}
-                      Bulbul Ahmed
+                      {orderDetail.fullName}
                     </div>
                     <div className="p-0 font-semibold text-blue-500 ">
-                      mdbulbulmolla1222@gmail.com
+                      {orderDetail.email}
                     </div>
                   </div>
                 </td>
                 <td className="text-sm font-roboto text-blue-500 tracking-wider">
-                  {moment().format("L")}
+                  {orderDetail.orderTime}
                 </td>
                 <td className="text-sm font-roboto text-blue-500 tracking-wider">
-                  5s64fsd44sd5f4sdf6
+                  {orderDetail.orderNumber}
                 </td>
                 <td className="text-sm font-roboto text-blue-500 tracking-wider">
-                  dsd654fsd64fs87f
+                  {orderDetail.transactionId}
                 </td>
                 <td className="text-xs font-roboto text-blue-500 tracking-wider">
-                  Ricky Antony, 2392 Main Avenue, Penasauka
+                  {orderDetail.shipTo?.district} ,{orderDetail.shipTo?.area} ,
+                  {orderDetail.shipTo?.location} ,
+                  <span className="font-bold">{orderDetail.shipTo?.addressType}</span>
                 </td>
-                {orderStatus.status === "completed" && (
+                {orderDetail.status === "Completed" && (
                   <td>
                     <div className="flex items-center gap-x-1 bg-[#CCF6E4] text-[#00864e] rounded-lg tracking-wide px-2 py-1 font-bold">
                       <p>Completed </p>
@@ -108,7 +115,7 @@ const OrderList = () => {
                   </td>
                 )}
 
-                {orderStatus.status === "processing" && (
+                {orderDetail.status === "Processing" && (
                   <td>
                     <div className="flex items-center gap-1 bg-[#d5e5fa] text-[#1c4f93] rounded-lg tracking-wide px-2 py-1 font-bold">
                       <p>Processing </p>
@@ -116,7 +123,7 @@ const OrderList = () => {
                     </div>
                   </td>
                 )}
-                {orderStatus.status === "pending" && (
+                {orderDetail.status === "Pending" && (
                   <td>
                     <div className="flex items-center gap-1 bg-[#fde6d8] text-[#9d5228] rounded-lg tracking-wide px-2 py-1 font-bold">
                       <p>Pending </p>
@@ -124,7 +131,7 @@ const OrderList = () => {
                     </div>
                   </td>
                 )}
-                {orderStatus.status === "onHold" && (
+                {orderDetail.status === "OnHold" && (
                   <td>
                     <div className="flex items-center gap-x-1 bg-[#E3E6EA] text-[#7d899b] rounded-lg tracking-wide px-2 py-1 font-bold">
                       <p>On Hold </p>
@@ -135,30 +142,33 @@ const OrderList = () => {
 
                 <td className=" font-roboto font-semibold text-blue-500 ">
                   <TbCurrencyTaka size={20} className="inline -mt-1" />
-                  <span className="text-lg">99</span>
+                  <span className="text-lg"> {orderDetail.amount}</span>
                 </td>
 
                 <td>
                   <div
-                    onClick={() => actionHandleButton(orderStatus.id)}
-                    className="cursor-pointer">
+                    onClick={() => actionHandleButton(orderDetail.id)}
+                    className="cursor-pointer"
+                  >
                     <BsThreeDots size={25} />
                   </div>
-                  {actionButtonListOpen === orderStatus.id &&
+                  {actionButtonListOpen === orderDetail.id &&
                     isActionButtonListOpen && (
                       <div className="absolute z-30 bg-white -ml-32 mt-2 w-36 shadow-2xl border border-indigo-100 rounded-sm">
                         <ul>
-                          {orderStatusArray.map((item) => (
+                          {orderDetailArray.map((item) => (
                             <li
                               key={item.id}
                               onClick={() => setIsActionButtonListOpen(false)}
-                              className="px-4 py-1 text-base cursor-pointer font-medium text-slate-600 hover:bg-red-100 border-b capitalize">
+                              className="px-4 py-1 text-base cursor-pointer font-medium text-slate-600 hover:bg-red-100 border-b capitalize"
+                            >
                               {item.status}
                             </li>
                           ))}
                           <li
                             onClick={() => setIsActionButtonListOpen(false)}
-                            className="px-4 py-1 text-base cursor-pointer font-medium text-red-500 hover:bg-red-100 ">
+                            className="px-4 py-1 text-base cursor-pointer font-medium text-red-500 hover:bg-red-100 "
+                          >
                             Delete
                           </li>
                         </ul>
