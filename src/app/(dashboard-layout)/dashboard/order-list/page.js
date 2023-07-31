@@ -28,44 +28,14 @@ const orderStatusArray = [
     id: "fd4sf4sd56f4d",
     status: "onHold",
   },
-  {
-    id: "ds56f4sd56f4sd",
-    status: "pending",
-  },
-  {
-    id: "sd64f4fd5g4f",
-    status: "completed",
-  },
-  {
-    id: "ds54fd5f4d5f4",
-    status: "onHold",
-  },
-  {
-    id: "ds56f4d5f4d5e5",
-    status: "processing",
-  },
-  {
-    id: "fsdf46ds54fds65",
-    status: "pending",
-  },
-  {
-    id: "sdt4765d4gf5d4gf5",
-    status: "completed",
-  },
-  {
-    id: "fs564fs65df4d56f",
-    status: "onHold",
-  },
-  {
-    id: "s56d4fsd564fd5s4f",
-    status: "processing",
-  },
 ];
 
 const OrderList = () => {
   const [actionButtonListOpen, setActionButtonListOpen] = useState("");
+  const [isActionButtonListOpen, setIsActionButtonListOpen] = useState(false);
   const actionHandleButton = (id) => {
     setActionButtonListOpen(id);
+    setIsActionButtonListOpen(!isActionButtonListOpen);
   };
 
   useEffect(() => {
@@ -73,7 +43,6 @@ const OrderList = () => {
       .then((res) => res.json())
       .then((data) => console.log(data));
   }, []);
-
 
   return (
     <div>
@@ -175,27 +144,26 @@ const OrderList = () => {
                     className="cursor-pointer">
                     <BsThreeDots size={25} />
                   </div>
-                  {actionButtonListOpen === orderStatus.id && (
-                    <div className="absolute z-30 bg-white -ml-32 mt-2 w-36 shadow-2xl border border-indigo-100 rounded-sm">
-                      <ul>
-                        <li className="px-4 py-1 text-base cursor-pointer font-medium text-slate-600 hover:bg-red-100 border-b">
-                          Completed
-                        </li>
-                        <li className="px-4 py-1 text-base cursor-pointer font-medium text-slate-600 hover:bg-red-100 border-b">
-                          Processing
-                        </li>
-                        <li className="px-4 py-1 text-base cursor-pointer font-medium text-slate-600 hover:bg-red-100 border-b">
-                          On Hold
-                        </li>
-                        <li className="px-4 py-1 text-base cursor-pointer font-medium text-slate-600 hover:bg-red-100 border-b">
-                          Pending
-                        </li>
-                        <li className="px-4 py-1 text-base cursor-pointer font-medium text-red-500 hover:bg-red-100 ">
-                          Delete
-                        </li>
-                      </ul>
-                    </div>
-                  )}
+                  {actionButtonListOpen === orderStatus.id &&
+                    isActionButtonListOpen && (
+                      <div className="absolute z-30 bg-white -ml-32 mt-2 w-36 shadow-2xl border border-indigo-100 rounded-sm">
+                        <ul>
+                          {orderStatusArray.map((item) => (
+                            <li
+                              key={item.id}
+                              onClick={() => setIsActionButtonListOpen(false)}
+                              className="px-4 py-1 text-base cursor-pointer font-medium text-slate-600 hover:bg-red-100 border-b capitalize">
+                              {item.status}
+                            </li>
+                          ))}
+                          <li
+                            onClick={() => setIsActionButtonListOpen(false)}
+                            className="px-4 py-1 text-base cursor-pointer font-medium text-red-500 hover:bg-red-100 ">
+                            Delete
+                          </li>
+                        </ul>
+                      </div>
+                    )}
                 </td>
               </tr>
             ))}
