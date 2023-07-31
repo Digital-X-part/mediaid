@@ -13,7 +13,7 @@ const OurBrands = () => {
           {brandLogo.map((brand) => (
             <div
               key={brand.id}
-              className="w-24 md:w-28 h-16 md:h-24 p-2 shadow-md hover:scale-105 duration-200 ml-4 border border-gray-300 rounded-lg bg-white"
+              className="w-24 md:w-28 h-16 md:h-20 p-2 shadow-md hover:scale-105 duration-200 ml-4 border border-gray-300 rounded-lg bg-white"
             >
               <Image
                 src={brand.brand_logo}
