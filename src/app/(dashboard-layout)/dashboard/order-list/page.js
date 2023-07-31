@@ -1,5 +1,4 @@
 "use client";
-import moment from "moment/moment";
 import Link from "next/link";
 import { MdDone } from "react-icons/md";
 import { TbReload } from "react-icons/tb";
@@ -32,7 +31,7 @@ const orderDetailArray = [
 const OrderList = () => {
   const [actionButtonListOpen, setActionButtonListOpen] = useState("");
   const [isActionButtonListOpen, setIsActionButtonListOpen] = useState(false);
-  const [listOpen, setListOpen] = useState([]);
+  const [orderListData, setOrderListData] = useState([]);
   const actionHandleButton = (id) => {
     setActionButtonListOpen(id);
     setIsActionButtonListOpen(!isActionButtonListOpen);
@@ -40,14 +39,11 @@ const OrderList = () => {
 
   const order = async () => {
     const res = await axiosInstance.get("/orders");
-    setListOpen(res.data.order);
-    // console.log(res.data.order);
+    setOrderListData(res.data.order);
   };
   useEffect(() => {
     order();
-    // console.log(order());
-  }, [listOpen]);
-  console.log(listOpen);
+  }, [orderListData]);
   return (
     <div>
       <div className="text-sm breadcrumbs ">
@@ -73,7 +69,7 @@ const OrderList = () => {
             </tr>
           </thead>
           <tbody>
-            {listOpen.map((orderDetail) => (
+            {orderListData.map((orderDetail) => (
               <tr key={orderDetail._id}>
                 <td>
                   <div className="flex flex-col">
@@ -104,7 +100,9 @@ const OrderList = () => {
                 <td className="text-xs font-roboto text-blue-500 tracking-wider">
                   {orderDetail.shipTo?.district} ,{orderDetail.shipTo?.area} ,
                   {orderDetail.shipTo?.location} ,
-                  <span className="font-bold">{orderDetail.shipTo?.addressType}</span>
+                  <span className="font-bold">
+                    {orderDetail.shipTo?.addressType}
+                  </span>
                 </td>
                 {orderDetail.status === "Completed" && (
                   <td>

@@ -5,17 +5,27 @@ import { MdOutlineDone } from "react-icons/md";
 import { TbCurrencyTaka } from "react-icons/tb";
 
 const Orders = () => {
+  const [orderListData, setOrderListData] = useState([]);
+  const order = async () => {
+    const res = await axiosInstance.get("/orders");
+    setOrderListData(res.data.order);
+  };
+  useEffect(() => {
+    order();
+  }, [orderListData]);
+
   return (
     <>
       <h2 className="mt-2 font-bold ">Order History</h2>
       <div>
-        {[4, 5, 6].map((item) => (
+        {orderListData.map((item) => (
           <div
-            key={item}
-            className="mt-4 shadow-xl rounded-md border border-gray-200 ">
+            key={item._id}
+            className="mt-4 shadow-xl rounded-md border border-gray-200 "
+          >
             <div className="flex items-center justify-between border-b p-2">
               <div>
-                <p className="font-bold">Order# 35421</p>
+                <p className="font-bold">Order# {orderListData.or}</p>
                 <p className="text-xs font-medium text-gray-500">
                   Date Added: 29 Jul 2023
                 </p>
@@ -31,7 +41,8 @@ const Orders = () => {
               {[1, 2].map((orderItem) => (
                 <div
                   key={orderItem}
-                  className="md:flex md:items-center justify-between bg-[#eceaea90] p-2">
+                  className="md:flex md:items-center justify-between bg-[#eceaea90] p-2"
+                >
                   <div className="flex items-center gap-2">
                     <Image
                       src="https://images.unsplash.com/photo-1603398938378-e54eab446dde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
@@ -52,7 +63,8 @@ const Orders = () => {
                     </div>
                     <Link
                       href={`/account/orders/${orderItem}`}
-                      className="btn btn-warning btn-sm">
+                      className="btn btn-warning btn-sm"
+                    >
                       View
                     </Link>
                   </div>
