@@ -5,7 +5,7 @@ const DesktopEmailLogin = () => {
   return (
     <dialog id="email_login_modal_1" className="modal">
       <div method="dialog" className="modal-box">
-        <EmailLogin isDesktop={true}></EmailLogin>
+        <EmailLogin></EmailLogin>
       </div>
       <form method="dialog" className="modal-backdrop">
         <button>close</button>

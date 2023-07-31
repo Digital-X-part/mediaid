@@ -1,13 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
-import { closeModal } from "daisyui";
 
-const EmailLogin = ({ toggleEmailLoginModal, isDesktop }) => {
+const EmailLogin = ({ toggleEmailLoginModal }) => {
   const [unHidePass, setUnHidePass] = useState(false);
   const [loginPage, setLoginPage] = useState(false);
   const [error, setError] = useState("");
-  const loginEmailModal = document.getElementById("email_login_modal_1");
   const createUser = (e) => {
     e.preventDefault();
     setError("");
@@ -25,7 +23,6 @@ const EmailLogin = ({ toggleEmailLoginModal, isDesktop }) => {
     };
     console.log(newUser);
     e.target.reset();
-    isDesktop && closeModal(loginEmailModal);
     toggleEmailLoginModal && toggleEmailLoginModal();
   };
   const loginUser = (e) => {
@@ -39,7 +36,6 @@ const EmailLogin = ({ toggleEmailLoginModal, isDesktop }) => {
     };
     console.log(userInfo);
     e.target.reset();
-    isDesktop && closeModal(loginEmailModal);
     toggleEmailLoginModal && toggleEmailLoginModal();
   };
   return (
@@ -76,7 +72,7 @@ const EmailLogin = ({ toggleEmailLoginModal, isDesktop }) => {
                 id="password"
                 className="text-base text-slate-600 outline-none border rounded px-3 h-10"
                 name="password"
-                placeholder="Enter email"
+                placeholder="Password"
                 required
               ></input>
 
@@ -104,7 +100,7 @@ const EmailLogin = ({ toggleEmailLoginModal, isDesktop }) => {
                 id="confirmPassword"
                 name="confirmPassword"
                 className="text-base text-slate-600 outline-none border rounded px-3 h-10"
-                placeholder="Enter email"
+                placeholder="Confirm Password"
                 required
               ></input>
             </div>
@@ -159,7 +155,7 @@ const EmailLogin = ({ toggleEmailLoginModal, isDesktop }) => {
                 id="password"
                 className="text-base text-slate-600 outline-none border rounded px-3 h-10"
                 name="password"
-                placeholder="Enter email"
+                placeholder="Password"
                 required
               ></input>
 
