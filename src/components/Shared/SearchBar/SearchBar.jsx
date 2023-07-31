@@ -26,6 +26,7 @@ const dropDownCategoryLists = [
   "luggage",
   "movies & tV",
 ];
+
 const SearchBar = () => {
   const [selectedCategory, setSelectedCategory] = useState({
     selectedCategoryName: "All departments",
@@ -51,6 +52,7 @@ const SearchBar = () => {
       isSelectedCategory: true,
     });
   };
+
   useEffect(() => {
     if (
       selectedCategory.isSelectedCategory &&
@@ -62,9 +64,11 @@ const SearchBar = () => {
     selectedCategory.isSelectedCategory,
     selectedCategory.selectedCategoryName,
   ]);
+
   const handleInputFocus = () => {
     setIsSearchList(true);
   };
+
   const handleInputBlur = () => {
     setIsSearchList(false);
   };
@@ -72,7 +76,7 @@ const SearchBar = () => {
   return (
     <div className="mt-4 rounded-sm outline-transparent relative mb-1 lg:mb-0 ">
       <div className="flex items-center justify-between mx-1 my-2 rounded-md border-2 border-gray-600 border-opacity-70">
-        {/* //! /////////////// Mobile Search bar ///////////////// */}
+        {/* Mobile Search bar */}
         <div className="dropdown md:hidden">
           <div
             onClick={() =>
@@ -106,8 +110,8 @@ const SearchBar = () => {
             </ul>
           )}
         </div>
-        {/* //! /////////////// tablet and desktop Search bar ///////////////// */}
 
+        {/* Tablet and desktop Search bar */}
         <div className="dropdown hidden md:block">
           <div
             onClick={() =>
@@ -141,10 +145,11 @@ const SearchBar = () => {
             </ul>
           )}
         </div>
+
         <input
           tabIndex={0}
           ref={inputRef}
-          className={`appearance-none bg-gray-200 text-gray-700 px-4 py-2 leading-tight outline-none focus:outline-none focus:bg-white grow`}
+          className={`appearance-none bg-gray-200 text-gray-700 px-4 py-2 leading-tight outline-none focus:outline-none focus:bg-white grow w-full md:w-auto`}
           type="text"
           placeholder={dropDownCategoryLists[placeholderIndex]}
           onFocus={handleInputFocus}
@@ -154,6 +159,7 @@ const SearchBar = () => {
           <FiSearch size={20} />
         </div>
       </div>
+
       {/* absolute position search result */}
       {isSearchList && (
         <div className="hidden absolute top-0 mt-12 bg-white shadow-teal-500 rounded-sm shadow-2xl w-full md:flex flex-col z-50">
@@ -182,4 +188,5 @@ const SearchBar = () => {
     </div>
   );
 };
+
 export default SearchBar;
