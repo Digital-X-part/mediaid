@@ -1,4 +1,5 @@
 "use client";
+import axiosInstance from "@/utility/axiosInstance";
 import React, { useState } from "react";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 
@@ -6,22 +7,29 @@ const EmailLogin = ({ toggleEmailLoginModal }) => {
   const [unHidePass, setUnHidePass] = useState(false);
   const [loginPage, setLoginPage] = useState(false);
   const [error, setError] = useState("");
-  const createUser = (e) => {
+
+  /* create user */
+  const createUser =async (e) => {
     e.preventDefault();
     setError("");
     const data = new FormData(e.target);
+    const fullName = data.get("fullName");
     const email = data.get("email");
     const password = data.get("password");
     const confirmPassword = data.get("confirmPassword");
+
     if (password !== confirmPassword) {
       setError("Error: Password does not match!");
       return;
     }
+
     const newUser = {
       email,
       password,
+      fullName,
     };
-    console.log(newUser);
+    const userInfo = await axiosInstance.post("/users", newUser);
+    console.log(userInfo);
     e.target.reset();
     toggleEmailLoginModal && toggleEmailLoginModal();
   };
@@ -44,6 +52,22 @@ const EmailLogin = ({ toggleEmailLoginModal }) => {
       {loginPage || (
         <>
           <form onSubmit={createUser} className="space-y-3">
+            <div className=" flex flex-col gap-1">
+              <label
+                htmlFor="fullName"
+                id="fullName"
+                className="text-sm md:text-base font-semibold text-slate-500"
+              >
+                Full Name
+              </label>
+              <input
+                type="text"
+                className="text-base text-slate-600 outline-none border rounded px-3 h-10"
+                name="fullName"
+                placeholder="Enter Full Name"
+                required
+              ></input>
+            </div>
             <div className=" flex flex-col gap-1">
               <label
                 htmlFor="email"
