@@ -51,7 +51,7 @@ const BottomNavbar = () => {
           <BsPerson className="text-slate-600" />
         ),
       label: "My Account",
-      link: "/",
+      link: "/account",
     },
   ];
 
