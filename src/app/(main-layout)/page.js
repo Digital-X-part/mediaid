@@ -10,12 +10,12 @@ const HomePage = () => {
   return (
     <div>
       {/* all home page components will be place here */}
-      <div className="flex gap-4">
-        <div className="w-[70%]">
+      <div className="md:flex gap-4">
+        <div className="w-full md:w-[70%] ">
           <Slider />
           {/* <MiniSlider /> */}
         </div>
-        <div className="w-[28%] max-h-[400px]">
+        <div className="w-full md:w-[28%] max-h-[400px]">
           <PushProducts />
         </div>
       </div>

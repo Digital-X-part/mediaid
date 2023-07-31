@@ -10,24 +10,24 @@ import { BsThreeDots } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import axiosInstance from "@/utility/axiosInstance";
 
-const orderDetailArray = [
-  {
-    id: "s54dfds45f",
-    status: "Completed",
-  },
-  {
-    id: "5sdf4ds56f4",
-    status: "Pending",
-  },
-  {
-    id: "564fs5d6f4ds6",
-    status: "Processing",
-  },
-  {
-    id: "fd4sf4sd56f4d",
-    status: "OnHold",
-  },
-];
+// const orderDetailArray = [
+//   {
+//     id: "s54dfds45f",
+//     status: "Completed",
+//   },
+//   {
+//     id: "5sdf4ds56f4",
+//     status: "Pending",
+//   },
+//   {
+//     id: "564fs5d6f4ds6",
+//     status: "Processing",
+//   },
+//   {
+//     id: "fd4sf4sd56f4d",
+//     status: "OnHold",
+//   },
+// ];
 
 const OrderList = () => {
   const [actionButtonListOpen, setActionButtonListOpen] = useState("");
@@ -40,14 +40,15 @@ const OrderList = () => {
 
   const order = async () => {
     const res = await axiosInstance.get("/orders");
+
     setListOpen(res.data.order);
     // console.log(res.data.order);
   };
   useEffect(() => {
     order();
     // console.log(order());
-  }, [listOpen]);
-  console.log(listOpen);
+  }, []);
+
   return (
     <div>
       <div className="text-sm breadcrumbs ">
@@ -59,7 +60,7 @@ const OrderList = () => {
         </ul>
       </div>
       <div className="overflow-x-auto">
-        <table className="table table-zebra h-screen">
+        <table className="table table-zebra">
           <thead className="bg-slate-200">
             <tr>
               <th>Order</th>
@@ -80,8 +81,7 @@ const OrderList = () => {
                     <div className="p-0 text-violet-500 text-sm font-bold">
                       <Link
                         href={`/dashboard/order-list/${orderDetail._id}`}
-                        className="text-blue-500 hover:underline"
-                      >
+                        className="text-blue-500 hover:underline">
                         # {orderDetail.orderNumber}
                       </Link>
                       <span className="text-gray-400 font-normal"> by</span>{" "}
@@ -93,7 +93,7 @@ const OrderList = () => {
                   </div>
                 </td>
                 <td className="text-sm font-roboto text-blue-500 tracking-wider">
-                  {orderDetail.orderTime}
+                  {moment(orderDetail.orderTime).format("LLL")}
                 </td>
                 <td className="text-sm font-roboto text-blue-500 tracking-wider">
                   {orderDetail.orderNumber}
@@ -104,7 +104,9 @@ const OrderList = () => {
                 <td className="text-xs font-roboto text-blue-500 tracking-wider">
                   {orderDetail.shipTo?.district} ,{orderDetail.shipTo?.area} ,
                   {orderDetail.shipTo?.location} ,
-                  <span className="font-bold">{orderDetail.shipTo?.addressType}</span>
+                  <span className="font-bold">
+                    {orderDetail.shipTo?.addressType}
+                  </span>
                 </td>
                 {orderDetail.status === "Completed" && (
                   <td>
@@ -148,8 +150,7 @@ const OrderList = () => {
                 <td>
                   <div
                     onClick={() => actionHandleButton(orderDetail.id)}
-                    className="cursor-pointer"
-                  >
+                    className="cursor-pointer">
                     <BsThreeDots size={25} />
                   </div>
                   {actionButtonListOpen === orderDetail.id &&
@@ -160,15 +161,13 @@ const OrderList = () => {
                             <li
                               key={item.id}
                               onClick={() => setIsActionButtonListOpen(false)}
-                              className="px-4 py-1 text-base cursor-pointer font-medium text-slate-600 hover:bg-red-100 border-b capitalize"
-                            >
+                              className="px-4 py-1 text-base cursor-pointer font-medium text-slate-600 hover:bg-red-100 border-b capitalize">
                               {item.status}
                             </li>
                           ))}
                           <li
                             onClick={() => setIsActionButtonListOpen(false)}
-                            className="px-4 py-1 text-base cursor-pointer font-medium text-red-500 hover:bg-red-100 "
-                          >
+                            className="px-4 py-1 text-base cursor-pointer font-medium text-red-500 hover:bg-red-100 ">
                             Delete
                           </li>
                         </ul>

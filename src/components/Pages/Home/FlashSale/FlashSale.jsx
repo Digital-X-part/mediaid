@@ -42,7 +42,7 @@ const FlashSale = () => {
     <div className="px-1 my-8">
       <div className="flex items-end justify-between">
         <div className="flex gap-2">
-          <h4 className="md:font-extrabold md:text-2xl text-slate-700 tracking-wide">
+          <h4 className="font-extrabold text-2xl text-slate-700 tracking-wide">
             Flash <span className="text-[#FD3851]">Sale</span>
           </h4>
           <div className="flex items-end text-center gap-1 font-mono text-lg font-bold text-yellow-500 cursor-pointer">

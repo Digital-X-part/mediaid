@@ -14,7 +14,7 @@ const sliderBannerImage = [
 
 export default function Slider() {
   return (
-    <div className="mt-2">
+    <div className="mt-2 md:h-[400px]">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -26,7 +26,7 @@ export default function Slider() {
           clickable: true,
         }}
         modules={[Autoplay, Pagination]}
-        className="mySwiper w-full max-w-[1080px] h-[400px]">
+        className="mySwiper w-full h-full rounded-md">
         {sliderBannerImage.map((imageLink, index) => (
           <SwiperSlide key={index}>
             <Image
@@ -34,7 +34,7 @@ export default function Slider() {
               alt="Image 1"
               width={1000}
               height={1000}
-              className="object-contain w-full h-auto rounded-lg"
+              className="object-cover w-full h-full rounded-lg"
             />
           </SwiperSlide>
         ))}
