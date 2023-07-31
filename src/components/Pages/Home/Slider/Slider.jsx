@@ -8,41 +8,37 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
 
 const sliderBannerImage = [
-  "https://i.ibb.co/rcWCcNj/03.png",
-  "https://i.ibb.co/Hzc2mHv/04.jpg",
-  "https://i.ibb.co/rcWCcNj/03.png",
-  "https://i.ibb.co/Hzc2mHv/04.jpg",
+  "https://i.ibb.co/WBpM26Z/Screenshot-2023-07-31-164430.png",
+  "https://i.ibb.co/f8VmGGj/Screenshot-2023-07-31-164329.png",
 ];
 
 export default function Slider() {
   return (
-    <>
+    <div className="mt-2">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 2500,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         pagination={{
           clickable: true,
         }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper w-full max-w-[1080px] max-h-[450px] ">
+        modules={[Autoplay, Pagination]}
+        className="mySwiper w-full max-w-[1080px] h-[400px]">
         {sliderBannerImage.map((imageLink, index) => (
           <SwiperSlide key={index}>
             <Image
               src={imageLink}
               alt="Image 1"
-              layout="responsive"
-              width={500}
-              height={500}
-              className="object-contain w-full h-full"
+              width={1000}
+              height={1000}
+              className="object-contain w-full h-auto rounded-lg"
             />
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </div>
   );
 }
