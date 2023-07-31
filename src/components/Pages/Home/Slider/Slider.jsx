@@ -29,7 +29,8 @@ export default function Slider() {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper w-full max-w-[1080px] max-h-[450px] ">
+        className="mySwiper w-full max-w-[1080px] max-h-[390px] rounded-lg overflow-hidden"
+      >
         {sliderBannerImage.map((imageLink, index) => (
           <SwiperSlide key={index}>
             <Image
