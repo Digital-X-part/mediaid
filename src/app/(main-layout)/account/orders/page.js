@@ -51,7 +51,7 @@ const Orders = () => {
                       <TbCurrencyTaka size={22} color="indigo" />
                     </div>
                     <Link
-                      href={`/user-dashboard/orders/${orderItem}`}
+                      href={`/account/orders/${orderItem}`}
                       className="btn btn-warning btn-sm">
                       View
                     </Link>
