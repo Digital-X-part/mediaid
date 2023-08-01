@@ -1,3 +1,6 @@
+"use client";
+import useAllOrders from "@/hooks/useAllOrders";
+import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -5,29 +8,28 @@ import { MdOutlineDone } from "react-icons/md";
 import { TbCurrencyTaka } from "react-icons/tb";
 
 const Orders = () => {
-  const [orderListData, setOrderListData] = useState([]);
-  const order = async () => {
-    const res = await axiosInstance.get("/orders");
-    setOrderListData(res.data.order);
-  };
-  useEffect(() => {
-    order();
-  }, [orderListData]);
-
+  const { orders, isOrdersLoading, isOrdersError } = useAllOrders(); // remaining => mutateOrders
+  console.log(orders);
+  if (isOrdersLoading) {
+    return <tr>loading...</tr>;
+  }
+  if (isOrdersError) {
+    return <tr>error</tr>;
+  }
   return (
     <>
       <h2 className="mt-2 font-bold ">Order History</h2>
       <div>
-        {orderListData.map((item) => (
+        {orders?.order?.map((item) => (
           <div
             key={item._id}
             className="mt-4 shadow-xl rounded-md border border-gray-200 "
           >
             <div className="flex items-center justify-between border-b p-2">
               <div>
-                <p className="font-bold">Order# {orderListData.or}</p>
+                <p className="font-bold">Order# {item.orderNumber}</p>
                 <p className="text-xs font-medium text-gray-500">
-                  Date Added: 29 Jul 2023
+                  Date Added: {moment(item?.orderTime).format("LLL")}
                 </p>
               </div>
               <div className="flex items-center gap-2">
@@ -38,9 +40,9 @@ const Orders = () => {
               </div>
             </div>
             <div>
-              {[1, 2].map((orderItem) => (
+              {item?.orderItems?.map((orderItem) => (
                 <div
-                  key={orderItem}
+                  key={orderItem?._id}
                   className="md:flex md:items-center justify-between bg-[#eceaea90] p-2"
                 >
                   <div className="flex items-center gap-2">
@@ -51,18 +53,17 @@ const Orders = () => {
                       alt=""
                       className="rounded-md"
                     />
-                    <p className="font-semibold">
-                      Machenike L15 Core i5 12th Gen RTX 3050 Ti 4GB Graphics
-                      15.6 FHD 144Hz Gaming Laptop
-                    </p>
+                    <p className="font-semibold">{orderItem?.name}</p>
                   </div>
                   <div className="flex items-center justify-between gap-4">
                     <div className="flex items-center">
-                      <p className="text-indigo-700 font-bold">229,860</p>
+                      <p className="text-indigo-700 font-bold">
+                        {orderItem?.price}
+                      </p>
                       <TbCurrencyTaka size={22} color="indigo" />
                     </div>
                     <Link
-                      href={`/account/orders/${orderItem}`}
+                      href={`/account/orders/${orderItem?._id}`}
                       className="btn btn-warning btn-sm"
                     >
                       View

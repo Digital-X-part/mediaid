@@ -1,6 +1,6 @@
 import { Schema, Types, model, models } from "mongoose";
 
-const addressSchema = new Schema({
+export const addressSchema = new Schema({
   district: { type: String, required: true },
   area: { type: String, required: true },
   location: { type: String, required: true },
@@ -30,10 +30,13 @@ const orderSchema = new Schema(
       type: addressSchema,
       required: true,
     },
-    status: { type: String, default: "pending" },
+    status: {
+      type: String,
+      default: "Pending",
+      enum: ["Completed", "Processing", "Pending", "OnHold"],
+    },
     amount: { type: Number, required: true },
     orderItems: [productSchema],
-    createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
     trackingNumber: { type: String, required: true },
   },

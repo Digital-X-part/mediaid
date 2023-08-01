@@ -84,7 +84,6 @@ const OrderListTable = () => {
               </div>
             </td>
           )}
-
           {orderDetail?.status === "Processing" && (
             <td>
               <div className="flex items-center gap-1 bg-[#d5e5fa] text-[#1c4f93] rounded-lg tracking-wide px-2 py-1 font-bold">
