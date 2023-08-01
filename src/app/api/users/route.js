@@ -53,11 +53,18 @@ export const POST = async (request) => {
     });
 
     const saveUser = await newUser.save();
+  
     const response = NextResponse.json(
       {
         message: "User added successfully",
         success: true,
-        newUser,
+        fullName: saveUser.fullName,
+      phone: saveUser.phone,
+      email: saveUser.email,
+      photo: saveUser.photo,
+      role: saveUser.role ,
+      rewardPoints: saveUser.rewardPoints,
+      addresses: saveUser.addresses,
       },
       { status: 200 }
     );
