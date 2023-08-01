@@ -5,22 +5,22 @@ const PushProducts = () => {
   return (
     <>
       <div className="flex flex-row md:flex-col mt-2 gap-x-2 md:gap-x-0 px-1 h-full">
-        <Link href="">
+        <Link href="" className="h-full">
           <Image
-            width={500}
-            height={500}
+            width={200}
+            height={200}
             src="https://i.ibb.co/fdRWdPv/Screenshot-2023-07-31-164221.png"
             alt=""
-            className="w-full rounded-md h-full"
+            className="w-full rounded-md lg:h-[90%]"
           />
         </Link>
         <Link href="" >
           <Image
-            width={500}
-            height={500}
+            width={200}
+            height={200}
             src="https://i.ibb.co/9H6nbRn/Screenshot-2023-07-31-164201.png"
             alt=""
-            className="w-full h-full rounded-md md:mt-2 "
+            className="rounded-md w-full lg:h-[90%]"
           />
         </Link>
       </div>
