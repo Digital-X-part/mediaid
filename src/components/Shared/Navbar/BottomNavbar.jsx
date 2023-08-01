@@ -31,7 +31,7 @@ const BottomNavbar = () => {
           <BsBag className="text-slate-600" />
         ),
       label: "Shop",
-      link: "/",
+      link: "/shop",
     },
     {
       icon:
