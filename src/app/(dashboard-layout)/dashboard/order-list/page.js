@@ -10,33 +10,35 @@ import { BsThreeDots } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import axiosInstance from "@/utility/axiosInstance";
 
-// const orderDetailArray = [
-//   {
-//     id: "s54dfds45f",
-//     status: "Completed",
-//   },
-//   {
-//     id: "5sdf4ds56f4",
-//     status: "Pending",
-//   },
-//   {
-//     id: "564fs5d6f4ds6",
-//     status: "Processing",
-//   },
-//   {
-//     id: "fd4sf4sd56f4d",
-//     status: "OnHold",
-//   },
-// ];
+const orderDetailArray = [
+  {
+    id: "s54dfds45f",
+    status: "Completed",
+  },
+  {
+    id: "5sdf4ds56f4",
+    status: "Pending",
+  },
+  {
+    id: "564fs5d6f4ds6",
+    status: "Processing",
+  },
+  {
+    id: "fd4sf4sd56f4d",
+    status: "OnHold",
+  },
+];
 
 const OrderList = () => {
   const [actionButtonListOpen, setActionButtonListOpen] = useState("");
   const [isActionButtonListOpen, setIsActionButtonListOpen] = useState(false);
   const [listOpen, setListOpen] = useState([]);
   const actionHandleButton = (id) => {
+    console.log(id);
     setActionButtonListOpen(id);
     setIsActionButtonListOpen(!isActionButtonListOpen);
   };
+  console.log(actionButtonListOpen);
 
   const order = async () => {
     const res = await axiosInstance.get("/orders");
@@ -60,7 +62,7 @@ const OrderList = () => {
         </ul>
       </div>
       <div className="overflow-x-auto">
-        <table className="table table-zebra">
+        <table className="table table-zebra ">
           <thead className="bg-slate-200">
             <tr>
               <th>Order</th>
@@ -75,7 +77,7 @@ const OrderList = () => {
           </thead>
           <tbody>
             {listOpen.map((orderDetail) => (
-              <tr key={orderDetail._id}>
+              <tr key={orderDetail._id} >
                 <td>
                   <div className="flex flex-col">
                     <div className="p-0 text-violet-500 text-sm font-bold">
@@ -149,13 +151,13 @@ const OrderList = () => {
 
                 <td>
                   <div
-                    onClick={() => actionHandleButton(orderDetail.id)}
+                    onClick={() => actionHandleButton(orderDetail._id)}
                     className="cursor-pointer">
                     <BsThreeDots size={25} />
                   </div>
-                  {actionButtonListOpen === orderDetail.id &&
+                  {actionButtonListOpen === orderDetail._id &&
                     isActionButtonListOpen && (
-                      <div className="absolute z-30 bg-white -ml-32 mt-2 w-36 shadow-2xl border border-indigo-100 rounded-sm">
+                      <div className="absolute z-50 bg-white -ml-32 mt-2 w-36 shadow-2xl border border-indigo-100 rounded-sm">
                         <ul>
                           {orderDetailArray.map((item) => (
                             <li
