@@ -75,7 +75,7 @@ const SearchBar = () => {
 
   return (
     <div className="mt-4 rounded-sm outline-transparent relative mb-1 lg:mb-0 ">
-      <div className="flex items-center justify-between mx-1 my-2 rounded-md border-2 border-gray-600 border-opacity-70">
+      <div className="flex items-center justify-between mx-1 my-2 rounded-md bg-gray-100 ">
         {/* Mobile Search bar */}
         <div className="dropdown md:hidden">
           <div
@@ -86,7 +86,7 @@ const SearchBar = () => {
               })
             }
             tabIndex={0}
-            className="flex items-center py-2 px-2 cursor-pointer gap-1 bg-red-200"
+            className="flex items-center py-2 px-2 cursor-pointer gap-1 bg-[#60B8A6] text-white rounded-l-md"
           >
             <p className="cursor-pointer capitalize text-sm text-center w-[50px] truncate ">
               {selectedCategory.selectedCategoryName}
@@ -121,7 +121,7 @@ const SearchBar = () => {
               })
             }
             tabIndex={0}
-            className="flex items-center px-2 py-1 cursor-pointer gap-1 h-full w-full "
+            className="flex items-center px-2 py-2 rounded-l-md text-white cursor-pointer gap-1 h-full w-full bg-[#60B8A6]"
           >
             <p className="cursor-pointer capitalize text-sm">
               {selectedCategory.selectedCategoryName}
@@ -149,13 +149,13 @@ const SearchBar = () => {
         <input
           tabIndex={0}
           ref={inputRef}
-          className={`appearance-none bg-gray-200 text-gray-700 px-4 py-2 leading-tight outline-none focus:outline-none focus:bg-white grow w-full md:w-auto`}
+          className={`appearance-none bg-gray-100 text-gray-700 px-4 py-[7px] leading-tight outline-none focus:outline-none focus:bg-white grow w-full md:w-auto`}
           type="text"
           placeholder={dropDownCategoryLists[placeholderIndex]}
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
         />
-        <div className="px-3 py-2 cursor-pointer bg-yellow-400">
+        <div className="px-3 py-2 cursor-pointer bg-[#60B8A6] text-white rounded-r-md">
           <FiSearch size={20} />
         </div>
       </div>
