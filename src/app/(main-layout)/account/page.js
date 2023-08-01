@@ -4,7 +4,7 @@ import { FaShoppingCart, FaUserAlt } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
 import { IoMdBookmarks, IoMdWallet } from "react-icons/io";
 import { RiLogoutBoxRLine } from "react-icons/ri";
-import { GiSelfLove } from "react-icons/Gi";
+// import { GiSelfLove } from "react-icons/Gi";
 import Link from "next/link";
 
 const UserDashBoard = () => {
@@ -25,7 +25,7 @@ const UserDashBoard = () => {
       href: "/addresses",
     },
     {
-      icon: <GiSelfLove color="blue" size={22} />, // GiEternalLove
+      icon: <IoMdBookmarks color="blue" size={22} />, // GiEternalLove
       title: "Wish list",
       href: "/wishlist",
     },
