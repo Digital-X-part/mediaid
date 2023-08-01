@@ -18,7 +18,7 @@ const FlashSale = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date();
-      const targetDate = new Date("2023-07-20");
+      const targetDate = new Date("2023-08-15");
       const timeDiff = targetDate.getTime() - now.getTime();
       let days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
       const hours = Math.floor(
@@ -42,7 +42,9 @@ const FlashSale = () => {
     <div className="px-1 my-8">
       <div className="flex items-end justify-between">
         <div className="flex gap-2">
-          <h4 className="font-bold text-2xl">Flash Sale</h4>
+          <h4 className="font-extrabold text-2xl text-slate-700 tracking-wide">
+            Flash <span className="text-[#FD3851]">Sale</span>
+          </h4>
           <div className="flex items-end text-center gap-1 font-mono text-lg font-bold text-yellow-500 cursor-pointer">
             <p>{time.days < 10 ? "0" + time.days : time.days}</p> <span>:</span>
             <p>{time.hours < 10 ? "0" + time.hours : time.hours}</p>{" "}
@@ -70,18 +72,18 @@ const FlashSale = () => {
           },
         }}
         spaceBetween={10}
-        className="mySwiper my-1">
+        className="mySwiper">
         {FlashSaleDisplayProduct.map((item) => (
           <SwiperSlide key={item}>
             <Link
               href="/product-details"
-              className="bg-white rounded-sm shadow-sm p-1 my-2 mx-1">
+              className="bg-white rounded-sm shadow-sm p-1 mx-1">
               <Image
                 src="https://images.unsplash.com/photo-1550572017-4fcdbb59cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1039&q=80"
                 alt=""
-                width={200}
-                height={200}
-                className="object-cover w-full h-32 rounded-sm"
+                width={500}
+                height={500}
+                className="object-cover w-full h-[200px] rounded-sm "
               />
               <div>
                 <h4 className="text-[12px] mt-1">
@@ -123,18 +125,18 @@ const FlashSale = () => {
           },
         }}
         spaceBetween={10}
-        className="mySwiper my-1">
+        className="mySwiper">
         {FlashSaleDisplayProduct.map((item) => (
           <SwiperSlide key={item}>
             <Link
               href="/product-details"
-              className="bg-white rounded-sm shadow-sm p-1 my-2 mx-1">
+              className="bg-white rounded-sm shadow-sm p-1 mx-1">
               <Image
                 src="https://images.unsplash.com/photo-1550572017-4fcdbb59cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1039&q=80"
                 alt=""
-                width={200}
-                height={200}
-                className="object-cover w-full h-32 rounded-sm"
+                width={500}
+                height={500}
+                className="object-cover w-full h-[200px] rounded-sm "
               />
               <div>
                 <h4 className="text-[12px] mt-1">

@@ -9,6 +9,7 @@ import { useState } from "react";
 import Accordion from "@/components/Accordion/Accordion";
 import paymentFieldData from "@/data/paymentFieldData";
 import Link from "next/link";
+import ChangeAddress from "@/components/Shared/ChangeAddress/ChangeAddress"
 
 
 const AbsoluteCartDetails = ({
@@ -88,76 +89,14 @@ const AbsoluteCartDetails = ({
         </div>
         {/* ************** address list ************** */}
 
-        <div className="flex justify-between items-center my-4 border rounded-md drop-shadow-sm">
-          <div className="flex flex-col items-center bg-yellow-300 px-1 py-2">
-            <GrMapLocation className="text-2xl" />
-            <p className="text-sm rounded-md mt-[2px] text-center">Home</p>
-          </div>
-          <div className="text-xs">
-            <p className="text-sm font-bold text-neutral-800 tracking-wide">
-              Bulbul Ahmed
-            </p>
-            <p className="text-gray-700">+8801789499829</p>
-            <p className="text-gray-700">8 road, karpara,balakair,gopalganj</p>
-          </div>
-          <div
-            onClick={() => window.my_modal_3.showModal()}
-            className="flex items-center p-1 border h-fit mr-1 bg-teal-200 bg-opacity-20 cursor-pointer rounded-md hover:outline outline-1 outline-teal-500 ">
-            <p className="text-xs mr-[2px] opacity-80 tracking-wide">Change</p>
-            <BiDownArrow size={12} />
-          </div>
-          {/* //! add address modal */}
+        
 
-          <dialog id="my_modal_3" className="modal">
-            <form method="dialog" className="modal-box">
-              <button className="btn btn-sm btn-circle btn-ghost absolute right-4 top-2 ">
-                ✕
-              </button>
-              <div className="w-full">
-                <h3 className="font-medium text-neutral-600 text-lg">
-                  Address
-                </h3>
-                <div className="flex justify-between border border-teal-400 p-2 shadow-sm rounded-sm bg-teal-300 bg-opacity-20 mt-4">
-                  <div className="text-neutral-700">
-                    <p>Name: Bulbul Molla </p>
-                    <p>Phone: +8801789499829 </p>
-                    <p>
-                      Address: 8 road, karpara union, Balakair, Gopalganj Sadar
-                    </p>
-                    <p>
-                      Address Type:{" "}
-                      <span className="border px-1 py-0.5 rounded-lg border-teal-700">
-                        Home
-                      </span>
-                    </p>
-                  </div>
-                  <div className="p-2  hover:bg-teal-200 duration-300 h-fit rounded-full cursor-pointer">
-                    <BiDotsVerticalRounded size={20} />
-                  </div>
-                </div>
 
-                <div onClick={() => window.my_modal_5.showModal()}
-                  className="flex flex-col items-center justify-center border-2 border-dotted border-teal-500 rounded-md mt-4 py-6 bg-gray-100 cursor-pointer">
-                  <span>+</span>
-                  <p>Add New Address</p>
-                </div>
-                {/* <div>
-                  <dialog id="my_modal_3" className="modal">
-                    <form method="dialog" className="modal-box">
-                      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                        ✕
-                      </button>
-                      <h3 className="font-bold text-lg">Hello!</h3>
-                      <p className="py-4">
-                        Press ESC key or click on ✕ button to close
-                      </p>
-                    </form>
-                  </dialog>
-                </div> */}
-              </div>
-            </form>
-          </dialog>
-        </div>
+        <ChangeAddress></ChangeAddress>
+
+
+
+
         <div className="border p-2 rounded-md mb-4">
           <p
             onClick={() => setIsShowCouponInput(!isShowCouponInput)}
