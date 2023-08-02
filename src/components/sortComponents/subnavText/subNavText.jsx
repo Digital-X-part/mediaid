@@ -1,13 +1,11 @@
-
-import { useRouter } from 'next/router';
+"use client"
+import { usePathname } from 'next/navigation';
 import React from 'react';
 
 const SubNavText = () => {
-    const router = useRouter()
-    const path = router.pathname
-    console.log(path)
+    const path = usePathname();
     return (
-        <p className="font-semibold">Categories</p>
+        <p className="font-semibold">{path == '/shop' ? "Filter & Categories" : "Categories"}</p>
     );
 };
 
