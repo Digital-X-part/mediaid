@@ -13,7 +13,6 @@ export const metadata = {
     "An e-commerce build by the doctors, run by the doctors and serve to the doctors",
 };
 
-
 const Orders = () => {
   const { orders, isOrdersLoading, isOrdersError } = useAllOrders(); // remaining => mutateOrders
   console.log(orders);
@@ -34,7 +33,12 @@ const Orders = () => {
           >
             <div className="flex items-center justify-between border-b p-2">
               <div>
-                <p className="font-bold">Order# {item.orderNumber}</p>
+                <Link
+                  href={`/account/orders/${item?._id}`}
+                  className="font-bold"
+                >
+                  Order# {item.orderNumber}
+                </Link>
                 <p className="text-xs font-medium text-gray-500">
                   Date Added: {moment(item?.orderTime).format("LLL")}
                 </p>
