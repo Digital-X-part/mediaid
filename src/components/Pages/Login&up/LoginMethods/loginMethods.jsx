@@ -1,8 +1,8 @@
 import Image from "next/image";
-import React from "react";
+
 import DesktopEmailLogin from "../EmailLogin/desktopEmailLogin/desktopEmailLogin";
 
-const LoginMethods = ({toggleLoginModal, desktop, toggleEmailLoginModal}) => {
+const LoginMethods = ({ toggleLoginModal, desktop, toggleEmailLoginModal }) => {
   return (
     <div className="w-full h-full py-2">
       <h1 className="text-base md:text-lg font-bold text-black">
@@ -20,7 +20,15 @@ const LoginMethods = ({toggleLoginModal, desktop, toggleEmailLoginModal}) => {
             Continue With Google
           </button>
           <div className="divider text-sm md:text-base text-slate-500">OR</div>
-          <button onClick={()=>{ desktop && window.email_login_modal_1.showModal(), toggleLoginModal && toggleLoginModal(), toggleEmailLoginModal && toggleEmailLoginModal(), desktop && window.login_modal_1.closeModal()}} className="w-full py-1  border rounded text-sm md:text-base font-medium text-slate-500 flex items-center justify-center gap-2">
+          <button
+            onClick={() => {
+              desktop && window.email_login_modal_1.showModal(),
+                toggleLoginModal && toggleLoginModal(),
+                toggleEmailLoginModal && toggleEmailLoginModal(),
+                desktop && window.login_modal_1.closeModal();
+            }}
+            className="w-full py-1  border rounded text-sm md:text-base font-medium text-slate-500 flex items-center justify-center gap-2"
+          >
             <Image
               src="https://i.ibb.co/JjydDG7/email-removebg-preview.png"
               alt="googleicon"

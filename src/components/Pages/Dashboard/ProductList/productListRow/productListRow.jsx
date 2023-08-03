@@ -4,7 +4,7 @@ import useAllProducts from "@/hooks/useAllProducts";
 import axiosInstance from "@/utility/axiosInstance";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+
 import { AiOutlineStar, AiTwotoneStar } from "react-icons/ai";
 import Rating from "react-rating";
 import swal from "sweetalert";
@@ -126,7 +126,7 @@ const ProductListRow = () => {
                 <ProductEditForm product={product} />
               </div>
             </div>
-           
+
             <button
               onClick={() => handleDelete(product?._id)}
               className="btn btn-error btn-xs ml-2 hover:bg-inherit"

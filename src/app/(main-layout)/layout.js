@@ -5,10 +5,10 @@ import Footer from "@/components/Shared/Footer/Footer";
 import BottomNavbar from "@/components/Shared/Navbar/BottomNavbar";
 import MainNavbar from "@/components/Shared/Navbar/MainNavbar";
 import ShippingAddressModal from "@/components/Shared/ShippingAddressModal/ShippingAddressModal";
-
 import Sidebar from "@/components/Shared/Sidebar/Sidebar";
-
 import { useState } from "react";
+
+
 
 const MainLayout = ({ children }) => {
   const [isCartClicked, setIsCartClicked] = useState(false);
@@ -26,7 +26,7 @@ const MainLayout = ({ children }) => {
         setIsCartClicked={setIsCartClicked}
         handleSidebarOpen={handleSidebarOpen}
       />
-           <ShippingAddressModal />
+      <ShippingAddressModal />
       {/* bottom navbar only visible for mobile devices */}
       <BottomNavbar></BottomNavbar>
       {isCartClicked === false && (
@@ -45,15 +45,14 @@ const MainLayout = ({ children }) => {
         </div>
       )}
 
- 
-
       <div className="lg:grid lg:grid-cols-12">
         <div
           className={`${
             sidebarOpen
               ? "lg:col-start-1 lg:col-end-3"
               : "lg:col-start-1 lg:col-end-2"
-          } hidden lg:inline-block h-screen relative`}>
+          } hidden lg:inline-block h-screen relative`}
+        >
           <Sidebar sidebarOpen={sidebarOpen}></Sidebar>
         </div>
         <div
@@ -61,7 +60,8 @@ const MainLayout = ({ children }) => {
             sidebarOpen
               ? "lg:col-start-3 lg:col-end-13"
               : "lg:col-start-2 lg:col-end-13"
-          }`}>
+          }`}
+        >
           {children}
           <Footer></Footer>
         </div>

@@ -116,21 +116,20 @@ const OrderListTable = () => {
           <td className="w-6 bg-slate-400">
             <div className="dropdown dropdown-left">
               <label tabIndex={0} className="btn m-1">
-                Click
+                <BsThreeDots size={25} />
               </label>
               <ul
                 tabIndex={0}
                 className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
               >
-                {orderDetailArray?.map((action) =>
-                  console.log(action)(
-                    <li key={action?.id}>
-                      <button className="border border-b">
-                        {action?.status}
-                      </button>
-                    </li>
-                  )
-                )}
+                <li>
+                  {orderDetailArray?.map((action) => (
+                    <button key={action?.id} className="border-b mb-[1px]">
+                      {action?.status}
+                    </button>
+                  ))}
+                  <button className="bg-red-600 text-white font-semibold">delete</button>
+                </li>
               </ul>
             </div>
           </td>

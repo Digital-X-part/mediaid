@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+
 import { FaTrash } from "react-icons/fa";
 
 const cart = [
