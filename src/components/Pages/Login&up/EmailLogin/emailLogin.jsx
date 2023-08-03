@@ -33,7 +33,7 @@ const EmailLogin = ({ toggleEmailLoginModal }) => {
     e.target.reset();
     toggleEmailLoginModal && toggleEmailLoginModal();
   };
-  const loginUser = (e) => {
+  const loginUser =async (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
     const email = data.get("email");
@@ -42,7 +42,9 @@ const EmailLogin = ({ toggleEmailLoginModal }) => {
       email,
       password,
     };
-    console.log(userInfo);
+    // console.log(userInfo);
+    const user = await axiosInstance.put("/users", userInfo);
+    console.log(user.data);
     e.target.reset();
     toggleEmailLoginModal && toggleEmailLoginModal();
   };

@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
+import createCookie from "@/utility/createCookie/createCookie";
 
 connectDb();
 export const GET = async (request) => {
@@ -53,32 +54,41 @@ export const POST = async (request) => {
     });
 
     const saveUser = await newUser.save();
-  
+
     const response = NextResponse.json(
       {
         message: "User added successfully",
         success: true,
         fullName: saveUser.fullName,
-      phone: saveUser.phone,
-      email: saveUser.email,
-      photo: saveUser.photo,
-      role: saveUser.role ,
-      rewardPoints: saveUser.rewardPoints,
-      addresses: saveUser.addresses,
+        phone: saveUser.phone,
+        email: saveUser.email,
+        photo: saveUser.photo,
+        role: saveUser.role,
+        rewardPoints: saveUser.rewardPoints,
+        addresses: saveUser.addresses,
       },
       { status: 200 }
     );
-    // set cookie
-    const cookiesStore = cookies();
+
     const tokenData = {
       id: saveUser.id,
       email: saveUser.email,
     };
+
+    /* // set cookie
+    const cookiesStore = cookies();
+    
     // create token
     const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET, {
       expiresIn: "1h",
     });
-    cookiesStore.set("token", token);
+    cookiesStore.set("token", token,{
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      expires: new Date(Date.now() + 3600000),
+    }); */
+    await createCookie(tokenData);
+
     return response;
   } catch (error) {
     console.log(error);
@@ -93,4 +103,53 @@ export const POST = async (request) => {
   }
 };
 
+// login user
+export const PUT = async (request) => {
+  try {
+    const data = await request.json();
+    const { email, password } = data;
+    
+    // check if user exists
+    const user = await User.findOne({ email });
+    if (!user) {
+      return NextResponse.json(
+        {
+          message: "User does not exists",
+          success: false,
+        },
+        { status: 404 }
+      );
+    }
+ 
+    // check if password is correct
+    const validPassword = await bcryptjs.compare(password, user.password);
+    if (!validPassword) {
+      return NextResponse.json(
+        {
+          message: "Invalid password",
+          success: false,
+        },
+        { status: 400 }
+      );
+    }
 
+    // create token
+    
+    const tokenData = {
+      id: user.id,
+      email: user.email,
+    }
+    const token = await createCookie(tokenData)
+    console.log(token);
+    return NextResponse.json(
+      {
+        message: "Login successful",
+        success: true,
+        validPassword,
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+};
