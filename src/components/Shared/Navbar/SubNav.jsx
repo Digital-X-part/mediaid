@@ -3,6 +3,7 @@ import { BsShopWindow } from "react-icons/bs";
 import { FaBars, FaRegHeart } from "react-icons/fa";
 import { LiaFilePrescriptionSolid } from "react-icons/lia";
 import Link from "next/link";
+import SubNavText from "@/components/sortComponents/subnavText/subNavText";
 const SubNav = ({ handleSidebarOpen }) => {
   return (
     <div className="h-12 w-full -mt-2 grid grid-cols-12 border-y bg-slate-100 lg:px-3">
@@ -12,7 +13,7 @@ const SubNav = ({ handleSidebarOpen }) => {
           className="w-full h-full text-left flex items-center gap-2 pl-4"
         >
           <FaBars className="w-4 h-4" />
-          <p className="font-semibold">Categories</p>
+          <SubNavText></SubNavText>
         </button>
       </div>
 
