@@ -1,5 +1,4 @@
 import TopFilter from '@/components/Pages/Shop/TopFilter/TopFilter';
-import React from 'react';
 
 const ShopPage = () => {
     return (

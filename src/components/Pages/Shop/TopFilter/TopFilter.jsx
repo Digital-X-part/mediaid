@@ -1,4 +1,3 @@
-import React from "react";
 import { FaThList, FaThLarge } from "react-icons/fa";
 
 const TopFilter = () => {
