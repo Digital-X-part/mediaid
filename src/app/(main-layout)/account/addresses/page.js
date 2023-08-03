@@ -1,5 +1,3 @@
-import React from "react";
-
 export const metadata = {
   title: "Addresses | Mediaid BD",
   description:

@@ -2,6 +2,11 @@ import ImageBanner from "@/components/Pages/product-details/ImageBanner/ImageBan
 import ProductDescription from "@/components/Pages/product-details/ProductDescription/ProductDescription";
 import ProductInfo from "@/components/Pages/product-details/ProductInfo/ProductInfo";
 import RelatedProducts from "@/components/Pages/product-details/RelatedProducts/RelatedProducts";
+export const metadata = {
+  title: "Product Name | Mediaid BD",
+  description:
+    "An e-commerce build by the doctors, run by the doctors and serve to the doctors",
+};
 
 const page = () => {
   return (
