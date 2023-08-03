@@ -5,12 +5,12 @@ import decodeToken from './utility/decodeToken/decodeToken';
 // This function can be marked `async` if using `await` inside
 export async function middleware(request) {
       // check cookie
-      /* let token = request.cookies.get('token')
+      let token = request.cookies.get('token')
       
-      console.log('middleware',token); */
-      
-            decodeToken();
-      
+      console.log('middleware',token);
+      if(token){
+            decodeToken(token);
+      }
 
       return NextResponse.next()
   console.log('middleware',request.url );
