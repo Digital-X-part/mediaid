@@ -1,5 +1,5 @@
 "use client";
-import useAllOrders from "@/hooks/useAllOrders";
+import { useAllOrders } from "@/hooks/useAllOrders";
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
@@ -32,6 +32,12 @@ const Orders = () => {
                   Date Added: {moment(item?.orderTime).format("LLL")}
                 </p>
               </div>
+              <Link
+                href={`/account/orders/${item?._id}`}
+                className="btn btn-warning btn-sm"
+              >
+                View
+              </Link>
               <div className="flex items-center gap-2">
                 <p className="bg-green-700 p-0.5 rounded-full">
                   <MdOutlineDone color="white" />
@@ -62,12 +68,6 @@ const Orders = () => {
                       </p>
                       <TbCurrencyTaka size={22} color="indigo" />
                     </div>
-                    <Link
-                      href={`/account/orders/${orderItem?._id}`}
-                      className="btn btn-warning btn-sm"
-                    >
-                      View
-                    </Link>
                   </div>
                 </div>
               ))}

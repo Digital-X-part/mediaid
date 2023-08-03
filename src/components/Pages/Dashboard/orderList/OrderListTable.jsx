@@ -8,7 +8,7 @@ import { CgMenuMotion } from "react-icons/cg";
 import { BsThreeDots } from "react-icons/bs";
 import moment from "moment/moment";
 import Link from "next/link";
-import useAllOrders from "@/hooks/useAllOrders";
+import { useAllOrders } from "@/hooks/useAllOrders";
 
 const orderDetailArray = [
   {
@@ -38,7 +38,6 @@ const OrderListTable = () => {
   if (isOrdersError) {
     return <tr>error</tr>;
   }
-
   return (
     <>
       {orders?.order?.map((orderDetail) => (
@@ -115,20 +114,23 @@ const OrderListTable = () => {
           </td>
 
           <td className="w-6 bg-slate-400">
-            <div className="dropdown dropdown-hover">
+            <div className="dropdown dropdown-left">
               <label tabIndex={0} className="btn m-1">
-                <BsThreeDots size={25} /> action
+                Click
               </label>
               <ul
                 tabIndex={0}
                 className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
               >
-                <li>
-                  <a>Item 1</a>
-                </li>
-                <li>
-                  <a>Item 2</a>
-                </li>
+                {orderDetailArray?.map((action) =>
+                  console.log(action)(
+                    <li key={action?.id}>
+                      <button className="border border-b">
+                        {action?.status}
+                      </button>
+                    </li>
+                  )
+                )}
               </ul>
             </div>
           </td>
