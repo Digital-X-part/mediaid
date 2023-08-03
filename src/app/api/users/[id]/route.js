@@ -1,5 +1,5 @@
 import connectDb from "@/dbConfig/dbConfig";
-import { UpdateUser, User } from "@/models/user/userModel";
+import { User } from "@/models/user/userModel";
 import { NextResponse } from "next/server";
 
 connectDb();
@@ -18,12 +18,11 @@ export const GET = async (request, { params }) => {
 };
 
 // user details update
-
 export const PATCH = async (request, { params }) => {
   try {
     const userId = params.id;
     const body = await request.json();
-    const update = await UpdateUser.findByIdAndUpdate(userId, body);
+    const update = await User.findByIdAndUpdate(userId, body);
     console.log({ update, body, userId });
     return NextResponse.json({ update }, { status: 200 });
   } catch (error) {

@@ -3,9 +3,15 @@ import { useAllOrders } from "@/hooks/useAllOrders";
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+
 import { MdOutlineDone } from "react-icons/md";
 import { TbCurrencyTaka } from "react-icons/tb";
+
+export const metadata = {
+  title: "Edit Profile | Mediaid BD",
+  description:
+    "An e-commerce build by the doctors, run by the doctors and serve to the doctors",
+};
 
 const Orders = () => {
   const { orders, isOrdersLoading, isOrdersError } = useAllOrders(); // remaining => mutateOrders
@@ -27,7 +33,12 @@ const Orders = () => {
           >
             <div className="flex items-center justify-between border-b p-2">
               <div>
-                <p className="font-bold">Order# {item.orderNumber}</p>
+                <Link
+                  href={`/account/orders/${item?._id}`}
+                  className="font-bold"
+                >
+                  Order# {item.orderNumber}
+                </Link>
                 <p className="text-xs font-medium text-gray-500">
                   Date Added: {moment(item?.orderTime).format("LLL")}
                 </p>

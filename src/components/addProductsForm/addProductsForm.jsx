@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiOutlineCloudUpload } from "react-icons/ai";
@@ -58,7 +58,10 @@ const AddProductsForm = () => {
       console.log({ imagesUrls });
 
       // send data to server
-      const productData  = await axiosInstance.post("products", { ...data, imagesUrls });
+      const productData = await axiosInstance.post("products", {
+        ...data,
+        imagesUrls,
+      });
       console.log(data);
       swal({
         title: "Success!",
@@ -242,7 +245,7 @@ const AddProductsForm = () => {
                 )}
               </div>
             </div>
-{/* tags */}
+            {/* tags */}
             <div className="mt-2">
               <label htmlFor="tags" className="block text-neutral-600 mb-1">
                 Add a Tags:
@@ -261,7 +264,7 @@ const AddProductsForm = () => {
             {/* Highlights */}
             <div className="mt-2">
               <label htmlFor="tags" className="block text-neutral-600 mb-1">
-                Give Highlights  with comma:
+                Give Highlights with comma:
               </label>
               <div className="relative">
                 <input
@@ -413,7 +416,7 @@ const AddProductsForm = () => {
                 type="radio"
                 id="active"
                 {...register("productStatus")}
-                value={'active'}
+                value={"active"}
                 className="radio radio-sm"
               />
               <label htmlFor="active" className="text-neutral-600">
@@ -426,7 +429,7 @@ const AddProductsForm = () => {
                 id="inactive"
                 className="radio radio-sm"
                 {...register("productStatus")}
-                value={'inactive'}
+                value={"inactive"}
               />
               <label htmlFor="inactive" className="text-neutral-600">
                 Inactive
@@ -438,7 +441,7 @@ const AddProductsForm = () => {
                 id="starUser"
                 {...register("productStatus")}
                 className="radio radio-sm"
-                value={'starUser'}
+                value={"starUser"}
               />
               <label htmlFor="starUser" className="text-neutral-600">
                 Star User

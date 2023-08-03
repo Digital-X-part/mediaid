@@ -6,6 +6,14 @@ import OurBrands from "@/components/Pages/Home/OurBrands/OurBrands";
 import PushProducts from "@/components/Pages/Home/PushProducts/PushProducts";
 import Slider from "@/components/Pages/Home/Slider/Slider";
 
+
+export const metadata = {
+  title: "Mediaid BD | Doctors Need",
+  description:
+    "An e-commerce build by the doctors, run by the doctors and serve to the doctors",
+};
+
+
 const HomePage = () => {
   return (
     <div>

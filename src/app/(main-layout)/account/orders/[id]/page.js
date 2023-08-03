@@ -1,7 +1,6 @@
 "use client";
 import { useOrderFromUser } from "@/hooks/useAllOrders";
 import Image from "next/image";
-import React, { useEffect } from "react";
 import { TbCurrencyTaka } from "react-icons/tb";
 
 const OrderInfo = ({ params }) => {

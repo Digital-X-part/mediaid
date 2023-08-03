@@ -1,10 +1,10 @@
 import OrderListTable from "@/components/Pages/Dashboard/orderList/orderListTable";
-import useAllOrders from "@/hooks/useAllOrders";
 import Link from "next/link";
+
+export const metadata = {
+  title: "All Order List | Mediaid BD",
+};
 const OrderList = () => {
-  // const { orders, isOrdersLoading, isOrdersError, mutateOrders } =
-  //   useAllOrders();
-  // console.log(orders?.order);
   return (
     <div>
       <div className="text-sm breadcrumbs ">
