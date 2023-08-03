@@ -7,6 +7,13 @@ import { RiLogoutBoxRLine } from "react-icons/ri";
 import { RiHeart2Line } from "react-icons/ri";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Your Transactions | Mediaid BD",
+  description:
+    "An e-commerce build by the doctors, run by the doctors and serve to the doctors",
+};
+
+
 const UserDashBoard = () => {
   const cardData = [
     {
