@@ -1,6 +1,10 @@
 import OrderedProductTable from '@/components/Pages/Dashboard/OrderDetails/OrderedProductTable';
 import Image from 'next/image';
 
+export const metadata = {
+  title: "Order Details | Nahid Ahmed",
+};
+
 const orderDetails = {
     id: 239847,
     date: new Date().toLocaleString(),

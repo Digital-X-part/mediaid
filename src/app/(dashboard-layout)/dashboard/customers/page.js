@@ -2,6 +2,9 @@
 import CustomersTable from "@/components/Pages/Dashboard/Customers/CustomersTable";
 import { FaPlus, FaExternalLinkAlt, FaFilter } from "react-icons/fa";
 
+export const metadata = {
+  title: "All User | Mediaid BD",
+};
 const users = [
   {
     image: "https://i.ibb.co/54ctFnB/031-1-1.jpg",
