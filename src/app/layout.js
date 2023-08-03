@@ -1,3 +1,4 @@
+import decodeToken from "@/utility/decodeToken/decodeToken";
 import "./globals.css";
 import { Roboto } from "next/font/google";
 
@@ -13,6 +14,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  decodeToken();
   return (
     <html lang="en" data-theme="light">
       <head>
