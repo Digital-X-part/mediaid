@@ -1,5 +1,7 @@
+
 import "./globals.css";
 import { Roboto } from "next/font/google";
+import decodeTokenFrontend from "@/utility/decodeToken/decodeTokenFrontend";
 
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -8,6 +10,7 @@ const roboto = Roboto({
 });
 
 export default function RootLayout({ children }) {
+  decodeTokenFrontend();
   return (
     <html lang="en" data-theme="light">
       <head>

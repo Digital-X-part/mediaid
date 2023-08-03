@@ -140,7 +140,7 @@ export const PUT = async (request) => {
       email: user.email,
     }
     const token = await createCookie(tokenData)
-    console.log(token);
+    // console.log(token);
     return NextResponse.json(
       {
         message: "Login successful",
