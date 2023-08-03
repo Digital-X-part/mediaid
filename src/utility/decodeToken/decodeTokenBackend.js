@@ -1,12 +1,12 @@
 import jwt from "jsonwebtoken";
-const decodeToken = async (token) => {
+const decodeTokenBackend = async (token) => {
   try {
     const decodedToken = jwt.decode(token, process.env.TOKEN_SECRET);
-    console.log({ decodedToken });
+    console.log("backend", { decodedToken });
     return decodedToken;
   } catch (error) {
     console.log("decoder error", error);
   }
 };
 
-export default decodeToken;
+export default decodeTokenBackend;
