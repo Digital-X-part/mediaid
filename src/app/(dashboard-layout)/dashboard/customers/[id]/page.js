@@ -1,6 +1,6 @@
-"use client"
+"use client";
 import CustomerAction from "@/components/Pages/Dashboard/CustomerDetails/CustomerAction";
-import React from "react";
+
 import { FaCheck, FaDollarSign, FaPencilAlt, FaRegUser } from "react-icons/fa";
 
 export const metadata = {

@@ -1,6 +1,5 @@
 import ProductListRow from "@/components/Pages/Dashboard/ProductList/productListRow/productListRow";
 import Link from "next/link";
-import React from "react";
 
 export const metadata = {
   title: "All ProductList | Mediaid BD",

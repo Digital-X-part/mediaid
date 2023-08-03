@@ -1,7 +1,7 @@
-"use client"
+"use client";
 import useAllProducts from "@/hooks/useAllProducts";
 import axiosInstance from "@/utility/axiosInstance";
-import React from "react";
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import swal from "sweetalert";
@@ -9,7 +9,9 @@ import swal from "sweetalert";
 // todo track loading state through swr
 const ProductEditForm = ({ product }) => {
   const { mutateProducts } = useAllProducts();
-  const [sellingType, setSellingType] = useState(product?.sellingType||"flash sale");
+  const [sellingType, setSellingType] = useState(
+    product?.sellingType || "flash sale"
+  );
   const {
     handleSubmit,
     register,
@@ -33,7 +35,7 @@ const ProductEditForm = ({ product }) => {
       mutateProducts();
 
       // close modal
-      const modalLabel =  document.querySelector(`label[for="${product?._id}"]`);
+      const modalLabel = document.querySelector(`label[for="${product?._id}"]`);
       modalLabel.click();
     } catch (error) {
       console.log(error);
@@ -249,61 +251,60 @@ const ProductEditForm = ({ product }) => {
       <div>
         <p className="text-base font-semibold">Selling Type:</p>
         <select
-                id="sellingType"
-                {...register("sellingType")}
-                onChange={(e) => setSellingType(e.target.value)}
-                defaultValue={product?.sellingType}
-                className="select select-bordered w-full max-w-xs mt-2"
-              >
-                <option disabled>Select one type</option>
+          id="sellingType"
+          {...register("sellingType")}
+          onChange={(e) => setSellingType(e.target.value)}
+          defaultValue={product?.sellingType}
+          className="select select-bordered w-full max-w-xs mt-2"
+        >
+          <option disabled>Select one type</option>
 
-                <option value="flash sale">flash sale</option>
-                <option value="new arrival">new arrival</option>
-                <option value="feature product">feature product</option>
-                <option value="popular product">popular product</option>
-                <option value="push product">push product</option>
-              </select>
+          <option value="flash sale">flash sale</option>
+          <option value="new arrival">new arrival</option>
+          <option value="feature product">feature product</option>
+          <option value="popular product">popular product</option>
+          <option value="push product">push product</option>
+        </select>
       </div>
 
       {sellingType === "flash sale" && (
-          <div className="rounded-md mt-2">
-            <label htmlFor="startDate">
-              <span className="block text-neutral-600 mb-1">Start Date:</span>
-            </label>
-            <div className="relative">
-              <input
-                type="datetime-local"
-                name="startDate"
-                {...register("startDate", { required: true })}
-                defaultValue={product?.startDate}
-                className="w-full border-gray-300 border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg py-1 px-2"
-              />
-              {errors?.startDate && (
-                <span className="block text-xs text-red-500">
-                  {errors?.startDate.type === "required" &&
-                    "Start date is required"}
-                </span>
-              )}
-            </div>
-            <label htmlFor="endDate">
-              <span className="block text-neutral-600 mb-1">End Date:</span>
-            </label>
-            <div className="relative">
-              <input
-                type="datetime-local"
-                name="endDate"
-                {...register("endDate", { required: true })}
-                className="w-full border-gray-300 border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg py-1 px-2"
-              />
-              {errors?.endDate && (
-                <span className="block text-xs text-red-500">
-                  {errors?.endDate.type === "required" &&
-                    "End date is required"}
-                </span>
-              )}
-            </div>
+        <div className="rounded-md mt-2">
+          <label htmlFor="startDate">
+            <span className="block text-neutral-600 mb-1">Start Date:</span>
+          </label>
+          <div className="relative">
+            <input
+              type="datetime-local"
+              name="startDate"
+              {...register("startDate", { required: true })}
+              defaultValue={product?.startDate}
+              className="w-full border-gray-300 border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg py-1 px-2"
+            />
+            {errors?.startDate && (
+              <span className="block text-xs text-red-500">
+                {errors?.startDate.type === "required" &&
+                  "Start date is required"}
+              </span>
+            )}
           </div>
-        )}
+          <label htmlFor="endDate">
+            <span className="block text-neutral-600 mb-1">End Date:</span>
+          </label>
+          <div className="relative">
+            <input
+              type="datetime-local"
+              name="endDate"
+              {...register("endDate", { required: true })}
+              className="w-full border-gray-300 border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg py-1 px-2"
+            />
+            {errors?.endDate && (
+              <span className="block text-xs text-red-500">
+                {errors?.endDate.type === "required" && "End date is required"}
+              </span>
+            )}
+          </div>
+        </div>
+      )}
 
       <div className="pt-3 flex justify-center items-center">
         <button className="text-base font-semibold px-4 py-1 bg-indigo-500 text-white rounded hover:bg-indigo-600 duration-200">

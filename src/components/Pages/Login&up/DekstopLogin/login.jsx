@@ -1,4 +1,3 @@
-import React from "react";
 import LoginMethods from "../LoginMethods/loginMethods";
 
 const Login = () => {

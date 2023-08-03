@@ -1,4 +1,3 @@
-import React from "react";
 import { BiPhoneCall } from "react-icons/bi";
 import { BsShopWindow } from "react-icons/bs";
 import { FaBars, FaRegHeart } from "react-icons/fa";

@@ -1,4 +1,3 @@
-import React from "react";
 import EmailLogin from "../emailLogin";
 
 const DesktopEmailLogin = () => {
