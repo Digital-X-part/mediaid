@@ -1,8 +1,27 @@
+"use client";
+import { useOrderFromUser } from "@/hooks/useAllOrders";
 import Image from "next/image";
-import React from "react";
 import { TbCurrencyTaka } from "react-icons/tb";
 
-const OrderInfo = () => {
+const OrderInfo = ({ params }) => {
+  const { orders, isOrdersLoading, isOrdersError } = useOrderFromUser(
+    params?.id
+  );
+  if (isOrdersLoading) {
+    return <tr>loading...</tr>;
+  }
+  if (isOrdersError) {
+    return <tr>error</tr>;
+  }
+
+  const findOrderPrice = (data) => {
+    let subPrice = 0;
+    data?.map((obj) => {
+      subPrice = subPrice + parseFloat(obj?.price);
+    });
+    return subPrice;
+  };
+
   return (
     <div className="mt-4 md:flex gap-6 mr-1">
       <div className="w-full md:w-[70%] shadow-lg p-4 border border-gray-100 rounded-md">
@@ -19,16 +38,28 @@ const OrderInfo = () => {
             <h2 className="font-bold border-b pb-1">Shipping Address</h2>
             <div className="flex flex-col gap-y-1">
               <p>
-                Name: <span className="font-semibold">BulBul Ahmed</span>
+                Name:{" "}
+                <span className="font-semibold">{orders?.order?.fullName}</span>
               </p>
               <p>
                 Address:{" "}
                 <span className="font-semibold">
-                  Moon lite center, beside Mars, Dhaka City, Bangladesh
+                  {orders?.order?.shipTo?.location},{" "}
+                  {orders?.order?.shipTo?.area},{" "}
+                  {orders?.order?.shipTo?.district}
                 </span>
               </p>
               <p>
-                Mobile: <span className="font-semibold">01789499829</span>
+                Address Type:{" "}
+                <span className="font-semibold">
+                  {orders?.order?.shipTo?.addressType}
+                </span>
+              </p>
+              <p>
+                Mobile:{" "}
+                <span className="font-semibold">
+                  {orders?.order?.shipTo?.number}
+                </span>
               </p>
             </div>
           </div>
@@ -38,7 +69,10 @@ const OrderInfo = () => {
               <div className="flex items-center justify-between">
                 <p className="font-medium">Sub-Total</p>
                 <div className="flex items-center">
-                  <p className="text-indigo-700 font-semibold">229,860</p>
+                  <p className="text-indigo-700 font-semibold">
+                    {" "}
+                    {findOrderPrice(orders?.order?.orderItems)}
+                  </p>
                   <TbCurrencyTaka size={20} color="indigo" />
                 </div>
               </div>
@@ -52,7 +86,9 @@ const OrderInfo = () => {
               <div className="flex items-center justify-between border-t border-blue-300">
                 <p className="font-medium">Total</p>
                 <div className="flex items-center">
-                  <p className="text-indigo-700 font-semibold">229,920</p>
+                  <p className="text-indigo-700 font-semibold">
+                    {findOrderPrice(orders?.order?.orderItems) + 60}
+                  </p>
                   <TbCurrencyTaka size={20} color="indigo" />
                 </div>
               </div>
@@ -76,7 +112,7 @@ const OrderInfo = () => {
                 </tr>
               </thead>
               <tbody>
-                {[1, 2].map((productItem) => (
+                {orders?.order?.orderItems?.map((productItem) => (
                   <tr key={productItem}>
                     <td>
                       <div className="avatar">
@@ -91,12 +127,9 @@ const OrderInfo = () => {
                         </div>
                       </div>
                     </td>
-                    <td>
-                      Machenike L15 Core i5 12th Gen RTX 3050 Ti 4GB Graphics
-                      15.6 FHD 144Hz Gaming Laptop
-                    </td>
-                    <td>2</td>
-                    <td>229,920</td>
+                    <td>{productItem?.name}</td>
+                    <td>{productItem?.quantity}</td>
+                    <td>{productItem?.price}</td>
                   </tr>
                 ))}
               </tbody>
