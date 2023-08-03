@@ -116,7 +116,7 @@ const OrderListTable = () => {
           <td className="w-6 bg-slate-400">
             <div className="dropdown dropdown-left">
               <label tabIndex={0} className="btn m-1">
-                Click
+                <BsThreeDots size={25} />
               </label>
               <ul
                 tabIndex={0}
