@@ -12,8 +12,8 @@ const PriceFilter = ({sidebarOpen}) => {
       </div>
       <div className="w-full">
         <div
-          className={`pt-3 flex gap-2 w-full  ${
-            sidebarOpen ? "flex-row items-center justify-center" : "flex-col"
+          className={`pt-3 flex gap-2 w-full ${
+            sidebarOpen ? "flex-row items-center justify-center" : "flex-row justify-center items-start lg:flex-col"
           }`}
         >
           <input
