@@ -21,8 +21,9 @@ const Filter = ({ sidebarOpen }) => {
           </div>
         )}
         <RatingFilter></RatingFilter>
-        <div className="mt-1">
-          {/* <Categories sidebarOpen={sidebarOpen}></Categories> */}
+        <div className="mt-2">
+          <h1 className="text-sm font-semibold">Categories</h1>
+          <Categories sidebarOpen={sidebarOpen}></Categories>
         </div>
       </div>
     </div>
