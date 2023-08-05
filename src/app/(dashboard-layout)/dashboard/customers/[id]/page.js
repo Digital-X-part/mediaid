@@ -1,4 +1,3 @@
-"use client";
 import CustomerAction from "@/components/Pages/Dashboard/CustomerDetails/CustomerAction";
 
 import { FaCheck, FaDollarSign, FaPencilAlt, FaRegUser } from "react-icons/fa";
