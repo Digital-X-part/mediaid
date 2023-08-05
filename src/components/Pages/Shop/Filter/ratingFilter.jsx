@@ -1,10 +1,10 @@
 import { FaRegStar, FaStar } from "react-icons/fa";
 
-const RatingFilter = () => {
+const RatingFilter = ({sidebarOpen}) => {
     return (
         <div className="py-2 border-b">
             <h1 className="text-sm font-semibold">Short By Rating</h1>
-            <div className="mt-1 space-y-1">
+            <div className={`mt-1 space-y-1 ${sidebarOpen || 'lg:hidden'}`}>
                 <button className="flex items-center gap-[6px]">
                     <FaStar className="w-[14px] h-[14px] text-yellow-400"></FaStar>
                     <FaStar className="w-[14px] h-[14px] text-yellow-400"></FaStar>
