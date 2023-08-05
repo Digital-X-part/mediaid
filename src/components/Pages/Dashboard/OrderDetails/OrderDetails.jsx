@@ -42,7 +42,7 @@ const OrderDetails = () => {
     <div className="w-full min-h-screen p-2">
       <div className="h-fit  w-full bg-slate-50 rounded p-3 shadow-md">
         <h1 className="text-base md:text-xl font-semibold text-gray-700">
-          Order Details: #{orderDetails.id}
+          Order Details: # {orderDetails.id}
         </h1>
         <p className="text-xs md:text-sm text-slate-500">{orderDetails.date}</p>
         <div className="text-base md:text-lg font-semibold text-gray-600 mt-2 flex items-center gap-1">

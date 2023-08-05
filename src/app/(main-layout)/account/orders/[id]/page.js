@@ -8,7 +8,7 @@ const OrderInfo = ({ params }) => {
     params?.id
   );
   if (isOrdersLoading) {
-    return <tr>loading...</tr>;
+    return <span className="loading loading-ring loading-lg"></span>;
   }
   if (isOrdersError) {
     return <tr>error</tr>;
