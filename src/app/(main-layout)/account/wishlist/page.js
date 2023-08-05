@@ -1,6 +1,13 @@
 import Image from "next/image";
-import React from "react";
+
 import { FaTrash } from "react-icons/fa";
+
+export const metadata = {
+  title: "Wish List | Mediaid BD",
+  description:
+    "An e-commerce build by the doctors, run by the doctors and serve to the doctors",
+};
+
 
 const cart = [
   {
