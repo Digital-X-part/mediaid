@@ -7,12 +7,6 @@ import Link from "next/link";
 import { MdOutlineDone } from "react-icons/md";
 import { TbCurrencyTaka } from "react-icons/tb";
 
-export const metadata = {
-  title: "Edit Profile | Mediaid BD",
-  description:
-    "An e-commerce build by the doctors, run by the doctors and serve to the doctors",
-};
-
 const Orders = () => {
   const { orders, isOrdersLoading, isOrdersError } = useAllOrders(); // remaining => mutateOrders
   console.log(orders);
