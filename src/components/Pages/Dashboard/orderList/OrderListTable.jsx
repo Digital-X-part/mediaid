@@ -29,11 +29,33 @@ const orderDetailArray = [
   },
 ];
 
+export const OrderTable = () => {
+  return (
+    <table className="table table-zebra">
+      <thead className="bg-slate-200">
+        <tr>
+          <th>Order</th>
+          <th>Date</th>
+          <th>Order ID</th>
+          <th>Transaction ID</th>
+          <th>Ship To</th>
+          <th>Status</th>
+          <th>Amount</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <OrderListTable />
+      </tbody>
+    </table>
+  );
+};
+
 const OrderListTable = () => {
   const { orders, isOrdersLoading, isOrdersError } = useAllOrders(); // remaining => mutateOrders
 
   if (isOrdersLoading) {
-    return <tr>loading...</tr>;
+    return <span className="loading loading-ring loading-lg"></span>;
   }
   if (isOrdersError) {
     return <tr>error</tr>;
@@ -51,11 +73,13 @@ const OrderListTable = () => {
                 >
                   # {orderDetail?.orderNumber}
                 </Link>
-                <span className="text-gray-400 font-normal"> by</span>{" "}
-                {orderDetail?.fullName}
               </div>
               <div className="p-0 font-semibold text-blue-500 ">
                 {orderDetail?.email}
+              </div>
+              <div className="text-gray-400 font-normal">
+                {" "}
+                by {orderDetail?.fullName}
               </div>
             </div>
           </td>
@@ -128,7 +152,9 @@ const OrderListTable = () => {
                       {action?.status}
                     </button>
                   ))}
-                  <button className="bg-red-600 text-white font-semibold">delete</button>
+                  <button className="bg-red-600 text-white font-semibold">
+                    delete
+                  </button>
                 </li>
               </ul>
             </div>
