@@ -1,4 +1,4 @@
-import OrderListTable, { OrderTable } from "@/components/Pages/Dashboard/orderList/OrderListTable";
+import { OrderTable } from "@/components/Pages/Dashboard/orderList/OrderListTable";
 import Link from "next/link";
 
 export const metadata = {
@@ -16,7 +16,7 @@ const OrderList = () => {
         </ul>
       </div>
       <div className="overflow-x-auto">
-        <OrderTable/>
+        <OrderTable />
       </div>
     </div>
   );
