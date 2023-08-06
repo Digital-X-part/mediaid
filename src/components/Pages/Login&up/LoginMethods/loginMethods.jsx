@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import DesktopEmailLogin from "../EmailLogin/desktopEmailLogin/desktopEmailLogin";
 
-const LoginMethods = ({ toggleLoginModal, desktop, toggleEmailLoginModal }) => {
+const LoginMethods = ({toggleLoginModal, desktop, toggleEmailLoginModal }) => {
   return (
     <div className="w-full h-full py-2">
       <h1 className="text-base md:text-lg font-bold text-black">

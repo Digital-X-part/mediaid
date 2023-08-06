@@ -3,11 +3,9 @@ import EmailLogin from "../emailLogin";
 const DesktopEmailLogin = () => {
   return (
     <dialog id="email_login_modal_1" className="modal">
-      <div method="dialog" className="modal-box">
+      <form method="dialog" className="modal-box">
         <EmailLogin></EmailLogin>
-      </div>
-      <form method="dialog" className="modal-backdrop">
-        <button>close</button>
+        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
       </form>
     </dialog>
   );
