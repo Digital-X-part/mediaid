@@ -17,7 +17,7 @@ const Orders = () => {
   const { orders, isOrdersLoading, isOrdersError } = useAllOrders(); // remaining => mutateOrders
   console.log(orders);
   if (isOrdersLoading) {
-    return <tr>loading...</tr>;
+    return <span className="loading loading-ring loading-lg"></span>;
   }
   if (isOrdersError) {
     return <tr>error</tr>;
@@ -28,7 +28,7 @@ const Orders = () => {
       <div>
         {orders?.order?.map((item) => (
           <div
-            key={item._id}
+            key={item?._id}
             className="mt-4 shadow-xl rounded-md border border-gray-200 "
           >
             <div className="flex items-center justify-between border-b p-2">
@@ -37,7 +37,7 @@ const Orders = () => {
                   href={`/account/orders/${item?._id}`}
                   className="font-bold"
                 >
-                  Order# {item.orderNumber}
+                  Order# {item?.orderNumber}
                 </Link>
                 <p className="text-xs font-medium text-gray-500">
                   Date Added: {moment(item?.orderTime).format("LLL")}

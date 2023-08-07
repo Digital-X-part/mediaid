@@ -1,4 +1,4 @@
-import OrderListTable from "@/components/Pages/Dashboard/orderList/OrderListTable";
+import { OrderTable } from "@/components/Pages/Dashboard/orderList/OrderListTable";
 import Link from "next/link";
 
 export const metadata = {
@@ -16,6 +16,7 @@ const OrderList = () => {
         </ul>
       </div>
       <div className="overflow-x-auto">
+<<<<<<< HEAD
         <table className="table table-zebra ">
           <thead className="bg-slate-200">
             <tr>
@@ -33,6 +34,9 @@ const OrderList = () => {
             <OrderListTable />
           </tbody>
         </table>
+=======
+        <OrderTable />
+>>>>>>> 46256497172a36fc1bf6041fe634cfe3b2ffe435
       </div>
     </div>
   );

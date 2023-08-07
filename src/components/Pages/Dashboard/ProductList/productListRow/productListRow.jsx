@@ -37,7 +37,7 @@ const ProductListRow = () => {
   };
 
   if (isProductsLoading) {
-    return <tr>loading...</tr>;
+    return <span className="loading loading-ring loading-lg"></span>;
   }
   if (isProductsError) {
     return <tr>error</tr>;

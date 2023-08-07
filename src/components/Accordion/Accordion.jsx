@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 const Accordion = ({ title, paymentIconLink, isOpen, onClick, children }) => {
   const toggleAccordion = () => {
