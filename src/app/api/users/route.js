@@ -1,10 +1,8 @@
 import connectDb from "@/dbConfig/dbConfig";
 import { User } from "@/models/user/userModel";
-import { NextResponse } from "next/server";
-import bcryptjs from "bcryptjs";
-import { cookies } from "next/headers";
-import jwt from "jsonwebtoken";
 import createCookie from "@/utility/createCookie/createCookie";
+import bcryptjs from "bcryptjs";
+import { NextResponse } from "next/server";
 
 connectDb();
 export const GET = async (request) => {
@@ -108,7 +106,7 @@ export const PUT = async (request) => {
   try {
     const data = await request.json();
     const { email, password } = data;
-    
+
     // check if user exists
     const user = await User.findOne({ email });
     if (!user) {
@@ -120,7 +118,7 @@ export const PUT = async (request) => {
         { status: 404 }
       );
     }
- 
+
     // check if password is correct
     const validPassword = await bcryptjs.compare(password, user.password);
     if (!validPassword) {
@@ -134,12 +132,12 @@ export const PUT = async (request) => {
     }
 
     // create token
-    
+
     const tokenData = {
       id: user.id,
       email: user.email,
-    }
-    const token = await createCookie(tokenData)
+    };
+    const token = await createCookie(tokenData);
     // console.log(token);
     return NextResponse.json(
       {
