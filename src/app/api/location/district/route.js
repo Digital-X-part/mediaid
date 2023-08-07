@@ -7,7 +7,7 @@ connectDb();
 export const GET = async (request) => {
   try {
     const district = await District.find();
-    return NextResponse.json({ district }, { status: 200 });
+    return NextResponse.json( district , { status: 200 });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
@@ -19,7 +19,7 @@ export const GET = async (request) => {
 export const POST = async (request) => {
   try {
     const body = await request.json();
-    const districts = body.districts;
+    const districts = body.data;
 
     // Create a new District object for each district in the array.
     const divisionModels = districts.map((district) => {

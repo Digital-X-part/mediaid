@@ -29,7 +29,6 @@ export const POST = async (request) => {
 
     const {
       fullName,
-      phone,
       email,
       photo,
       password,
@@ -44,7 +43,6 @@ export const POST = async (request) => {
 
     const newUser = new User({
       fullName,
-      phone,
       email,
       photo,
       password: hashedPassword,
@@ -60,7 +58,6 @@ export const POST = async (request) => {
         message: "User added successfully",
         success: true,
         fullName: saveUser.fullName,
-        phone: saveUser.phone,
         email: saveUser.email,
         photo: saveUser.photo,
         role: saveUser.role,

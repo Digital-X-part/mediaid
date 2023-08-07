@@ -1,75 +1,57 @@
+'use client'
 import Image from "next/image";
 import OrderedProductTable from "./OrderedProductTable";
+import { useOrderFromUser } from "@/hooks/useAllOrders";
+import moment from "moment";
 
-const orderDetails = {
-  id: 239847,
-  date: new Date().toLocaleString(),
-  status: "Completed",
-  products: [
-    {
-      id: 34324,
-      name: "Product 1000",
-      model: "500ml Bottle - 1pc",
-      quantity: 2,
-      price: 100,
-    },
-    {
-      id: 34589,
-      name: "Product 2",
-      model: "500ml Bottle - 1pc",
-      quantity: 4,
-      price: 85,
-    },
-    {
-      id: 56578,
-      name: "Product 3",
-      model: "500ml Bottle - 1pc",
-      quantity: 1,
-      price: 78,
-    },
-    {
-      id: 87654,
-      name: "Product 4",
-      model: "500ml Bottle - 1pc",
-      quantity: 5,
-      price: 65,
-    },
-  ],
-};
 
-const OrderDetails = () => {
+const OrderDetails = ({ params }) => {
+  const { orders, isOrdersLoading, isOrdersError } = useOrderFromUser(
+    params.id
+  ); // remaining => mutateOrders
+  const orderDetails = orders?.order;
+  console.log(orderDetails);
+
+    if (isOrdersLoading) {
+      return <span className="loading loading-ring loading-lg"></span>;
+    }
+    if (isOrdersError) {
+      return <tr>error</tr>;
+    }
   return (
     <div className="w-full min-h-screen p-2">
       <div className="h-fit  w-full bg-slate-50 rounded p-3 shadow-md">
         <h1 className="text-base md:text-xl font-semibold text-gray-700">
-          Order Details: # {orderDetails.id}
+          Order Details: # {orderDetails?.orderNumber}
         </h1>
-        <p className="text-xs md:text-sm text-slate-500">{orderDetails.date}</p>
+        <p className="text-xs md:text-sm text-slate-500">
+          {moment(orderDetails?.orderTime).format("LLL")}
+        </p>
         <div className="text-base md:text-lg font-semibold text-gray-600 mt-2 flex items-center gap-1">
           Status:
           <div
             className={`px-2 ${
-              orderDetails.status === "Completed"
+              orderDetails?.status === "Completed"
                 ? "bg-green-300"
-                : orderDetails.status === "Pending"
+                : orderDetails?.status === "Pending"
                 ? "bg-pink-300"
-                : orderDetails.status === "On Hold"
+                : orderDetails?.status === "On Hold"
                 ? "bg-slate-400"
                 : ""
             }  bg-opacity-30 rounded-full`}
           >
             <p
               className={`text-xs md:text-sm font-medium ${
-                orderDetails.status === "Completed"
+                orderDetails?.status === "Completed"
                   ? "text-green-600"
-                  : orderDetails.status === "Pending"
+                  : orderDetails?.status === "Pending"
                   ? "text-pink-600"
-                  : orderDetails.status === "On Hold"
+                  : orderDetails?.status === "On Hold"
                   ? "text-slate-700"
                   : ""
               }`}
             >
-              {orderDetails.status}
+              {orderDetails?.status}
             </p>
           </div>
         </div>
@@ -83,15 +65,22 @@ const OrderDetails = () => {
             Antony Hopkins
           </p>
           <div className="text-sm text-slate-500">
-            <p>123, Main Street</p>
-            <p>California, CA-12345</p>
+            <p>
+              {" "}
+              {orderDetails?.shipTo?.address &&
+                orderDetails?.shipTo?.address + ","}
+            </p>
+            <p>
+              {orderDetails?.shipTo?.union} ,{orderDetails?.shipTo?.upazilla} ,
+              {orderDetails?.shipTo?.district} ,{orderDetails?.shipTo?.division}{" "}
+            </p>
           </div>
           <p className="text-sm">
-            Email:{" "}
-            <span className="text-blue-500">nahidahmedsd47@gmail.com</span>
+            Email: <span className="text-blue-500"> {orderDetails?.email}</span>
           </p>
           <p className="text-sm">
-            Phone: <span className="text-blue-500">+1 123 456 7890</span>
+            Phone:{" "}
+            <span className="text-blue-500">{orderDetails?.shipTo?.phone}</span>
           </p>
         </div>
         <div className="space-y-1 border-b md:border-0">
@@ -102,8 +91,15 @@ const OrderDetails = () => {
             Antony Hopkins
           </p>
           <div className="text-sm text-slate-500">
-            <p>123, Main Street</p>
-            <p>California, CA-12345</p>
+            <p>
+              {" "}
+              {orderDetails?.shipTo?.address &&
+                orderDetails?.shipTo?.address + ","}
+            </p>
+            <p>
+              {orderDetails?.shipTo?.union} ,{orderDetails?.shipTo?.upazilla} ,
+              {orderDetails?.shipTo?.district} ,{orderDetails?.shipTo?.division}{" "}
+            </p>
           </div>
           <p className="text-sm">(Free shipping)</p>
         </div>
@@ -126,7 +122,7 @@ const OrderDetails = () => {
         </div>
       </div>
       <div className="h-fit  w-full bg-slate-50 rounded p-3 shadow-md mt-4">
-        <OrderedProductTable orderDetails={orderDetails} />
+        <OrderedProductTable orderDetails={orderDetails?.orderItems} />
       </div>
     </div>
   );

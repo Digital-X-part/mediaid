@@ -1,11 +1,13 @@
 import { Schema, Types, model, models } from "mongoose";
 
 export const addressSchema = new Schema({
+  division: { type: String, required: true },
   district: { type: String, required: true },
-  area: { type: String, required: true },
-  location: { type: String, required: true },
+  upazilla: { type: String, required: true },
+  union: { type: String, required: true },
+  address: { type: String, required: true },
   addressType: { type: String, required: true },
-  number: { type: Number, required: true },
+  phone: { type: Number, required: true },
 });
 
 const productSchema = new Schema({
