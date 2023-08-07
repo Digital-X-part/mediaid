@@ -5,6 +5,7 @@ export const addressSchema = new Schema({
   district: { type: String, required: true },
   upazilla: { type: String, required: true },
   union: { type: String, required: true },
+  address: { type: String, required: true },
   addressType: { type: String, required: true },
   phone: { type: Number, required: true },
 });
