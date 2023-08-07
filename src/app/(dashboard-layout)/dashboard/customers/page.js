@@ -1,4 +1,3 @@
-"use client";
 import CustomersTable from "@/components/Pages/Dashboard/Customers/CustomersTable";
 import { FaPlus, FaExternalLinkAlt, FaFilter } from "react-icons/fa";
 

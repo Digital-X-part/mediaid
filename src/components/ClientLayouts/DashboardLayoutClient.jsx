@@ -1,7 +1,6 @@
 "use client";
 import DashboardSideBar from "@/components/Shared/DashboardSideBar/DashboardSideBar";
 import DashboardNavbar from "@/components/Shared/Navbar/DashboardNavbar";
-
 import { useState } from "react";
 import { BiCategory } from "react-icons/bi";
 import { BsFileMedical } from "react-icons/bs";

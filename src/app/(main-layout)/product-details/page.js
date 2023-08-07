@@ -2,6 +2,8 @@
 import ImageBanner from "@/components/Pages/product-details/ImageBanner/ImageBanner";
 import ProductDescription from "@/components/Pages/product-details/ProductDescription/ProductDescription";
 import ProductInfo from "@/components/Pages/product-details/ProductInfo/ProductInfo";
+import ProductQuestionAndAnswer from "@/components/Pages/product-details/ProductQuestionAndAnswer/ProductQuestionAndAnswer";
+import ProductReviews from "@/components/Pages/product-details/ProductReviews/ProductReviews";
 import RelatedProducts from "@/components/Pages/product-details/RelatedProducts/RelatedProducts";
 import { useState } from "react";
 import { BiMinus, BiPlus } from "react-icons/bi";
@@ -92,6 +94,8 @@ const ProductDetails = () => {
       <div className="col-start-3 col-end-6 px-3 md:px-5 lg:px-0 mt-5 lg:mt-0">
         <ProductInfo />
         <ProductDescription />
+        <ProductReviews />
+        <ProductQuestionAndAnswer />
         <RelatedProducts />
       </div>
       <div className="fixed bottom-[47px] z-[50] h-10 bg-slate-500 w-full grid grid-cols-2 sm:hidden">

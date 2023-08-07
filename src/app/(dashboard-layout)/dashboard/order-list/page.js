@@ -1,4 +1,4 @@
-import OrderListTable from "@/components/Pages/Dashboard/orderList/orderListTable";
+import OrderListTable from "@/components/Pages/Dashboard/orderList/OrderListTable";
 import Link from "next/link";
 
 export const metadata = {
