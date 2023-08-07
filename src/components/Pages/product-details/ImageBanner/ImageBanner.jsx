@@ -1,97 +1,71 @@
 "use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/navigation";
-import "swiper/css/thumbs";
-import { FreeMode, Navigation, Thumbs } from "swiper/modules";
-import "./styles.css";
 import Image from "next/image";
 import { useState } from "react";
+import ProductInfo from "../ProductInfo/ProductInfo";
 
 const ImageBanner = () => {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [currentImage, setCurrentImage] = useState(0);
   const productImages = [
     {
       id: 1,
-      url: "https://i.ibb.co/rcWCcNj/03.png",
+      url: "https://images.unsplash.com/photo-1690702691836-c5409092ad01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
       name: "Product Image 1",
     },
     {
       id: 2,
-      url: "https://i.ibb.co/rcWCcNj/03.png",
+      url: "https://i.ibb.co/ySqmk3Q/original-imaggyeuxytzmkj8.webp",
       name: "Product Image 2",
     },
     {
       id: 3,
-      url: "https://i.ibb.co/rcWCcNj/03.png",
+      url: "https://i.ibb.co/wgwKTPM/original-imagaa2kvgsfdght.webp",
       name: "Product Image 3",
     },
     {
       id: 4,
-      url: "https://i.ibb.co/rcWCcNj/03.png",
+      url: "https://i.ibb.co/8XR6ytF/original-imagaa2k9f48zy6t.webp",
       name: "Product Image 3",
     },
     {
       id: 5,
-      url: "https://i.ibb.co/rcWCcNj/03.png",
-      name: "Product Image 3",
-    },
-    {
-      id: 6,
-      url: "https://i.ibb.co/rcWCcNj/03.png",
-      name: "Product Image 3",
-    },
-    {
-      id: 7,
-      url: "https://i.ibb.co/rcWCcNj/03.png",
-      name: "Product Image 3",
-    },
-    {
-      id: 8,
-      url: "https://i.ibb.co/rcWCcNj/03.png",
+      url: "https://i.ibb.co/Bgrt2Fc/original-imagaa2kxt6henq6.jpg",
       name: "Product Image 3",
     },
   ];
-  return (
-    <div className="mb-12 h-fit w-full ">
-      <Swiper
-        style={{
-          "--swiper-navigation-color": "#A0AEC0",
-          "--swiper-pagination-color": "#A0AEC0",
-        }}
-        loop={true}
-        spaceBetween={0}
-        navigation={true}
-        thumbs={{ swiper: thumbsSwiper }}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper2"
-      >
-        {productImages.map((img) => (
-          <SwiperSlide key={img.id}>
-            <Image height={600} width={1100} alt={img.name} src={img.url} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
 
-      {/* product sort thumbs */}
-      <div className="px-2">
-        <Swiper
-          onSwiper={setThumbsSwiper}
-          loop={true}
-          spaceBetween={10}
-          slidesPerView={8}
-          freeMode={true}
-          watchSlidesProgress={true}
-          modules={[FreeMode, Navigation, Thumbs]}
-          className="mySwiper "
-        >
-            {productImages.map((img) => (
-          <SwiperSlide key={img.id}>
-            <Image height={80} width={200} alt={img.name} src={img.url} />
-          </SwiperSlide>
-        ))}
-        </Swiper>
+  const handleImageHover = (index) => {
+    setCurrentImage(index);
+  };
+
+  return (
+    <div>
+      <div className="w-full h-80 mx-auto border p-2">
+        <Image
+          alt="Wristwatch by Ted Baker London"
+          src={productImages[currentImage].url}
+          width={600}
+          height={600}
+          className="w-full h-full object-contain rounded-sm"
+        />
+      </div>
+      {/* Product sort thumbs */}
+      <div className="mt-2 mb-3">
+        <div className="flex">
+          {productImages.map((img, index) => (
+            <div
+              key={img.id}
+              className="mr-2 cursor-pointer border p-1 rounded-sm hover:border-blue-600"
+              onMouseEnter={() => handleImageHover(index)}>
+              <Image
+                height={56}
+                width={64}
+                alt={img.name}
+                src={img.url}
+                className="h-14 w-16 object-contain"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

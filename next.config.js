@@ -26,6 +26,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "media.istockphoto.com",
       },
+      {
+        protocol: "https",
+        hostname: "sg-test-11.slatic.net",
+      },
     ],
   },
   // output: "export",

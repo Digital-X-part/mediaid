@@ -123,7 +123,7 @@ const SearchBar = () => {
             tabIndex={0}
             className="flex items-center px-2 py-2 rounded-l-md text-white cursor-pointer gap-1 h-full w-full bg-[#60B8A6]"
           >
-            <p className="cursor-pointer capitalize text-sm">
+            <p className="cursor-pointer capitalize text-sm md:w-14 md:truncate lg:w-24 lg:truncate">
               {selectedCategory.selectedCategoryName}
             </p>
             <BiSolidDownArrow className="inline-block" size={10} />
