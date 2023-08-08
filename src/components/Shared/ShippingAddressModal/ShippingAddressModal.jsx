@@ -13,11 +13,11 @@ const ShippingAddressModal = () => {
   // Fetch all divisions when the component mounts
   useEffect(() => {
     async function fetchDivisions() {
-      const response = await fetch("https://bdapi.vercel.app/api/v.1/division");
-      console.log(response);
+      const response = await fetch(
+        "http://localhost:3000/api/location/division"
+      );
       const data = await response.json();
-      console.log(data);
-      setDivisions(data);
+      setDivisions(data.division);
     }
     fetchDivisions();
   }, []);
@@ -26,16 +26,17 @@ const ShippingAddressModal = () => {
   async function fetchData(url, stateSetter) {
     const response = await fetch(url);
     const data = await response.json();
+
     stateSetter(data);
   }
 
   // Function to handle division selection
   async function onDivisionSelect(divisionId) {
-    setSelectedDivision(divisionId);
+    setSelectedDivision.divisionId;
     setSelectedDistrict("");
     setSelectedUpazila("");
     if (divisionId) {
-      const districtApiUrl = `https://bdapi.vercel.app/api/v.1/district/${divisionId}`;
+      const districtApiUrl = `http://localhost:3000/api/location/district/${divisionId}`;
       fetchData(districtApiUrl, setDistricts);
     } else {
       setDistricts([]);
@@ -49,7 +50,7 @@ const ShippingAddressModal = () => {
     setSelectedDistrict(districtId);
     setSelectedUpazila("");
     if (districtId) {
-      const upazilaApiUrl = `https://bdapi.vercel.app/api/v.1/upazila/${districtId}`;
+      const upazilaApiUrl = `http://localhost:3000/api/location/upazila/${districtId}`;
       fetchData(upazilaApiUrl, setUpazilas);
     } else {
       setUpazilas([]);
@@ -61,7 +62,7 @@ const ShippingAddressModal = () => {
   async function onUpazilaSelect(upazilaId) {
     setSelectedUpazila(upazilaId);
     if (upazilaId) {
-      const unionApiUrl = `https://bdapi.vercel.app/api/v.1/union/${upazilaId}`;
+      const unionApiUrl = `http://localhost:3000/api/location/union/${upazilaId}`;
       fetchData(unionApiUrl, setUnions);
     } else {
       setUnions([]);
