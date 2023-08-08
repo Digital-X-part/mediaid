@@ -5,8 +5,8 @@ const ProductsSummary = () => {
                         <div className="flex justify-between">
                         <h1 className="text-base md:text-lg font-semibold text-white">Products Summary</h1>
                         <select className="rounded outline-none px-2  bg-teal-500 shadow-md text-white text-sm"> 
-                            <option value="Today" selected>Today</option>
-                            <option value="Yesterday">Yesterday</option>
+                            <option value="Today">Today</option>
+                            <option value="Yesterday" selected>Yesterday</option>
                             <option value="Last 7 Days">Last 7 Days</option>
                             <option value="Last 30 Days">Last 30 Days</option>
                             <option value="Last 90 Days">Last 90 Days</option>
