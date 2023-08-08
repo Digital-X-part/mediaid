@@ -13,11 +13,15 @@ const ShippingAddressModal = () => {
   // Fetch all divisions when the component mounts
   useEffect(() => {
     async function fetchDivisions() {
-      const response = await fetch("https://bdapi.vercel.app/api/v.1/division");
-      console.log(response);
-      const data = await response.json();
-      console.log(data);
-      setDivisions(data);
+      try {
+        const response = await fetch("https://bdapi.vercel.app/api/v.1/division");
+        // console.log(response);
+        const data = await response.json();
+        // console.log(data);
+        setDivisions(data);
+      } catch (error) {
+        // Response Error
+      }
     }
     fetchDivisions();
   }, []);

@@ -1,6 +1,6 @@
 import { Schema, model, models } from "mongoose";
 
-const cardSchema = Schema({
+const cardSchema = new Schema({
   userId: {
     type: Schema.Types.ObjectId,
     ref: "User",
