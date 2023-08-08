@@ -31,7 +31,7 @@ const handler = NextAuth({
   },
   callbacks: {
     jwt({ user, token }) {
-      console.log(user, token);
+     
     },
   },
 });

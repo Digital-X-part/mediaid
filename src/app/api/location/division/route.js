@@ -7,7 +7,7 @@ connectDb();
 export const GET = async (request) => {
   try {
     const division = await Division.find();
-    console.log(division);
+ 
     return NextResponse.json(division, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
