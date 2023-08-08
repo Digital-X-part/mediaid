@@ -53,7 +53,7 @@ const EmailLogin = ({ toggleEmailLoginModal }) => {
       <p className="text-center text-red-500 text-sm">{error}</p>
       {loginPage || (
         <>
-          <form onSubmit={createUser} className="space-y-3">
+          <div onSubmit={createUser} className="space-y-3">
             <div className=" flex flex-col gap-1">
               <label
                 htmlFor="fullName"
@@ -147,12 +147,12 @@ const EmailLogin = ({ toggleEmailLoginModal }) => {
                 Sign Up
               </button>
             </div>
-          </form>
+          </div>
         </>
       )}
       {loginPage && (
         <>
-          <form onSubmit={loginUser} className="space-y-3">
+          <div onSubmit={loginUser} className="space-y-3">
             <div className=" flex flex-col gap-1">
               <label
                 htmlFor="email"
@@ -214,7 +214,7 @@ const EmailLogin = ({ toggleEmailLoginModal }) => {
                 Login
               </button>
             </div>
-          </form>
+          </div>
         </>
       )}
     </div>
