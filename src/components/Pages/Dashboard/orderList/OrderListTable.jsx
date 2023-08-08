@@ -93,8 +93,9 @@ const OrderListTable = () => {
             {orderDetail?.transactionId}
           </td>
           <td className="text-xs font-roboto text-blue-500 tracking-wider">
-            {orderDetail?.shipTo?.district} ,{orderDetail?.shipTo?.area} ,
-            {orderDetail?.shipTo?.location} ,
+            {orderDetail?.shipTo?.address && orderDetail?.shipTo?.address + ","}{" "}
+            {orderDetail?.shipTo?.union} ,{orderDetail?.shipTo?.upazilla} ,
+            {orderDetail?.shipTo?.district} ,{orderDetail?.shipTo?.division} ,
             <span className="font-bold">
               {orderDetail?.shipTo?.addressType}
             </span>

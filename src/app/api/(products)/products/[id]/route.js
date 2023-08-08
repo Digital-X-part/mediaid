@@ -69,7 +69,7 @@ export async function PUT(request, { params }) {
           description: productDescription,
           price: {
             prev: parseFloat(basePrice),
-            present: parseFloat(finalPrice) ,
+            present: parseFloat(finalPrice),
           },
           category,
           subCategory,
@@ -92,11 +92,14 @@ export async function PUT(request, { params }) {
         { message: "Product not found" },
         { status: 404 }
       );
-    return NextResponse.json({ 
-      message: "Product updated",
-      product,
-      success: true,
-     }, { status: 200 });
+    return NextResponse.json(
+      {
+        message: "Product updated",
+        product,
+        success: true,
+      },
+      { status: 200 }
+    );
   } catch (error) {
     console.log(error);
     return NextResponse.json({ message: error.message }, { status: 500 });

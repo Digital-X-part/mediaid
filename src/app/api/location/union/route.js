@@ -7,7 +7,7 @@ connectDb();
 export const GET = async (request) => {
   try {
     const union = await Union.find();
-    return NextResponse.json({ union }, { status: 200 });
+    return NextResponse.json(union , { status: 200 });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
@@ -17,7 +17,7 @@ export const GET = async (request) => {
 export const POST = async (request) => {
   try {
     const body = await request.json();
-    const unions = body.union;
+    const unions = body.data;
 
     // Create a new Union object for each union in the array.
     const divisionModels = unions.map((union) => {

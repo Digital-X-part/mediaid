@@ -44,9 +44,11 @@ const OrderInfo = ({ params }) => {
               <p>
                 Address:{" "}
                 <span className="font-semibold">
-                  {orders?.order?.shipTo?.location},{" "}
-                  {orders?.order?.shipTo?.area},{" "}
+                  {orders?.order?.shipTo?.address},
+                  {orders?.order?.shipTo?.union},
+                  {orders?.order?.shipTo?.upazilla},
                   {orders?.order?.shipTo?.district}
+                  {orders?.order?.shipTo?.division}
                 </span>
               </p>
               <p>
@@ -58,7 +60,7 @@ const OrderInfo = ({ params }) => {
               <p>
                 Mobile:{" "}
                 <span className="font-semibold">
-                  {orders?.order?.shipTo?.number}
+                  {orders?.order?.shipTo?.phone}
                 </span>
               </p>
             </div>
