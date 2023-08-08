@@ -5,13 +5,13 @@ import decodeTokenBackend from "./utility/decodeToken/decodeTokenBackend";
 export async function middleware(request) {
   // check cookie
   let token = request.cookies.get("token");
-console.log(token);
+  // console.log(token);
   if (token) {
     const decodedToken = await decodeTokenBackend(token.value);
     console.log("middleware", decodedToken);
   }
 
-  console.log("middleware", request.url);
+  // console.log("middleware", request.url);
   return NextResponse.next();
 }
 
