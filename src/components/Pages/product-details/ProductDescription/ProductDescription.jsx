@@ -1,9 +1,6 @@
-"use client";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 
 const ProductDescription = ({ product }) => {
-  const [show, setShow] = useState(false);
-
   return (
     <>
       {/* highlight part */}
@@ -17,48 +14,12 @@ const ProductDescription = ({ product }) => {
       </div>
 
       <div className="border  md:mx-auto mx-2 md:my-3  mb-4  px-6 py-4 ">
-        {/* details btn  */}
-        <div
-          onClick={() => setShow(!show)}
-          className="flex justify-between items-center cursor-pointer "
-        >
-          <p className="text-base hover:bg-blue-50  font-bold leading-4 text-gray-800 rounded border  border-indigo-700 px-3 py-2">
-            All Details
-          </p>
-          <button
-            className=" md:mr-10 p-2
-									cursor-pointer
-									focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400
-									rounded
-								"
-            aria-label="show or hide"
-          >
-            <svg
-              className={"transform " + (show ? "rotate-180" : "rotate-0")}
-              width="16"
-              height="10"
-              viewBox="0 0 10 6"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9 1L5 5L1 1"
-                stroke="#4B5563"
-                strokeWidth="1.25"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-        </div>
-        {/* details section  */}
+
         <div
           className={
-            "pb-8 pt-0  text-base leading-normal mt-3 text-gray-600 " +
-            (show ? "block" : "hidden")
+            "pb-8 pt-0  text-base leading-normal mt-3 text-gray-600 "
           }
-          id="sect"
-        >
+          id="sect">
           <h2 className="font-bold text-base  md:text-xl">
             Products summery and specification
           </h2>
@@ -87,8 +48,20 @@ const ProductDescription = ({ product }) => {
           </div>
           <div className=" ">
             <h3 className="font-bold mt-3 mb-2 ">Summary :</h3>
-            <p className="xl:pr-48 text-base lg:leading-tight leading-normal text-gray-600 ">
+            <p className=" text-base lg:leading-tight leading-normal text-gray-600 ">
               {product?.description}
+              Digital ECG Machine 1201 is AN cardiograph checking physiological
+              operate by recording activity wave shape of heart organic
+              phenomenon, it will give basic info for diagnosing and treatment
+              of the many heart diseases, analyze and grasp every cardiac
+              arrhythmia, diagnose several cardiovascular diseases, that helps
+              recognize the influence to the heart muscle arising from the
+              turbulence of some medication and solution and acid-base
+              imbalance, therefore, ECG takes an important part in heart disease
+              check. Digital ECG Machine 1201 is a full-digital and
+              high-performance 12-channel electrocardiograph which prints by the
+              thermal printing system, fashion design, it’s easy to carry, and
+              it is applicable for use in hospitals, ordinary lab, clinic and
             </p>
           </div>
         </div>

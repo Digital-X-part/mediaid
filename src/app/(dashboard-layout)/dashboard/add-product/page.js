@@ -1,5 +1,12 @@
 import AddProductsForm from "@/components/addProductsForm/addProductsForm";
 import Link from "next/link";
+
+
+export const metadata = {
+  title: "Add product | Mediaid BD",
+};
+
+
 const AddProduct = () => {
   return (
     <div>

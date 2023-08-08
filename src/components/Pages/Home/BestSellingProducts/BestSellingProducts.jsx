@@ -13,12 +13,13 @@ const BestSellingProducts = () => {
   const FlashSaleDisplayProduct = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
-    <div className="px-1">
+    <div className="px-1 mt-4">
       <div className="flex items-end justify-between">
-        <h4 className="font-bold text-2xl">Best Selling</h4>
+        <h4 className="md:font-extrabold md:text-2xl text-slate-700 tracking-wide">
+          Best <span className="text-[#FD3851]">Selling</span>
+        </h4>
         <p className="text-sm tracking-wide mr-1">View All</p>
       </div>
-
       <Swiper
         breakpoints={{
           // when window width is >= 640px

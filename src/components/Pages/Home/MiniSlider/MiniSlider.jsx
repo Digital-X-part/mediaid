@@ -61,9 +61,12 @@ const miniCategoryData = [
 export default function App() {
   return (
     <div className="mt-2 mx-1">
+      <div>
+        <h5>Check Your </h5>
+      </div>
       <Swiper
         slidesPerView={1}
-        spaceBetween={8}
+        spaceBetween={1}
         breakpoints={{
           340: {
             slidesPerView: 5,
@@ -88,10 +91,9 @@ export default function App() {
             <Image
               src={singleCategory.imgUrl}
               alt="Image 1"
-              layout="responsive"
               width={500}
               height={500}
-              className="object-contain"
+              className="object-cover w-full h-full"
             />
             <p className="text-xs md:text-sm text-center font-medium text-neutral-600">
               {singleCategory.categoryTitle}

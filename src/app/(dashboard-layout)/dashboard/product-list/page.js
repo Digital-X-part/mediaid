@@ -1,7 +1,10 @@
-import ProductListRow from "@/components/productListRow/productListRow";
-import axiosInstance from "@/utility/axiosInstance";
+import ProductListRow from "@/components/Pages/Dashboard/ProductList/productListRow/productListRow";
 import Link from "next/link";
-import React from "react";
+
+export const metadata = {
+  title: "All ProductList | Mediaid BD",
+};
+
 const ProductList = async () => {
   return (
     <div>
@@ -13,7 +16,6 @@ const ProductList = async () => {
           <li>Add Product</li>
         </ul>
       </div>
-
       <div className="overflow-x-auto bg-slate-200 ">
         <table className="table table-zebra table-sm md:table-md lg:tab-lg">
           {/* head */}

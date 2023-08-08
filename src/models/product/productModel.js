@@ -66,7 +66,7 @@ export const ProductsSchema = new Schema(
     },
     productStatus: {
       type: String,
-      enum: ["active", "inactive", "star User"],
+      enum: ["active", "inactive", "starUser"],
       default: "active",
     },
     brandName: String,
