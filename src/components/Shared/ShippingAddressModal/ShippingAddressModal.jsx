@@ -17,7 +17,7 @@ const ShippingAddressModal = () => {
         "http://localhost:3000/api/location/division"
       );
       const data = await response.json();
-      setDivisions(data.division);
+      setDivisions(data);
     }
     fetchDivisions();
   }, []);
