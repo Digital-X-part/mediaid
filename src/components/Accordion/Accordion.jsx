@@ -14,7 +14,7 @@ const Accordion = ({ title, paymentIconLink, isOpen, onClick, children }) => {
           src={paymentIconLink}
           width={60}
           height={60}
-          alt=""
+          alt="cd"
         />
       </label>
       <div

@@ -80,7 +80,7 @@ const FlashSale = () => {
               className="bg-white rounded-sm shadow-sm p-1 mx-1">
               <Image
                 src="https://images.unsplash.com/photo-1550572017-4fcdbb59cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1039&q=80"
-                alt=""
+                alt="cd"
                 width={500}
                 height={500}
                 className="object-cover w-full h-[200px] rounded-sm "
