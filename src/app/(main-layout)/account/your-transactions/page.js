@@ -50,7 +50,7 @@ const YourTransactions = () => {
 
       time: "9:52",
 
-      icon: "https://i.ibb.co/MVGvKb5/rocket-icon.png",
+      icon: "https://i.ibb.co/59cmT7N/download-2.png",
 
       cost: 220,
 
@@ -74,9 +74,9 @@ const YourTransactions = () => {
                 <Image
                   src={item.icon}
                   alt="icon"
-                  width={60}
-                  height={60}
-                  className="mr-5"
+                  width={50}
+                  height={50}
+                  className="mr-5 rounded-sm"
                 />
                 <div className="pr-14">
                   <div className="flex justify-center items-center gap-2 text-center">
@@ -98,7 +98,7 @@ const YourTransactions = () => {
             </div>
             <div className="flex justify-between items-center  mt-5">
               <div className="flex-col md:flex-row text-sm ml-4">
-                <p>Transactions number:</p>
+                <p>Transactions ID:</p>
                 <p>{item.transactions}</p>
               </div>
 
@@ -107,7 +107,7 @@ const YourTransactions = () => {
                   item.verification ? "bg-green-600" : "bg-red-600"
                 }`}
               >
-                {item.verification ? "Verified" : "Not Verified"}
+                {item.verification ? "Verified" : "Unverified"}
               </p>
             </div>
           </div>
