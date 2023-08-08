@@ -82,7 +82,7 @@ const YourTransactions = () => {
                   <div className="flex justify-center items-center gap-2 text-center">
                     <h1 className="text-base">+880{item.number}</h1>
                     <a
-                      href="/your-target-url"
+                      href="/account" // Just for demon url. It would be order url
                       className="text-sm text-blue-300 hover:text-blue-600"
                     >
                       #{item.orderID}
