@@ -2,7 +2,7 @@
 import MobileEmailLogin from "@/components/Pages/Login&up/EmailLogin/mobileEmailLogin/mobileEmailLogin";
 import MobileModal from "@/components/Pages/Login&up/MobileModal/mobileModal";
 import SearchBar from "@/components/Shared/SearchBar/SearchBar";
-import { set } from "mongoose";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -10,8 +10,8 @@ import { IconContext } from "react-icons";
 import { BiCartAdd } from "react-icons/bi";
 import { BsChevronDown, BsPersonCircle } from "react-icons/bs";
 
-import { FiMenu } from "react-icons/fi";
 import { FaSignInAlt } from "react-icons/fa";
+import { FiMenu } from "react-icons/fi";
 
 const MobileNav = ({ setIsCartClicked }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);

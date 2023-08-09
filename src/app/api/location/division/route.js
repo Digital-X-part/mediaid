@@ -7,7 +7,8 @@ connectDb();
 export const GET = async (request) => {
   try {
     const division = await Division.find();
-    return NextResponse.json({ division }, { status: 200 });
+    // console.log(division);
+    return NextResponse.json(division, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
@@ -17,7 +18,7 @@ export const GET = async (request) => {
 export const POST = async (request) => {
   try {
     const body = await request.json();
-    const divisions = body.divisions;
+    const divisions = body.data;
 
     // Create a new Division object for each division in the array.
     const divisionModels = divisions.map((division) => {
@@ -41,7 +42,7 @@ export const POST = async (request) => {
       { status: 200 }
     );
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return NextResponse.json(
       {
         message: "Divisions added failed",

@@ -55,33 +55,39 @@ const OrderListTable = () => {
   const { orders, isOrdersLoading, isOrdersError } = useAllOrders(); // remaining => mutateOrders
 
   if (isOrdersLoading) {
-    return <span className="loading loading-ring loading-lg"></span>;
+    return  (
+        <tr>
+          <td className="loading loading-ring loading-lg"></td>
+        </tr>
+    )
   }
   if (isOrdersError) {
-    return <tr>error</tr>;
+    return (  <tr>
+      <td >Error</td>
+    </tr>)
   }
   return (
     <>
       {orders?.order?.map((orderDetail) => (
         <tr key={orderDetail?._id}>
           <td>
-            <div className="flex flex-col">
-              <div className="p-0 text-violet-500 text-sm font-bold">
+            <span className="flex flex-col">
+              <span className="p-0 text-violet-500 text-sm font-bold">
                 <Link
                   href={`/dashboard/order-list/${orderDetail?._id}`}
                   className="text-blue-500 hover:underline"
                 >
                   # {orderDetail?.orderNumber}
                 </Link>
-              </div>
-              <div className="p-0 font-semibold text-blue-500 ">
+              </span>
+              <span className="p-0 font-semibold text-blue-500 ">
                 {orderDetail?.email}
-              </div>
-              <div className="text-gray-400 font-normal">
+              </span>
+              <span className="text-gray-400 font-normal">
                 {" "}
                 by {orderDetail?.fullName}
-              </div>
-            </div>
+              </span>
+            </span>
           </td>
           <td className="text-sm font-roboto text-blue-500 tracking-wider">
             {moment(orderDetail?.orderTime).format("LLL")}
@@ -93,42 +99,43 @@ const OrderListTable = () => {
             {orderDetail?.transactionId}
           </td>
           <td className="text-xs font-roboto text-blue-500 tracking-wider">
-            {orderDetail?.shipTo?.district} ,{orderDetail?.shipTo?.area} ,
-            {orderDetail?.shipTo?.location} ,
+            {orderDetail?.shipTo?.address && orderDetail?.shipTo?.address + ","}{" "}
+            {orderDetail?.shipTo?.union} ,{orderDetail?.shipTo?.upazilla} ,
+            {orderDetail?.shipTo?.district} ,{orderDetail?.shipTo?.division} ,
             <span className="font-bold">
               {orderDetail?.shipTo?.addressType}
             </span>
           </td>
           {orderDetail?.status === "Completed" && (
             <td>
-              <div className="flex items-center gap-x-1 bg-[#CCF6E4] text-[#00864e] rounded-lg tracking-wide px-2 py-1 font-bold">
+              <span className="flex items-center gap-x-1 bg-[#CCF6E4] text-[#00864e] rounded-lg tracking-wide px-2 py-1 font-bold">
                 <p>Completed </p>
                 <MdDone size={15} color="#00864e" />
-              </div>
+              </span>
             </td>
           )}
           {orderDetail?.status === "Processing" && (
             <td>
-              <div className="flex items-center gap-1 bg-[#d5e5fa] text-[#1c4f93] rounded-lg tracking-wide px-2 py-1 font-bold">
+              <span className="flex items-center gap-1 bg-[#d5e5fa] text-[#1c4f93] rounded-lg tracking-wide px-2 py-1 font-bold">
                 <p>Processing </p>
                 <TbReload size={15} color="#1c4f93" />
-              </div>
+              </span>
             </td>
           )}
           {orderDetail?.status === "Pending" && (
             <td>
-              <div className="flex items-center gap-1 bg-[#fde6d8] text-[#9d5228] rounded-lg tracking-wide px-2 py-1 font-bold">
+              <span className="flex items-center gap-1 bg-[#fde6d8] text-[#9d5228] rounded-lg tracking-wide px-2 py-1 font-bold">
                 <p>Pending </p>
                 <CgMenuMotion size={15} color="#00864e" />
-              </div>
+              </span>
             </td>
           )}
           {orderDetail?.status === "OnHold" && (
             <td>
-              <div className="flex items-center gap-x-1 bg-[#E3E6EA] text-[#7d899b] rounded-lg tracking-wide px-2 py-1 font-bold">
+              <span className="flex items-center gap-x-1 bg-[#E3E6EA] text-[#7d899b] rounded-lg tracking-wide px-2 py-1 font-bold">
                 <p>On Hold </p>
                 <AiOutlineStop size={15} color="#7d899b" />
-              </div>
+              </span>
             </td>
           )}
 
@@ -138,7 +145,7 @@ const OrderListTable = () => {
           </td>
 
           <td className="w-6 bg-slate-400">
-            <div className="dropdown dropdown-left">
+            <span className="dropdown dropdown-left">
               <label tabIndex={0} className="btn m-1">
                 <BsThreeDots size={25} />
               </label>
@@ -157,7 +164,7 @@ const OrderListTable = () => {
                   </button>
                 </li>
               </ul>
-            </div>
+            </span>
           </td>
         </tr>
       ))}

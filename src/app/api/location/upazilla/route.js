@@ -7,7 +7,7 @@ connectDb();
 export const GET = async (request) => {
   try {
     const upazilla = await Upazilla.find();
-    return NextResponse.json({ upazilla }, { status: 200 });
+    return NextResponse.json(upazilla , { status: 200 });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
@@ -17,7 +17,7 @@ export const GET = async (request) => {
 export const POST = async (request) => {
   try {
     const body = await request.json();
-    const upazillas = body.upazilla;
+    const upazillas = body.data;
 
     // Create a new Upazilla object for each upazilla in the array.
     const divisionModels = upazillas.map((upazilla) => {

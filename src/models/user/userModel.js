@@ -1,32 +1,11 @@
 import { Schema, model, models } from "mongoose";
 import { addressSchema } from "../order/orderModel";
 
-// const addressSchema = new Schema({
-//   district: {
-//     type: String,
-//   },
-//   area: {
-//     type: String,
-//   },
-//   location: {
-//     type: String,
-//   },
-//   addressType: {
-//     type: String,
-//   },
-//   number: {
-//     type: Number,
-//   },
-// });
-
 const userSchema = new Schema(
   {
     fullName: {
       type: String,
       required: true,
-    },
-    phone: {
-      type: Number,
     },
     email: {
       type: String,

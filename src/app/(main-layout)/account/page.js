@@ -45,7 +45,7 @@ const UserDashBoard = () => {
     {
       icon: <IoMdWallet color="blue" size={22} />,
       title: "Transactions",
-      href: "/your-transition",
+      href: "/your-transactions",
     },
     {
       icon: <RiLogoutBoxRLine color="blue" size={22} />, // FaComputer
