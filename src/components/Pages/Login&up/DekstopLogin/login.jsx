@@ -1,3 +1,4 @@
+import DesktopEmailLogin from "../EmailLogin/desktopEmailLogin/desktopEmailLogin";
 import LoginMethods from "../LoginMethods/loginMethods";
 
 const Login = () => {
@@ -7,6 +8,7 @@ const Login = () => {
         <LoginMethods desktop={true}></LoginMethods>
         <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
       </form>
+      <DesktopEmailLogin />
     </dialog>
   );
 };
