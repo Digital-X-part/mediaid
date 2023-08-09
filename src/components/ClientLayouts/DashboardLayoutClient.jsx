@@ -1,6 +1,8 @@
 "use client";
 import DashboardSideBar from "@/components/Shared/DashboardSideBar/DashboardSideBar";
 import DashboardNavbar from "@/components/Shared/Navbar/DashboardNavbar";
+import { useSession, signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { BiCategory } from "react-icons/bi";
 import { BsFileMedical } from "react-icons/bs";
@@ -37,12 +39,12 @@ const dashboardRouteList = [
 ];
 
 const DashboardLayoutClient = ({children}) => {
-  // const {data} = useSession()
-  // console.log(data)
-  // const {push }  = useRouter()
-  // if(!data?.user){
-  //   push("/")
-  // }
+  const {data} = useSession()
+  console.log(signIn)
+  const {push }  = useRouter()
+  if(!data?.user){
+    push("/")
+  }
 
     const [isDashboardSideBarExtends, setIsDashboardSideBarExtends] =
     useState(false);

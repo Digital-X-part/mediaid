@@ -32,11 +32,7 @@ const handler = NextAuth({
   pages: {
     signIn: "/",
   },
-  callbacks: {
-    jwt({ user, token }) {
-     
-    },
-  },
+
 });
 
 export { handler as GET, handler as POST };

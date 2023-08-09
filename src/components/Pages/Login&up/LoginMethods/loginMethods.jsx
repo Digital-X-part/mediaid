@@ -16,7 +16,7 @@ const LoginMethods = ({ toggleLoginModal, desktop, toggleEmailLoginModal }) => {
       <div className="mt-4">
         <div className="flex flex-col w-full border-opacity-50">
           <button
-            onClick={() => signInWithGoogleHandler()}
+            onClick={signInWithGoogleHandler}
             className="w-full py-1  border rounded text-sm md:text-base font-medium text-slate-500 flex items-center justify-center gap-2">
             <Image
               src="https://i.ibb.co/5x1KjyG/googleicon-removebg-preview.png"
