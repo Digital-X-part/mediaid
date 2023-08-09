@@ -27,7 +27,6 @@ export default withAuth(
   {
     callbacks: {
       authorized: ({ token, req }) => {
-        // const { pathname } = req.nextUrl;
         return !!token;
       },
     },
