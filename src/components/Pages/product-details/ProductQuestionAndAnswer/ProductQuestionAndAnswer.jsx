@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import { BiLike, BiSort } from "react-icons/bi";
 import { BsFillStarFill } from "react-icons/bs";
@@ -59,26 +58,7 @@ const ProductQuestionAndAnswer = () => {
                 খাপে খাপে খুব শক্ত ভাবে বসে না। তাই পড়ে যাওয়ার আশংকা থেকে যায়।
                 আঠাটা ভাল। টাইলসের সাথে শক্ত ভাবে আটকে থাকে।
               </p>
-              <div className="flex items-center gap-2 my-1">
-                <Image
-                  alt=""
-                  src={
-                    "https://sg-test-11.slatic.net/other/roc/630ce39adfdcd8cf7e58e1145883d885.jpg_720x720q80.jpg_.webp_500x500.jpg_.webp"
-                  }
-                  width={150}
-                  height={200}
-                  className="max-w-[150px] max-h-[200px] rounded-md"
-                />
-                <Image
-                  alt=""
-                  src={
-                    "https://sg-test-11.slatic.net/other/roc/9048a096440de8329c5c484b25bf89a3.jpg_720x720q80.jpg_.webp_500x500.jpg_.webp"
-                  }
-                  width={150}
-                  height={200}
-                  className="max-w-[150px] max-h-[200px] rounded-md"
-                />
-              </div>
+              <div className="flex items-center gap-2 my-1"></div>
               <p className="py-2 ">
                 <BiLike size={25} className="cursor-pointer" />
               </p>
@@ -86,6 +66,7 @@ const ProductQuestionAndAnswer = () => {
           </div>
         ))}
       </div>
+      
     </div>
   );
 };
