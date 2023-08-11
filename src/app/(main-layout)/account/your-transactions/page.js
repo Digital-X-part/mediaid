@@ -97,8 +97,8 @@ const YourTransactions = () => {
               </div>
             </div>
             <div className="flex justify-between items-center  mt-5">
-              <div className="flex-col md:flex-row text-sm ml-4">
-                <p>Transactions ID:</p>
+              <div className="md:flex md:gap-2 text-sm ml-4">
+                <p>Transactions ID :</p>
                 <p>{item.transactions}</p>
               </div>
 
