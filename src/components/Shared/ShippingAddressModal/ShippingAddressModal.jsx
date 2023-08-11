@@ -26,7 +26,7 @@ const ShippingAddressModal = () => {
   async function fetchData(url, stateSetter) {
     const response = await fetch(url);
     const data = await response.json();
-
+    console.log(data);
     stateSetter(data);
   }
 
