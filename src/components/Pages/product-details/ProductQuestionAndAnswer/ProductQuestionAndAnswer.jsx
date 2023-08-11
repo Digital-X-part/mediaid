@@ -105,7 +105,7 @@ const ProductQuestionAndAnswer = () => {
           numberOfStars={6}
           name="rating"
         />
-          <input type="text" placeholder="Type here" size={50} className="input input-bordered input-lg w-full max-w-xs my-5" />
+          <input type="text" placeholder="Type here"  className="input input-bordered input-lg w-full h-56 my-5" />
        </div>
 
          <div className="flex justify-center">
