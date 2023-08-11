@@ -23,6 +23,13 @@ const userSchema = new Schema(
     },
     role: {
       type: String,
+      enum: [
+        "user",
+        "vipUser",
+        "technicalModerator",
+        "socialModerator",
+        "admin",
+      ],
       default: "user",
     },
     rewardPoints: {
