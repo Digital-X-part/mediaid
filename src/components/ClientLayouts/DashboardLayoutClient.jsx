@@ -7,6 +7,7 @@ import { BsFileMedical } from "react-icons/bs";
 import { FaRegListAlt, FaRegEdit } from "react-icons/fa";
 import { HiOutlineUsers } from "react-icons/hi";
 
+
 const dashboardRouteList = [
   {
     icon: <FaRegListAlt className="w-5 h-5" />,
@@ -36,6 +37,13 @@ const dashboardRouteList = [
 ];
 
 const DashboardLayoutClient = ({children}) => {
+  // const {data} = useSession()
+  // console.log(data)
+  // const {push }  = useRouter()
+  // if(!data?.user){
+  //   push("/")
+  // }
+
     const [isDashboardSideBarExtends, setIsDashboardSideBarExtends] =
     useState(false);
     return (

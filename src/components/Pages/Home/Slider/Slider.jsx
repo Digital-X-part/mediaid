@@ -1,11 +1,11 @@
 "use client";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
+import { Autoplay, Pagination } from "swiper/modules";
 
 const sliderBannerImage = [
   "https://i.ibb.co/WBpM26Z/Screenshot-2023-07-31-164430.png",
@@ -13,6 +13,7 @@ const sliderBannerImage = [
 ];
 
 export default function Slider() {
+
   return (
     <div className="mt-2 md:h-[400px]">
       <Swiper
