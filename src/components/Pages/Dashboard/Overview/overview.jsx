@@ -12,6 +12,10 @@ const Overview = () => {
                     <CustomerActivity></CustomerActivity>
                     <CompareActivity></CompareActivity>
                 </div>
+                <div className="lg:hidden mt-5 border h-10">
+                    <h1 className="text-sm font-semibold text-gray-700">Easy to Move</h1>
+
+                </div>
         </div>
     );
 };
