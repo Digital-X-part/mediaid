@@ -5,8 +5,8 @@ export const GET = async (req, { params }) => {
   try {
     const id = params.id;
     const division = await Division.find({ id: id });
-
-    return NextResponse.json({ division }, { status: 200 });
+    // console.log(division);
+    return NextResponse.json(division, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error }, { status: 400 });
   }

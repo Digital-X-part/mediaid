@@ -13,11 +13,15 @@ const ShippingAddressModal = () => {
   // Fetch all divisions when the component mounts
   useEffect(() => {
     async function fetchDivisions() {
-      const response = await fetch(
-        "http://localhost:3000/api/location/division"
-      );
-      const data = await response.json();
-      setDivisions(data);
+      try {
+        const response = await fetch(
+          "http://localhost:3000/api/location/division"
+        );
+        const data = await response.json();
+        setDivisions(data);
+      } catch (error) {
+        //catch the error
+      }
     }
     fetchDivisions();
   }, []);
