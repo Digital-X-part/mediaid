@@ -1,11 +1,9 @@
-"use client"
 import MobileEmailLogin from "@/components/Pages/Login&up/EmailLogin/mobileEmailLogin/mobileEmailLogin";
 import MobileModal from "@/components/Pages/Login&up/MobileModal/mobileModal";
 import SearchBar from "@/components/Shared/SearchBar/SearchBar";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { IconContext } from "react-icons";
 import { BiCartAdd } from "react-icons/bi";
 import { BsChevronDown, BsPersonCircle } from "react-icons/bs";
@@ -13,19 +11,7 @@ import { BsChevronDown, BsPersonCircle } from "react-icons/bs";
 import { FaSignInAlt } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
 
-const MobileNav = ({ setIsCartClicked }) => {
-  const [isOpenMenu, setIsOpenMenu] = useState(false);
-  const [emailLoginModalOpen, setEmailLoginModalOpen] = useState(false);
-  const [loginModalOpen, setLoginModalOpen] = useState(false);
-  const toggleMenu = () => {
-    setIsOpenMenu(!isOpenMenu);
-  };
-  const toggleLoginModal = () => {
-    setLoginModalOpen(!loginModalOpen);
-  }
-  const toggleEmailLoginModal = () => {
-    setEmailLoginModalOpen(!emailLoginModalOpen);
-  }
+const MobileNav = () => {
   return (
     <div>
       <div className="flex justify-between items-center px-3 lg:px-0 pt-3 ">
@@ -62,33 +48,26 @@ const MobileNav = ({ setIsCartClicked }) => {
 
           {/* Cart Icon */}
           <div onClick={() => setIsCartClicked(true)} className="relative">
-            <IconContext.Provider value={{ size: "1.5em" }}>
-              <BiCartAdd className="text-slate-500" />
-            </IconContext.Provider>
+              <BiCartAdd className="text-slate-500" size= "1.5em" />
             <p className=" absolute -top-2 -right-2 rounded-full  px-1  text-[10px] bg-indigo-500 text-slate-50">
               1
             </p>
           </div>
 
           {/* Menu Icon */}
-          <div onClick={toggleMenu}>
-            <IconContext.Provider value={{ size: "18px" }}>
-              <FiMenu className="text-slate-500" />
-            </IconContext.Provider>
+          <div>
+              <FiMenu className="text-slate-500" size= "1.5em" />
           </div>
         </div>
       </div>
       {/* search bar */}
       <div>
-        <SearchBar toggleMenu={toggleMenu} />
+        <SearchBar  />
       </div>
       {/* login modal */}
       {loginModalOpen && (
         <div className="fixed h-screen w-full z-[100] md:hidden">
           <label
-            onClick={() => {
-              setLoginModalOpen(!loginModalOpen);
-            }}
             className="fixed h-screen z-[59] top-0  w-full bg-black bg-opacity-30 lg:hidden"
           ></label>
           <MobileModal
@@ -97,8 +76,7 @@ const MobileNav = ({ setIsCartClicked }) => {
           ></MobileModal>
         </div>
       )}
-      {/* Email login modal */}
-      {emailLoginModalOpen && (
+      {/* Email login modal */} 
         <div className="fixed h-screen w-full z-[100] md:hidden">
           <label
             onClick={toggleEmailLoginModal}
@@ -108,7 +86,6 @@ const MobileNav = ({ setIsCartClicked }) => {
             toggleEmailLoginModal={toggleEmailLoginModal}
           ></MobileEmailLogin>
         </div>
-      )}
       {/* drawer for mobile devices */}
       {isOpenMenu && (
         <>
@@ -120,9 +97,7 @@ const MobileNav = ({ setIsCartClicked }) => {
           <div className="fixed h-screen z-[60] -top-1 left-0 w-fit bg-white duration-200 lg:hidden ">
             <div className="w-full h-fit p-3 bg-slate-100">
               <div className="px-3 py-1 rounded-xl flex items-center gap-3">
-                <IconContext.Provider value={{ size: "1.5em" }}>
-                  <BsPersonCircle className="text-slate-500" />
-                </IconContext.Provider>
+                  <BsPersonCircle className="text-slate-500" size= "1.5em"/>
                 <p className="text-sm font-semibold">User Name</p>
               </div>
             </div>

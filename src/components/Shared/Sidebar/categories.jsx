@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-const Categories = ({sidebarOpen}) => {
+const Categories = () => {
     return (
         <ul className="space-y-2">
         <li className="flex gap-2 items-center cursor-pointer lg:px-2 xl:px-3 py-2 rounded hover:bg-slate-100">
@@ -10,7 +10,7 @@ const Categories = ({sidebarOpen}) => {
             alt="icon1"
             width={25}
             height={25}></Image>
-          <p className={`text-sm ${sidebarOpen || "hidden"}`}>
+          <p className={`text-sm `}>
             Covid-19 Special
           </p>
         </li>
@@ -20,7 +20,7 @@ const Categories = ({sidebarOpen}) => {
             alt="icon2"
             width={25}
             height={25}></Image>
-          <p className={`text-sm ${sidebarOpen || "hidden"}`}>Devices</p>
+          <p className={`text-sm `}>Devices</p>
         </li>
         <li className="flex gap-2 items-center cursor-pointer lg:px-2 xl:px-3 py-2 rounded hover:bg-slate-100">
           <Image
@@ -28,7 +28,7 @@ const Categories = ({sidebarOpen}) => {
             alt="icon2"
             width={25}
             height={25}></Image>
-          <p className={`text-sm ${sidebarOpen || "hidden"}`}>Personal Care</p>
+          <p className={`text-sm `}>Personal Care</p>
         </li>
         <li className="flex gap-2 items-center cursor-pointer lg:px-2 xl:px-3 py-2 rounded hover:bg-slate-100">
           <Image
@@ -36,7 +36,7 @@ const Categories = ({sidebarOpen}) => {
             alt="icon1"
             width={25}
             height={25}></Image>
-          <p className={`text-sm ${sidebarOpen || "hidden"}`}>
+          <p className={`text-sm `}>
             Covid-19 Special
           </p>
         </li>
@@ -46,7 +46,7 @@ const Categories = ({sidebarOpen}) => {
             alt="icon2"
             width={25}
             height={25}></Image>
-          <p className={`text-sm ${sidebarOpen || "hidden"}`}>Devices</p>
+          <p className={`text-sm `}>Devices</p>
         </li>
         <li className="flex gap-2 items-center cursor-pointer lg:px-2 xl:px-3 py-2 rounded hover:bg-slate-100">
           <Image
@@ -54,7 +54,7 @@ const Categories = ({sidebarOpen}) => {
             alt="icon2"
             width={25}
             height={25}></Image>
-          <p className={`text-sm ${sidebarOpen || "hidden"}`}>Personal Care</p>
+          <p className={`text-sm `}>Personal Care</p>
         </li>
         <li className="flex gap-2 items-center cursor-pointer lg:px-2 xl:px-3 py-2 rounded hover:bg-slate-100">
           <Image
@@ -62,7 +62,7 @@ const Categories = ({sidebarOpen}) => {
             alt="icon1"
             width={25}
             height={25}></Image>
-          <p className={`text-sm ${sidebarOpen || "hidden"}`}>
+          <p className={`text-sm`}>
             Covid-19 Special
           </p>
         </li>
@@ -72,7 +72,7 @@ const Categories = ({sidebarOpen}) => {
             alt="icon2"
             width={25}
             height={25}></Image>
-          <p className={`text-sm ${sidebarOpen || "hidden"}`}>Devices</p>
+          <p className={`text-sm `}>Devices</p>
         </li>
         <li className="flex gap-2 items-center cursor-pointer lg:px-2 xl:px-3 py-2 rounded hover:bg-slate-100">
           <Image
@@ -80,7 +80,7 @@ const Categories = ({sidebarOpen}) => {
             alt="icon2"
             width={25}
             height={25}></Image>
-          <p className={`text-sm ${sidebarOpen || "hidden"}`}>Personal Care</p>
+          <p className={`text-sm`}>Personal Care</p>
         </li>
       </ul>
     );

@@ -1,53 +1,8 @@
-"use client";
 import axiosInstance from "@/utility/axiosInstance";
-import React, { useState } from "react";
+import React from "react";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 
 const EmailLogin = ({ toggleEmailLoginModal }) => {
-  const [unHidePass, setUnHidePass] = useState(false);
-  const [loginPage, setLoginPage] = useState(false);
-  const [error, setError] = useState("");
-
-  /* create user */
-  const createUser =async (e) => {
-    e.preventDefault();
-    setError("");
-    const data = new FormData(e.target);
-    const fullName = data.get("fullName");
-    const email = data.get("email");
-    const password = data.get("password");
-    const confirmPassword = data.get("confirmPassword");
-
-    if (password !== confirmPassword) {
-      setError("Error: Password does not match!");
-      return;
-    }
-
-    const newUser = {
-      email,
-      password,
-      fullName,
-    };
-    const userInfo = await axiosInstance.post("/users", newUser);
-    console.log(userInfo);
-    e.target.reset();
-    toggleEmailLoginModal && toggleEmailLoginModal();
-  };
-  const loginUser =async (e) => {
-    e.preventDefault();
-    const data = new FormData(e.target);
-    const email = data.get("email");
-    const password = data.get("password");
-    const userInfo = {
-      email,
-      password,
-    };
-    // console.log(userInfo);
-    const user = await axiosInstance.put("/users", userInfo);
-    console.log(user.data);
-    e.target.reset();
-    toggleEmailLoginModal && toggleEmailLoginModal();
-  };
   return (
     <div>
       <p className="text-center text-red-500 text-sm">{error}</p>

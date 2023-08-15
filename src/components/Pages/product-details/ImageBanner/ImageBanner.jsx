@@ -1,10 +1,6 @@
-"use client";
 import Image from "next/image";
-import { useState } from "react";
-import ProductInfo from "../ProductInfo/ProductInfo";
 
 const ImageBanner = () => {
-  const [currentImage, setCurrentImage] = useState(0);
   const productImages = [
     {
       id: 1,
@@ -42,7 +38,7 @@ const ImageBanner = () => {
       <div className="w-full h-80 mx-auto border p-2">
         <Image
           alt="Wristwatch by Ted Baker London"
-          src={productImages[currentImage].url}
+          src={'https://i.ibb.co/Bgrt2Fc/original-imagaa2kxt6henq6.jpg'}
           width={600}
           height={600}
           className="w-full h-full object-contain rounded-sm"

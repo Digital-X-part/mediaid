@@ -1,85 +1,11 @@
-"use client";
 import Image from "next/image";
-
-import { useState } from "react";
-import { useForm } from "react-hook-form";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { BiDotsVerticalRounded } from "react-icons/bi";
-import uploadImage from "@/utility/uploadFilesToImgBB";
-import swal from "sweetalert";
-import axiosInstance from "@/utility/axiosInstance";
 const AddProductsForm = () => {
-  const [images, setImages] = useState([]);
-  const [sellingType, setSellingType] = useState("flash sale");
-  /* Hooks */
-  const {
-    handleSubmit,
-    register,
-    formState: { errors },
-    reset,
-  } = useForm();
-
-  // make a function that will ready images to showing on client
-  const uploadToClient = async (event) => {
-    const files = event.target.files;
-
-    const imageArray = Array.from(files).map((file) => {
-      const imageURL = URL.createObjectURL(file);
-
-      return {
-        name: file.name,
-        size: file.size,
-        url: imageURL,
-        file,
-      };
-    });
-
-    setImages((prevImages) => [...prevImages, ...imageArray]);
-  };
-
-  const formatSize = (sizeInBytes) => {
-    const kbSize = sizeInBytes / 1024;
-    if (kbSize < 1024) {
-      return `${kbSize.toFixed(2)} KB`;
-    } else {
-      const mbSize = kbSize / 1024;
-      return `${mbSize.toFixed(2)} MB`;
-    }
-  };
-
-  /* HandleOnSubmit */
-  const onSubmit = async (data) => {
-    try {
-      // upload images in to imgbb and get urls
-      const uploadedImageURLs = await Promise.all(
-        images.map(async (image) => await uploadImage(image.file))
-      );
-      const imagesUrls = uploadedImageURLs.map((image) => image.url);
-      console.log({ imagesUrls });
-
-      // send data to server
-      const productData = await axiosInstance.post("products", {
-        ...data,
-        imagesUrls,
-      });
-      console.log(data);
-      swal({
-        title: "Success!",
-        text: "Product added successfully!",
-        icon: "success",
-        timer: 2000,
-      });
-      // reset form
-      setImages([]);
-      reset();
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form >
         <div className="p-2">
           {/* product name: name */}
           <div className="mb-2">

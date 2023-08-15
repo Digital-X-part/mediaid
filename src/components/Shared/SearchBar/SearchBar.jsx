@@ -1,11 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { FiSearch } from "react-icons/fi";
 import { BiSolidDownArrow } from "react-icons/bi";
 import Image from "next/image";
-import { CiCircleRemove } from "react-icons/ci";
-import { MdMenuOpen } from "react-icons/md";
-import { IconContext } from "react-icons";
-import { FaBars } from "react-icons/fa";
 
 const dropDownCategoryLists = [
   "arts & crafts",
@@ -28,50 +24,6 @@ const dropDownCategoryLists = [
 ];
 
 const SearchBar = () => {
-  const [selectedCategory, setSelectedCategory] = useState({
-    selectedCategoryName: "All departments",
-    isSelectedCategory: false,
-  });
-  const inputRef = useRef(null);
-  const [isSearchList, setIsSearchList] = useState(false);
-  const [placeholderIndex, setPlaceholderIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPlaceholderIndex(
-        (prevIndex) => (prevIndex + 1) % dropDownCategoryLists.length
-      );
-    }, 2000); // Change the placeholder every 2 seconds (adjust as needed)
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const handleCategoryChange = (category) => {
-    setSelectedCategory({
-      selectedCategoryName: category,
-      isSelectedCategory: true,
-    });
-  };
-
-  useEffect(() => {
-    if (
-      selectedCategory.isSelectedCategory &&
-      selectedCategory.selectedCategoryName
-    ) {
-      inputRef.current.focus();
-    }
-  }, [
-    selectedCategory.isSelectedCategory,
-    selectedCategory.selectedCategoryName,
-  ]);
-
-  const handleInputFocus = () => {
-    setIsSearchList(true);
-  };
-
-  const handleInputBlur = () => {
-    setIsSearchList(false);
-  };
 
   return (
     <div className="mt-4 rounded-sm outline-transparent relative mb-1 lg:mb-0 ">

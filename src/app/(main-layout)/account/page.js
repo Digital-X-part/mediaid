@@ -13,7 +13,6 @@ export const metadata = {
     "An e-commerce build by the doctors, run by the doctors and serve to the doctors",
 };
 
-
 const UserDashBoard = () => {
   const cardData = [
     {

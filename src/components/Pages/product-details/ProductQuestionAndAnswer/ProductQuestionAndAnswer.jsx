@@ -1,7 +1,7 @@
 import React from "react";
 import { BiLike, BiSort } from "react-icons/bi";
 import { BsFillStarFill } from "react-icons/bs";
-import { CiFilter } from "react-icons/ci";
+import { FiFilter } from "react-icons/fi";
 import { GoShieldCheck } from "react-icons/go";
 import Rating from "react-rating";
 
@@ -18,7 +18,7 @@ const ProductQuestionAndAnswer = () => {
             </p>
           </div>
           <div className="flex items-center gap-1 border-l-2 px-1">
-            <CiFilter />
+            <FiFilter />
             <p>
               Filter: <span className="font-medium">All star</span>
             </p>

@@ -1,5 +1,3 @@
-"use client";
-import { useAllOrders } from "@/hooks/useAllOrders";
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,37 +12,29 @@ export const metadata = {
 };
 
 const Orders = () => {
-  const { orders, isOrdersLoading, isOrdersError } = useAllOrders(); // remaining => mutateOrders
-  console.log(orders);
-  if (isOrdersLoading) {
-    return <span className="loading loading-ring loading-lg"></span>;
-  }
-  if (isOrdersError) {
-    return <tr>error</tr>;
-  }
   return (
     <>
       <h2 className="mt-2 font-bold ">Order History</h2>
       <div>
-        {orders?.order?.map((item) => (
+        {[1,2,3,4,5].map((item) => (
           <div
-            key={item?._id}
+            key={item}
             className="mt-4 shadow-xl rounded-md border border-gray-200 "
           >
             <div className="flex items-center justify-between border-b p-2">
               <div>
                 <Link
-                  href={`/account/orders/${item?._id}`}
+                  href={`/account/orders/${item}`}
                   className="font-bold"
                 >
-                  Order# {item?.orderNumber}
+                  Order# {item}
                 </Link>
                 <p className="text-xs font-medium text-gray-500">
-                  Date Added: {moment(item?.orderTime).format("LLL")}
+                  Date Added: {moment('8/14/2023').format("LLL")}
                 </p>
               </div>
               <Link
-                href={`/account/orders/${item?._id}`}
+                href={`/account/orders/${item}`}
                 className="btn btn-warning btn-sm"
               >
                 View
@@ -57,9 +47,9 @@ const Orders = () => {
               </div>
             </div>
             <div>
-              {item?.orderItems?.map((orderItem) => (
+              {[1,2,3,4,5].map((orderItem) => (
                 <div
-                  key={orderItem?._id}
+                  key={orderItem}
                   className="md:flex md:items-center justify-between bg-[#eceaea90] p-2"
                 >
                   <div className="flex items-center gap-2">
@@ -70,12 +60,12 @@ const Orders = () => {
                       alt=""
                       className="rounded-md"
                     />
-                    <p className="font-semibold">{orderItem?.name}</p>
+                    <p className="font-semibold">Order Item Name</p>
                   </div>
                   <div className="flex items-center justify-between gap-4">
                     <div className="flex items-center">
                       <p className="text-indigo-700 font-bold">
-                        {orderItem?.price}
+                        ৳ 1000.00
                       </p>
                       <TbCurrencyTaka size={22} color="indigo" />
                     </div>

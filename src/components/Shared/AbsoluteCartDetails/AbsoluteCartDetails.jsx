@@ -1,30 +1,12 @@
-"use client";
 import Image from "next/image";
-import { CiSquareRemove } from "react-icons/ci";
 import { GrMapLocation } from "react-icons/gr";
-import { BiDownArrow } from "react-icons/bi";
-import { CiDiscount1 } from "react-icons/ci";
-import { BiDotsVerticalRounded } from "react-icons/bi";
-import { useState } from "react";
 import Accordion from "@/components/Accordion/Accordion";
-import paymentFieldData from "@/data/paymentFieldData";
 import Link from "next/link";
 import ChangeAddress from "@/components/Shared/ChangeAddress/ChangeAddress"
+import { BiDotsVerticalRounded } from "react-icons/bi";
 
 
-const AbsoluteCartDetails = ({
-  setIsCartClicked,
-  setIsUserAddressModalOpen,
-}) => {
-  const [isShowCouponInput, setIsShowCouponInput] = useState(false);
-  const [openAccordion, setOpenAccordion] = useState(null);
-  
-
-  
-  const handleAccordionClick = (index) => {
-    setOpenAccordion(index === openAccordion ? null : index);
-  };
-
+const AbsoluteCartDetails = () => {
   return (
     <div className="h-[80vh] bg-white w-[360px] shadow-2xl duration-500 transition-transform rounded-sm overflow-y-scroll mt-24">
       <div className="flex items-center justify-between p-1 bg-teal-700 text-white rounded-t-sm">
@@ -32,7 +14,7 @@ const AbsoluteCartDetails = ({
           Free delivery above $999 order (outside Dhaka){" "}
         </p>
         <button onClick={() => setIsCartClicked(false)}>
-          <CiSquareRemove size={35} />
+          <BiDotsVerticalRounded size={35} />
         </button>
       </div>
       <p className="text-xs text-gray-700 px-1 mt-2">
@@ -106,7 +88,7 @@ const AbsoluteCartDetails = ({
           {isShowCouponInput && (
             <form className="flex ">
               <div className="flex items-center outline-dotted mt-2 bg-teal-300 outline-teal-300 rounded-md pl-1">
-                <CiDiscount1 className="" size={25} color="teal" />
+                <BiDotsVerticalRounded className="" size={25} color="teal" />
                 <input
                   placeholder="Enter Coupon Code"
                   className="outline-none bg-teal-300 placeholder:text-sm ml-1 mr-2"
@@ -203,8 +185,7 @@ const AbsoluteCartDetails = ({
               <Accordion
                 title="Credit/Debit card & Mobile banking Payment"
                 paymentIconLink="https://i.ibb.co/jkFXfsb/sslcz-verified.png"
-                isOpen={openAccordion === "SSLCommerz"}
-                onClick={() => handleAccordionClick("SSLCommerz")}>
+                isOpen={"SSLCommerz"}>
                 <p>
                   Pay securely by Credit/Debit card, Internet banking or Mobile
                   banking through SSLCommerz and get 10% discount on selective
@@ -214,8 +195,7 @@ const AbsoluteCartDetails = ({
               <Accordion
                 title="Cash on delivery"
                 paymentIconLink="https://i.ibb.co/pKrnkm6/cash-on-delivery-1.png"
-                isOpen={openAccordion === "cashOnDelivery"}
-                onClick={() => handleAccordionClick("cashOnDelivery")}>
+                isOpen={"cashOnDelivery"}>
                 <p>
                   Pay with cash upon delivery. Need to pay 200 Taka in advance
                   for Cash on Delivery outside Dhaka.
@@ -225,9 +205,7 @@ const AbsoluteCartDetails = ({
                 <div key={item.id}>
                   <Accordion
                     title={item.name}
-                    paymentIconLink={item.logoUrl}
-                    isOpen={openAccordion === item.id}
-                    onClick={() => handleAccordionClick(item.id)}>
+                    paymentIconLink={item.logoUrl}>
                     <div>
                       <p className="text-sm text-gray-600">
                         {item.paymentDescription}

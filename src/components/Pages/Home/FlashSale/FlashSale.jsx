@@ -1,6 +1,6 @@
-"use client";
+"use client"
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -8,36 +8,6 @@ import Link from "next/link";
 
 const FlashSale = () => {
   const FlashSaleDisplayProduct = [1, 2, 3, 4, 5, 7, 8, 9, 10, 11];
-  const [time, setTime] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date();
-      const targetDate = new Date("2023-08-15");
-      const timeDiff = targetDate.getTime() - now.getTime();
-      let days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(
-        (timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-
-      const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-      setTime({
-        days,
-        hours,
-        minutes,
-        seconds,
-      });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="px-1 my-8">
       <div className="flex items-end justify-between">

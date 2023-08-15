@@ -1,13 +1,11 @@
-"use client";
 import SearchBar from "@/components/Shared/SearchBar/SearchBar";
 import Image from "next/image";
 import Link from "next/link";
-import { CiLocationOn } from "react-icons/ci";
-import { IconContext } from "react-icons";
 import { BsCartPlus } from "react-icons/bs";
 import Login from "@/components/Pages/Login&up/DekstopLogin/login";
+import { CiLocationOn } from "react-icons/Ci";
 
-const Nav = ({ setIsCartClicked }) => {
+const Nav = () => {
   return (
     <div className="flex pt-2 pb-4 items-end justify-between gap-4 bg-base-100 lg:px-10">
       <div className="col-span-3 flex justify-center items-center ">
@@ -23,15 +21,12 @@ const Nav = ({ setIsCartClicked }) => {
           </Link>
         </div>
         <div
-          onClick={() => window.my_modal_5.showModal()}
           className=" cursor-pointer hover:outline rounded-sm outline-teal-400 p-[2px] ">
           <p className="font-semibold text-sm text-slate-600">
             Deliver to <span className="font-bold text-teal-600">Bulbul</span>
           </p>
           <div className="flex items-center">
-            <IconContext.Provider value={{ size: "1.2em" }}>
-              <CiLocationOn />
-            </IconContext.Provider>
+              <CiLocationOn size= "1.5em"/>
             <p className="font-bold text-sm text-teal-500">
               Gopalganj, Dhaka...
             </p>
@@ -43,9 +38,6 @@ const Nav = ({ setIsCartClicked }) => {
       </div>
       <div className="col-span-3 flex gap-4 justify-center items-center">
         <button
-          onClick={() => {
-            window.login_modal_1.showModal();
-          }}
           className="cursor-pointer hover:outline rounded-sm outline-teal-400 p-[2px] ">
           <p className="font-semibold text-sm text-slate-600">Hello, Bulbul</p>
 
@@ -59,7 +51,6 @@ const Nav = ({ setIsCartClicked }) => {
           <p className="font-bold text-base text-teal-500">& Orders</p>
         </Link>
         <div
-          onClick={() => setIsCartClicked(true)}
           className="flex items-end cursor-pointer hover:outline rounded-sm outline-teal-400 p-2">
           <div className="relative">
             <BsCartPlus size={32} color="teal" />

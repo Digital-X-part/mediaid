@@ -1,26 +1,7 @@
-"use client";
-import { useOrderFromUser } from "@/hooks/useAllOrders";
 import Image from "next/image";
 import { TbCurrencyTaka } from "react-icons/tb";
 
-const OrderInfo = ({ params }) => {
-  const { orders, isOrdersLoading, isOrdersError } = useOrderFromUser(
-    params?.id
-  );
-  if (isOrdersLoading) {
-    return <span className="loading loading-ring loading-lg"></span>;
-  }
-  if (isOrdersError) {
-    return <tr>error</tr>;
-  }
-
-  const findOrderPrice = (data) => {
-    let subPrice = 0;
-    data?.map((obj) => {
-      subPrice = subPrice + parseFloat(obj?.price);
-    });
-    return subPrice;
-  };
+const OrderInfo = () => {
 
   return (
     <div className="mt-4 md:flex gap-6 mr-1">
@@ -39,28 +20,28 @@ const OrderInfo = ({ params }) => {
             <div className="flex flex-col gap-y-1">
               <p>
                 Name:{" "}
-                <span className="font-semibold">{orders?.order?.fullName}</span>
+                <span className="font-semibold">Order full name</span>
               </p>
               <p>
                 Address:{" "}
                 <span className="font-semibold">
-                  {orders?.order?.shipTo?.address},
-                  {orders?.order?.shipTo?.union},
-                  {orders?.order?.shipTo?.upazilla},
-                  {orders?.order?.shipTo?.district}
-                  {orders?.order?.shipTo?.division}
+                  Order shipping to address,
+                  Order shipping to Union,
+                  Order shipping to upazilla,
+                  Order shipping to district,
+                  Order shipping to Division,
                 </span>
               </p>
               <p>
                 Address Type:{" "}
                 <span className="font-semibold">
-                  {orders?.order?.shipTo?.addressType}
+                  Order shipping to address type.
                 </span>
               </p>
               <p>
                 Mobile:{" "}
                 <span className="font-semibold">
-                  {orders?.order?.shipTo?.phone}
+                  order shipping to phone.
                 </span>
               </p>
             </div>
@@ -72,8 +53,7 @@ const OrderInfo = ({ params }) => {
                 <p className="font-medium">Sub-Total</p>
                 <div className="flex items-center">
                   <p className="text-indigo-700 font-semibold">
-                    {" "}
-                    {findOrderPrice(orders?.order?.orderItems)}
+                    Order items
                   </p>
                   <TbCurrencyTaka size={20} color="indigo" />
                 </div>
@@ -89,7 +69,7 @@ const OrderInfo = ({ params }) => {
                 <p className="font-medium">Total</p>
                 <div className="flex items-center">
                   <p className="text-indigo-700 font-semibold">
-                    {findOrderPrice(orders?.order?.orderItems) + 60}
+                    order items
                   </p>
                   <TbCurrencyTaka size={20} color="indigo" />
                 </div>
@@ -114,7 +94,7 @@ const OrderInfo = ({ params }) => {
                 </tr>
               </thead>
               <tbody>
-                {orders?.order?.orderItems?.map((productItem) => (
+                {[1, 2, 3, 4, 5].map((productItem) => (
                   <tr key={productItem}>
                     <td>
                       <div className="avatar">
@@ -129,9 +109,9 @@ const OrderInfo = ({ params }) => {
                         </div>
                       </div>
                     </td>
-                    <td>{productItem?.name}</td>
-                    <td>{productItem?.quantity}</td>
-                    <td>{productItem?.price}</td>
+                    <td>Product Name</td>
+                    <td>Product Quantity</td>
+                    <td>Product Price</td>
                   </tr>
                 ))}
               </tbody>

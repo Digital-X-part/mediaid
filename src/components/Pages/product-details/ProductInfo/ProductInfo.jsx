@@ -1,7 +1,6 @@
-import { BiInfoCircle } from "react-icons/bi";
 import { TbCurrencyTaka } from "react-icons/tb";
 
-const ProductInfo = ({ product }) => {
+const ProductInfo = () => {
   return (
     <div>
       <h1 className="font-medium text-gray-600">

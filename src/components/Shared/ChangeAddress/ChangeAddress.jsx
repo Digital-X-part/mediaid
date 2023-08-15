@@ -1,8 +1,3 @@
-// import {
-//   GrMapLocation,
-//   BiDownArrow,
-//   BiDotsVerticalRounded,
-// } from "react-icons/all";
 import { GrMapLocation } from "react-icons/gr";
 import { BiDownArrow, BiDotsVerticalRounded } from "react-icons/bi";
 

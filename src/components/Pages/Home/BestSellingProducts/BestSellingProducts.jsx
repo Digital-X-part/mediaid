@@ -1,6 +1,5 @@
-"use client";
+"use client"
 import Image from "next/image";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -11,7 +10,6 @@ import Rating from "react-rating";
 import Link from "next/link";
 const BestSellingProducts = () => {
   const FlashSaleDisplayProduct = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
   return (
     <div className="px-1 mt-4">
       <div className="flex items-end justify-between">

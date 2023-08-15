@@ -17,7 +17,7 @@
 
 // See "Matching Paths" below to learn more
 
-//  Middleware config
+// //  Middleware config
 import { withAuth } from "next-auth/middleware";
 
 export default withAuth(

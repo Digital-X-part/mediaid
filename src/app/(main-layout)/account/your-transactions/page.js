@@ -1,6 +1,6 @@
 import Image from "next/image";
-
 import { CiClock2 } from "react-icons/Ci";
+
 const YourTransactions = () => {
   const cart = [
     {

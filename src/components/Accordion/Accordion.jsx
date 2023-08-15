@@ -1,8 +1,5 @@
 import Image from "next/image";
 const Accordion = ({ title, paymentIconLink, isOpen, onClick, children }) => {
-  const toggleAccordion = () => {
-    onClick();
-  };
 
   return (
     <div className="border rounded-lg mb-2">

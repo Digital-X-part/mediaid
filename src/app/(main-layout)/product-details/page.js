@@ -1,11 +1,9 @@
-"use client";
 import ImageBanner from "@/components/Pages/product-details/ImageBanner/ImageBanner";
 import ProductDescription from "@/components/Pages/product-details/ProductDescription/ProductDescription";
 import ProductInfo from "@/components/Pages/product-details/ProductInfo/ProductInfo";
 import ProductQuestionAndAnswer from "@/components/Pages/product-details/ProductQuestionAndAnswer/ProductQuestionAndAnswer";
 import ProductReviews from "@/components/Pages/product-details/ProductReviews/ProductReviews";
 import RelatedProducts from "@/components/Pages/product-details/RelatedProducts/RelatedProducts";
-import { useState } from "react";
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { TbCurrencyTaka } from "react-icons/tb";
 export const metadata = {
@@ -15,24 +13,6 @@ export const metadata = {
 };
 
 const ProductDetails = () => {
-  const [quantity, setQuantity] = useState(1);
-
-  const handleIncrement = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
-  };
-
-  const handleDecrement = () => {
-    if (quantity > 1) {
-      setQuantity((prevQuantity) => prevQuantity - 1);
-    }
-  };
-
-  const handleQuantityChange = (event) => {
-    const inputQuantity = parseInt(event.target.value, 10);
-    if (!isNaN(inputQuantity) && inputQuantity >= 1) {
-      setQuantity(inputQuantity);
-    }
-  };
 
   return (
     <div className="lg:grid grid-cols-5 relative w-full gap-3 mt-3">
@@ -40,17 +20,16 @@ const ProductDetails = () => {
         <ImageBanner />
         <div className="md:flex items-center justify-between hidden sm:inline-block w-full ">
           <div className="flex items-center gap-1 w-2/5">
-            <p onClick={handleDecrement} className="bg-red-400 btn btn-sm ">
+            <p  className="bg-red-400 btn btn-sm ">
               <BiMinus size={20} color="black" />
             </p>
             <input
               type="number"
               className="w-12 text-center font-bold text-green-500 outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-              value={quantity}
-              onChange={handleQuantityChange}
+              value="232"
               min="1"
             />
-            <p onClick={handleIncrement} className="bg-green-400 btn btn-sm">
+            <p className="bg-green-400 btn btn-sm">
               <BiPlus size={20} color="black" />
             </p>
           </div>

@@ -1,4 +1,3 @@
-import { flightRouterStateSchema } from "next/dist/server/app-render/types";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
